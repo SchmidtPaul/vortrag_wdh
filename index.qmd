@@ -39,18 +39,95 @@ Heute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, 
 
 # 1. Echte/Unabhängige Wiederholungen {background-color="#495057"}
 
-## Grundprinzip
+## Was ist eine Versuchseinheit? {.smaller}
 
-::: {.callout-important}
-## Versuchseinheit = Parzelle
-Die Parzelle ist unsere grundlegende Beobachtungseinheit im Feldversuch.
+::: {.callout-tip}
+## Definition: Versuchseinheit (Experimental Unit)
+Die **kleinste Einheit**, der eine Behandlung **unabhängig** zugewiesen werden kann und an der eine Beobachtung gemacht wird.
 :::
 
-**Mindestanforderungen:**
+**Im Feldversuch:**
 
-- Mindestens **2-3 echte Wiederholungen** pro Behandlung
-- Erst dadurch wird ein Versuch statistisch auswertbar
-- Schätzung der Variabilität innerhalb einer Behandlung
+- In der Regel ist die **Parzelle** unsere Versuchseinheit
+- Manchmal kann es aber auch anders sein (z.B. ganze Felder, Pflanzreihen, etc.)
+
+## Warum brauchen wir überhaupt Wiederholungen?
+
+**Problem mit nur einer Beobachtung pro Behandlung:**
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 3
+
+library(desplot)
+
+# Minimalbeispiel: Nur 1x A und 1x B
+minimal <- data.frame(
+  col = c(1, 2),
+  row = c(1, 1),
+  treatment = c("A", "B")
+)
+
+desplot(minimal,
+        form = treatment ~ col + row,
+        col.regions = c("#00923f", "#bce2cc"),
+        text = treatment,
+        cex = 1.5,
+        main = "Versuch mit n=1",
+        show.key = FALSE,
+        aspect = 1/2,
+        gg = TRUE) +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 14, hjust = 0.5, family = "Arial"))
+```
+:::
+
+::: {.column width="50%"}
+**Ergebnisse:**
+
+| Behandlung | Wert |
+|------------|------|
+| A          | 10   |
+| B          | 8    |
+
+<br>
+
+**Was können wir aussagen?**
+
+- A ist größer als B ✓
+- Aber: **Keine Ahnung über Streuung!** ✗
+- → Keine statistische Auswertung möglich
+:::
+::::
+
+::: {.notes}
+Mit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreibend nebeneinander zu stellen. Wir haben null Information über die Variabilität.
+:::
+
+## Mindestanforderungen für Auswertbarkeit
+
+::: {.callout-important}
+## Absolute Minimum
+**Streng genommen: Mindestens 2 echte Wiederholungen** pro Behandlung erforderlich!
+:::
+
+**Warum mindestens 2?**
+
+::: {.incremental}
+- Mit **n=1**: Keine Variabilität schätzbar → Keine Statistik möglich
+- Mit **n=2**: Gerade so auswertbar, aber sehr schwach
+- **n=3, 4, 5, ...**: Besser, stabiler, mehr Power
+- In der Praxis: Oft 3-4 Wiederholungen als Standard
+:::
+
+**Was ermöglichen echte Wiederholungen?**
+
+- Schätzung der Variabilität **innerhalb** einer Behandlung
+- Statistische Tests und Konfidenzintervalle
+- Aussagen über Signifikanz von Unterschieden
 
 ## Randomisation ist entscheidend! {.smaller}
 
@@ -71,22 +148,23 @@ Die Parzelle ist unsere grundlegende Beobachtungseinheit im Feldversuch.
 #| fig-width: 10
 #| fig-height: 5
 
-library(ggplot2)
-library(dplyr)
+library(desplot)
 
 set.seed(123)
-field <- expand.grid(row = 1:4, col = 1:6)
-field$treatment <- sample(rep(c("A", "B", "C"), each = 8))
+field_good <- expand.grid(row = 1:4, col = 1:6)
+field_good$treatment <- sample(rep(c("A", "B"), each = 12))
 
-ggplot(field, aes(x = col, y = row, fill = treatment)) +
-  geom_tile(color = "white", linewidth = 2) +
-  geom_text(aes(label = treatment), size = 8, fontface = "bold", color = "white") +
-  scale_fill_manual(values = c("A" = "#00923f", "B" = "#bce2cc", "C" = "#4758ab")) +
-  labs(title = "Vollständig randomisiertes Design (CRD)",
-       subtitle = "Behandlungen sind zufällig über das Feld verteilt") +
-  theme_void() +
-  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5, family = "Arial"),
-        plot.subtitle = element_text(size = 14, hjust = 0.5, family = "Arial"),
+desplot(field_good,
+        form = treatment ~ col + row,
+        col.regions = c("A" = "#00923f", "B" = "#bce2cc"),
+        text = treatment,
+        cex = 1.5,
+        main = "Vollständig randomisiertes Design (CRD)\nBehandlungen sind zufällig über das Feld verteilt",
+        show.key = TRUE,
+        aspect = 4/6,
+        gg = TRUE) +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 16, hjust = 0.5, family = "Arial"),
         legend.position = "bottom",
         legend.title = element_blank(),
         legend.text = element_text(size = 12, family = "Arial"))
@@ -104,17 +182,19 @@ ggplot(field, aes(x = col, y = row, fill = treatment)) +
 #| fig-height: 5
 
 field_bad <- expand.grid(row = 1:4, col = 1:6)
-field_bad$treatment <- rep(c("A", "B", "C"), each = 8)
+field_bad$treatment <- rep(c("A", "B"), each = 12)
 
-ggplot(field_bad, aes(x = col, y = row, fill = treatment)) +
-  geom_tile(color = "white", linewidth = 2) +
-  geom_text(aes(label = treatment), size = 8, fontface = "bold", color = "white") +
-  scale_fill_manual(values = c("A" = "#00923f", "B" = "#bce2cc", "C" = "#4758ab")) +
-  labs(title = "Systematisches Design",
-       subtitle = "Behandlungen sind nicht randomisiert - PROBLEMATISCH!") +
-  theme_void() +
-  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5, color = "#ad0000", family = "Arial"),
-        plot.subtitle = element_text(size = 14, hjust = 0.5, color = "#ad0000", family = "Arial"),
+desplot(field_bad,
+        form = treatment ~ col + row,
+        col.regions = c("A" = "#00923f", "B" = "#bce2cc"),
+        text = treatment,
+        cex = 1.5,
+        main = "Systematisches Design\nBehandlungen sind nicht randomisiert - PROBLEMATISCH!",
+        show.key = TRUE,
+        aspect = 4/6,
+        gg = TRUE) +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 16, hjust = 0.5, color = "#ad0000", family = "Arial"),
         legend.position = "bottom",
         legend.title = element_blank(),
         legend.text = element_text(size = 12, family = "Arial"))
@@ -254,32 +334,37 @@ Unvollständige oder systematische Randomisation führt zu versteckten Pseudo-Wi
 #| fig-width: 5
 #| fig-height: 6
 
+library(desplot)
+
 field_split <- data.frame(
   row = rep(1:8, each = 4),
   col = rep(1:4, 8),
   A = rep(c("A1", "A2"), each = 16),
-  B = rep(c("B1", "B2", "B3", "B4"), 8)
+  B = rep(c("B1", "B2"), 16)
 )
 
-ggplot(field_split, aes(x = col, y = row, fill = A)) +
-  geom_tile(color = "white", linewidth = 2) +
-  geom_text(aes(label = B), size = 6, fontface = "bold", color = "white") +
-  scale_fill_manual(values = c("A1" = "#00923f", "A2" = "#ad0000")) +
-  annotate("text", x = 2.5, y = 7, label = "NÖRDLICHE HÄLFTE\n(Faktor A1)",
-           size = 5, fontface = "bold", color = "white") +
-  annotate("text", x = 2.5, y = 2, label = "SÜDLICHE HÄLFTE\n(Faktor A2)",
-           size = 5, fontface = "bold", color = "white") +
-  labs(title = "Problematisches Layout") +
-  theme_void() +
-  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, color = "#ad0000", family = "Arial"),
-        legend.position = "none")
+desplot(field_split,
+        form = A ~ col + row,
+        text = B,
+        col.regions = c("A1" = "#00923f", "A2" = "#ad0000"),
+        cex = 1.2,
+        main = "Problematisches Layout",
+        show.key = FALSE,
+        aspect = 8/4,
+        gg = TRUE) +
+  annotate("text", x = 2.5, y = 7, label = "NÖRDLICHE HÄLFTE (A1)",
+           size = 4.5, fontface = "bold", color = "white") +
+  annotate("text", x = 2.5, y = 2, label = "SÜDLICHE HÄLFTE (A2)",
+           size = 4.5, fontface = "bold", color = "white") +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 14, hjust = 0.5, color = "#ad0000", family = "Arial"))
 ```
 :::
 
 ::: {.column width="50%"}
 **Was wir sehen:**
 
-- Faktor B (B1, B2, B3, B4) ist randomisiert ✓
+- Faktor B (B1, B2) ist randomisiert ✓
 - Faktor A ist systematisch (Nord vs. Süd) ✗
 
 <br>
@@ -291,6 +376,44 @@ ggplot(field_split, aes(x = col, y = row, fill = A)) +
 - → **n=1** pro Stufe von Faktor A!
 :::
 :::
+:::
+
+<br>
+
+. . .
+
+::: {.callout-important}
+**Systematische räumliche Struktur = Fehlende Unabhängigkeit**
+
+Das gilt auf **allen Ebenen** des Versuchsdesigns!
+:::
+
+## Kernaussage
+
+::: {.callout-note icon=false}
+## ⭐ Take-Home Message
+**Vorsicht vor der Grauzone!**
+
+- Systematische Anordnung = versteckte Pseudo-Wiederholung
+- Häufiger Fehler bei On-Farm-Versuchen
+- Große Parzellenzahl ≠ Viele unabhängige Wiederholungen
+
+**Entscheidend ist:**
+
+- NICHT die Anzahl der Parzellen
+- Sondern die **räumliche Unabhängigkeit** der Behandlungen
+:::
+
+# 4. Multi-Environment Trials {background-color="#495057"}
+
+## Wiederholungen über Standorte
+
+**Szenario:**
+
+- Einzelner Standort: Keine (oder nur wenige) Wiederholungen möglich
+- **Lösung:** Gleiche Behandlungen an mehreren Standorten
+
+. . .
 
 ## Warum ist das problematisch? {.smaller}
 
