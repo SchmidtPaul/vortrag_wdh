@@ -19,10 +19,28 @@ jobs:
 
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Cache R packages
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ hashFiles('.github/R-version') }}-pkgs-v1
+          restore-keys: |
+            ${{ runner.os }}-r-
 
       - name: Install R packages
         run: |
-          install.packages(c("rmarkdown", "knitr", "tidyverse", "ggtext", "desplot", "agridat", "broom", "emmeans", "scales"))
+          if (!require("rmarkdown")) install.packages("rmarkdown")
+          if (!require("knitr")) install.packages("knitr")
+          if (!require("tidyverse")) install.packages("tidyverse")
+          if (!require("ggtext")) install.packages("ggtext")
+          if (!require("desplot")) install.packages("desplot")
+          if (!require("agridat")) install.packages("agridat")
+          if (!require("broom")) install.packages("broom")
+          if (!require("emmeans")) install.packages("emmeans")
+          if (!require("scales")) install.packages("scales")
         shell: Rscript {0}
 
       - name: Setup Quarto

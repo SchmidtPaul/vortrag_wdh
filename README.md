@@ -16,10 +16,18 @@ Dieses Projekt dient gleichzeitig zwei Zwecken:
 Die Quarto-Präsentationsdatei (`index.qmd`) wird über **GitHub Actions** automatisch gerendert und auf **GitHub Pages** veröffentlicht:
 
 - ✅ Änderungen an `index.qmd` werden committed und gepusht
-- ✅ GitHub Actions rendert die Präsentation automatisch
+- ✅ GitHub Actions rendert die Präsentation automatisch (mit R Package Caching für schnelle Builds)
 - ✅ Die fertige Präsentation wird auf GitHub Pages deployed
+- ⏱️ Build-Zeit: ~30-60 Sekunden (nach initialem Cache-Aufbau)
 
 **Live-Präsentation ansehen:** [https://schmidtpaul.github.io/vortrag_wdh/](https://schmidtpaul.github.io/vortrag_wdh/)
+
+### Performance-Optimierung
+
+Der Workflow nutzt R Package Caching und RStudio Public Package Manager (RSPM) für vorkompilierte Binaries:
+- Erster Build: ~2-3 Minuten (Pakete werden installiert und gecacht)
+- Nachfolgende Builds: ~30-60 Sekunden (Cache wird wiederverwendet)
+- Cache wird automatisch bei Paketänderungen aktualisiert
 
 ## Inhalt
 
