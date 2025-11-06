@@ -1,85 +1,453 @@
 ---
-title: "Meine Präsentation"
-subtitle: "Ein Quarto Reveal.js Vortrag"
-author: "Ihr Name"
-date: today
+title: "Wiederholungen in landwirtschaftlichen Feldversuchen"
+subtitle: "Nuancen, Probleme und häufige Fallstricke"
+author: "Dr. Paul Schmidt"
+date: "28. November 2024"
 format:
   revealjs:
-    theme: default
+    theme: serif
     slide-number: true
     chalkboard: true
     preview-links: auto
-    logo: ""
-    footer: "Präsentation erstellt mit Quarto"
+    footer: "Workshop On-Farm-Experimente | 28.11.2024"
+    transition: slide
+    background-transition: fade
 ---
 
-## Einleitung
+## Agenda {.smaller}
 
-Dies ist die erste Folie Ihrer Präsentation.
+::: {.incremental}
+1. **Echte/Unabhängige Wiederholungen**
+   *Randomisation als Grundprinzip*
 
-- Bullet Point 1
-- Bullet Point 2
-- Bullet Point 3
+2. **Pseudo-Wiederholungen**
+   *Messwiederholungen innerhalb einer Versuchseinheit*
 
-## Folie mit Code
+3. **Die Grauzone**
+   *Confounding durch unvollständige Randomisation*
 
-Sie können Code-Blöcke einfügen:
+4. **Multi-Environment Trials**
+   *Wiederholungen über Standorte hinweg*
+
+5. **Kernbotschaften & Diskussion**
+:::
+
+::: {.notes}
+Heute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, die alle kennen, aber wo es wichtige Details gibt.
+:::
+
+# 1. Echte/Unabhängige Wiederholungen {background-color="#43464B"}
+
+## Grundprinzip
+
+::: {.callout-important}
+## Versuchseinheit = Parzelle
+Die Parzelle ist unsere grundlegende Beobachtungseinheit im Feldversuch.
+:::
+
+**Mindestanforderungen:**
+
+- Mindestens **2-3 echte Wiederholungen** pro Behandlung
+- Erst dadurch wird ein Versuch statistisch auswertbar
+- Schätzung der Variabilität innerhalb einer Behandlung
+
+## Randomisation ist entscheidend! {.smaller}
+
+::: {.incremental}
+- Parzellen müssen **zufällig verteilt** über das Feld liegen
+- Dürfen auch nebeneinander liegen - **wenn die Randomisation dies ergab**
+- **NICHT** systematisch direkt nebeneinander angeordnet
+- Vollständig zufällige Zuweisung:
+  - Welche Parzelle?
+  - Welche Behandlung?
+  - Welche Wiederholung?
+:::
+
+## Visualisierung: Gutes Design
 
 ```{r}
-#| echo: true
-#| eval: false
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
 
-# R Code Beispiel
-x <- c(1, 2, 3, 4, 5)
-mean(x)
+library(ggplot2)
+library(dplyr)
+
+set.seed(123)
+field <- expand.grid(row = 1:4, col = 1:6)
+field$treatment <- sample(rep(c("A", "B", "C"), each = 8))
+
+ggplot(field, aes(x = col, y = row, fill = treatment)) +
+  geom_tile(color = "white", linewidth = 2) +
+  geom_text(aes(label = treatment), size = 8, fontface = "bold", color = "white") +
+  scale_fill_manual(values = c("A" = "#2E86AB", "B" = "#A23B72", "C" = "#F18F01")) +
+  labs(title = "Vollständig randomisiertes Design (CRD)",
+       subtitle = "Behandlungen sind zufällig über das Feld verteilt") +
+  theme_void() +
+  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
+        plot.subtitle = element_text(size = 14, hjust = 0.5),
+        legend.position = "bottom",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12))
 ```
 
-## Folie mit zwei Spalten
-
-:::: {.columns}
-
-::: {.column width="50%"}
-**Linke Spalte**
-
-- Punkt 1
-- Punkt 2
+::: {.fragment}
+✓ Räumlich unabhängig = Statistisch unabhängig
 :::
 
-::: {.column width="50%"}
-**Rechte Spalte**
+## Visualisierung: Schlechtes Design
 
-- Punkt A
-- Punkt B
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 5
+
+field_bad <- expand.grid(row = 1:4, col = 1:6)
+field_bad$treatment <- rep(c("A", "B", "C"), each = 8)
+
+ggplot(field_bad, aes(x = col, y = row, fill = treatment)) +
+  geom_tile(color = "white", linewidth = 2) +
+  geom_text(aes(label = treatment), size = 8, fontface = "bold", color = "white") +
+  scale_fill_manual(values = c("A" = "#2E86AB", "B" = "#A23B72", "C" = "#F18F01")) +
+  labs(title = "Systematisches Design",
+       subtitle = "Behandlungen sind nicht randomisiert - PROBLEMATISCH!") +
+  theme_void() +
+  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5, color = "darkred"),
+        plot.subtitle = element_text(size = 14, hjust = 0.5, color = "darkred"),
+        legend.position = "bottom",
+        legend.title = element_blank(),
+        legend.text = element_text(size = 12))
+```
+
+::: {.fragment}
+✗ Systematische Anordnung = Confounding mit räumlichen Effekten
 :::
 
-::::
+## Kernaussage
 
-## Mathematische Formeln
+::: {.callout-note icon=false}
+## ⭐ Take-Home Message
+**Echte, unabhängige Wiederholungen** sind die Grundlage für statistische Auswertungen.
 
-Sie können LaTeX-Formeln verwenden:
+Sie erfordern:
 
-$$E = mc^2$$
-
-Inline-Formeln: $\alpha + \beta = \gamma$
-
-## Hervorgehobener Text
-
-::: {.callout-note}
-## Hinweis
-Dies ist ein wichtiger Hinweis!
+- ✓ Randomisation
+- ✓ Räumliche Unabhängigkeit
+- ✓ Statistische Unabhängigkeit
 :::
+
+# 2. Pseudo-Wiederholungen {background-color="#43464B"}
+
+## Definition
 
 ::: {.callout-warning}
-## Warnung
-Dies ist eine Warnung.
+## Pseudo-Wiederholungen (Messwiederholungen)
+Mehrfache Messungen **innerhalb derselben Versuchseinheit** (Parzelle)
 :::
 
-## Zusammenfassung
+<br>
 
-- Quarto macht Präsentationen einfach
-- Revealjs bietet viele Funktionen
-- Sie können dies nach Ihren Bedürfnissen anpassen
+::: {.fragment}
+**Das Problem:**
 
-## Vielen Dank!
+→ Messungen innerhalb derselben Parzelle sind **nicht unabhängig** voneinander
+:::
 
-Fragen?
+## Beispiel 1: Einfache Messung {.smaller}
+
+**Szenario:**
+
+- 10 Parzellen auf dem Feld
+- 3 Messungen der Pflanzenhöhe pro Parzelle (mit Meterstab an 3 Stellen)
+
+. . .
+
+**Ergebnis:**
+
+- ✓ 30 Messwerte
+- ✗ Aber **NICHT** 30 unabhängige Wiederholungen!
+- ✓ Sondern nur **10 unabhängige Wiederholungen** (Parzellen)
+
+. . .
+
+::: {.callout-important}
+Die 3 Messungen pro Parzelle teilen sich dieselbe Umwelt, denselben Boden, dieselbe Bewirtschaftung → **keine Unabhängigkeit**
+:::
+
+## Beispiel 2: Moderne Sensortechnik {.smaller}
+
+**Szenario:**
+
+- Traktor mit GPS-basierter Sensortechnik
+- Viele Messpunkte pro Meter innerhalb einer Parzelle
+- Koordinaten-basierte Datenerfassung (z.B. Ertragskartierung)
+
+. . .
+
+**Ergebnis:**
+
+- ✓ Sehr hohe Datenmenge (Hunderte/Tausende Messpunkte)
+- ✗ Aber begrenzte **statistische Unabhängigkeit**
+- Die Parzelle bleibt die Versuchseinheit!
+
+. . .
+
+::: {.callout-tip}
+## In der Praxis
+Diese Daten sind wertvoll für räumliche Analysen und Präzision, aber man muss die Hierarchie der Daten bei der Auswertung berücksichtigen.
+:::
+
+## Intuitive Analogie
+
+**3 Blutabnahmen bei 3 verschiedenen Menschen:**
+
+→ ✓ **3 unabhängige Wiederholungen**
+
+<br>
+
+**3 Blutabnahmen bei 1 Person (an 3 Stellen):**
+
+→ ✗ **Nur 1 unabhängige Einheit** (Person)
+
+<br>
+
+::: {.fragment}
+**Jeder versteht intuitiv: Das ist nicht dasselbe!**
+:::
+
+## Kernaussage
+
+::: {.callout-note icon=false}
+## ⭐ Take-Home Message
+**Messwiederholungen sind keine echten Wiederholungen.**
+
+- Sie erhöhen die Präzision der Messung
+- Sie reduzieren Messfehler
+- **Aber:** Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen
+- Bei der Analyse muss die hierarchische Struktur berücksichtigt werden
+:::
+
+# 3. Die Grauzone {background-color="#43464B"}
+
+## Das Problem: Pseudo-Split-Plot
+
+::: {.callout-warning}
+## Häufig in der Praxis!
+Unvollständige oder systematische Randomisation führt zu versteckten Pseudo-Wiederholungen
+:::
+
+<br>
+
+**Typisches Szenario:**
+
+- Zweifaktorieller Versuch: Faktor A × Faktor B
+- Versuch, ein Split-Plot-Design anzulegen
+- **Aber:** Faktor A ist NICHT randomisiert, sondern systematisch angeordnet
+
+## Konkretes Beispiel: Nord vs. Süd {.smaller}
+
+::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 6
+
+field_split <- data.frame(
+  row = rep(1:8, each = 4),
+  col = rep(1:4, 8),
+  A = rep(c("A1", "A2"), each = 16),
+  B = rep(c("B1", "B2", "B3", "B4"), 8)
+)
+
+ggplot(field_split, aes(x = col, y = row, fill = A)) +
+  geom_tile(color = "white", linewidth = 2) +
+  geom_text(aes(label = B), size = 6, fontface = "bold", color = "white") +
+  scale_fill_manual(values = c("A1" = "#2E86AB", "A2" = "#A23B72")) +
+  annotate("text", x = 2.5, y = 7, label = "NÖRDLICHE HÄLFTE\n(Faktor A1)",
+           size = 5, fontface = "bold", color = "white") +
+  annotate("text", x = 2.5, y = 2, label = "SÜDLICHE HÄLFTE\n(Faktor A2)",
+           size = 5, fontface = "bold", color = "white") +
+  labs(title = "Problematisches Layout") +
+  theme_void() +
+  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, color = "darkred"),
+        legend.position = "none")
+```
+:::
+
+::: {.column width="50%"}
+**Was wir sehen:**
+
+- Faktor B (B1, B2, B3, B4) ist randomisiert ✓
+- Faktor A ist systematisch (Nord vs. Süd) ✗
+
+<br>
+
+**Das Problem:**
+
+- Gesamte Nordhälfte = A1
+- Gesamte Südhälfte = A2
+- → **n=1** pro Stufe von Faktor A!
+:::
+:::
+
+## Warum ist das problematisch? {.smaller}
+
+::: {.incremental}
+1. **Alle A1-Parzellen** liegen in derselben Feldhälfte (Nord)
+2. **Alle A2-Parzellen** liegen in derselben Feldhälfte (Süd)
+3. Jeglicher Nord-Süd-Unterschied (Boden, Wasser, Mikroklima) ist **vollständig konfundiert** mit Faktor A
+4. Wir können **nicht unterscheiden**:
+   - Ist der Effekt aufgrund von Behandlung A?
+   - Oder aufgrund der Lage (Nord vs. Süd)?
+:::
+
+. . .
+
+::: {.callout-warning}
+## Häufiger Trugschluss
+*"Ich habe doch viele Parzellen!"*
+*"Ich habe doch A1×B1 mehrfach auf dem Feld!"*
+
+→ **ABER:** Alle Instanzen von A1 teilen dieselbe räumliche Einheit = keine Unabhängigkeit
+:::
+
+## Analogie zu Pseudo-Wiederholungen
+
+::: {.columns}
+::: {.column width="50%"}
+**Pseudo-Wiederholungen:**
+
+- 1 Parzelle
+- Mehrfache Messungen darin
+- = Keine Unabhängigkeit
+:::
+
+::: {.column width="50%"}
+**Pseudo-Split-Plot:**
+
+- 1 Feldhälfte
+- Mehrfache Parzellen darin
+- = Keine Unabhängigkeit für Faktor A
+:::
+:::
+
+<br>
+
+. . .
+
+::: {.callout-important}
+**Systematische räumliche Struktur = Fehlende Unabhängigkeit**
+
+Das gilt auf **allen Ebenen** des Versuchsdesigns!
+:::
+
+## Kernaussage
+
+::: {.callout-note icon=false}
+## ⭐ Take-Home Message
+**Vorsicht vor der Grauzone!**
+
+- Systematische Anordnung = versteckte Pseudo-Wiederholung
+- Häufiger Fehler bei On-Farm-Versuchen
+- Große Parzellenzahl ≠ Viele unabhängige Wiederholungen
+
+**Entscheidend ist:**
+
+- NICHT die Anzahl der Parzellen
+- Sondern die **räumliche Unabhängigkeit** der Behandlungen
+:::
+
+# 4. Multi-Environment Trials {background-color="#43464B"}
+
+## Wiederholungen über Standorte
+
+**Szenario:**
+
+- Einzelner Standort: Keine (oder nur wenige) Wiederholungen möglich
+- **Lösung:** Gleiche Behandlungen an mehreren Standorten
+
+. . .
+
+::: {.callout-tip}
+## Vorteil
+Erst durch mehrere Standorte wird die Auswertung möglich und robuster!
+
+→ "Standort" wird zu einer weiteren Ebene im Design
+:::
+
+## Statistische Überlegungen {.smaller}
+
+**Wie behandeln wir "Standort" in der Analyse?**
+
+::: {.incremental}
+1. **Als Block (Fixed Effect)?**
+   - Wenn uns die spezifischen Standorte interessieren
+   - Wenn wir Aussagen über einzelne Standorte treffen wollen
+
+2. **Als Random Effect?**
+   - Wenn Standorte eine Stichprobe aus einer größeren Population sind
+   - Wenn wir über die getesteten Standorte hinaus generalisieren wollen
+   - → Häufigerer Ansatz bei Multi-Environment Trials
+:::
+
+. . .
+
+::: {.callout-note}
+## Wichtig zu beachten
+**Genotyp × Environment Interaktion:** Behandlungen können je nach Standort unterschiedlich wirken!
+:::
+
+# Zusammenfassung {background-color="#43464B"}
+
+## Kernbotschaften {.smaller}
+
+::: {.incremental}
+1. **Echte Wiederholungen brauchen Randomisation**
+   - Räumlich unabhängig = Statistisch unabhängig
+   - Nicht die Anzahl zählt, sondern die Unabhängigkeit
+
+2. **Messwiederholungen sind keine echten Wiederholungen**
+   - Erhöhen Präzision, aber nicht Unabhängigkeit
+   - Hierarchische Struktur in der Analyse berücksichtigen
+
+3. **Vorsicht vor der Grauzone!**
+   - Systematische Anordnung = Confounding
+   - Häufiger Fehler bei On-Farm-Versuchen
+   - Große Parzellenzahl ≠ Viele unabhängige Wiederholungen
+
+4. **Die Randomisation ist entscheidend**
+   - Auf allen Ebenen des Designs
+   - Räumliche Unabhängigkeit der Behandlungen sicherstellen
+:::
+
+## Offene Fragen für die Diskussion
+
+::: {.incremental}
+- Wie geht man in der Praxis mit halb-systematischen Designs um?
+- Wann sind Kompromisse vertretbar?
+- Wie kommuniziert man diese Konzepte an Landwirte?
+- Welche statistischen Ansätze gibt es für suboptimale Designs?
+- Wie viele Wiederholungen sind "genug"?
+:::
+
+## Vielen Dank! {.center}
+
+<br>
+
+### Fragen & Diskussion
+
+<br>
+
+::: {.callout-tip icon=false}
+## Kontakt
+Dr. Paul Schmidt
+Biostatistiker
+
+Workshop On-Farm-Experimente
+28. November 2024
+:::
+
+<br>
+
+*Präsentation erstellt mit Quarto & Claude Code*
