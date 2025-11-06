@@ -7,11 +7,25 @@
     "text": "Agenda\n\nEchte/Unabhängige Wiederholungen Randomisation als Grundprinzip\nPseudo-Wiederholungen Messwiederholungen innerhalb einer Versuchseinheit\nDie Grauzone Confounding durch unvollständige Randomisation\nMulti-Environment Trials Wiederholungen über Standorte hinweg\nKernbotschaften & Diskussion\n\n\nHeute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, die alle kennen, aber wo es wichtige Details gibt."
   },
   {
-    "objectID": "index.html#grundprinzip",
-    "href": "index.html#grundprinzip",
+    "objectID": "index.html#was-ist-eine-versuchseinheit",
+    "href": "index.html#was-ist-eine-versuchseinheit",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Grundprinzip",
-    "text": "Grundprinzip\n\n\n\n\n\n\nVersuchseinheit = Parzelle\n\n\nDie Parzelle ist unsere grundlegende Beobachtungseinheit im Feldversuch.\n\n\n\nMindestanforderungen:\n\nMindestens 2-3 echte Wiederholungen pro Behandlung\nErst dadurch wird ein Versuch statistisch auswertbar\nSchätzung der Variabilität innerhalb einer Behandlung"
+    "section": "Was ist eine Versuchseinheit?",
+    "text": "Was ist eine Versuchseinheit?\n\n\n\n\n\n\nDefinition: Versuchseinheit (Experimental Unit)\n\n\nDie kleinste Einheit, der eine Behandlung unabhängig zugewiesen werden kann und an der eine Beobachtung gemacht wird.\n\n\n\nIm Feldversuch:\n\nIn der Regel ist die Parzelle unsere Versuchseinheit\nManchmal kann es aber auch anders sein (z.B. ganze Felder, Pflanzreihen, etc.)"
+  },
+  {
+    "objectID": "index.html#warum-brauchen-wir-überhaupt-wiederholungen",
+    "href": "index.html#warum-brauchen-wir-überhaupt-wiederholungen",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Warum brauchen wir überhaupt Wiederholungen?",
+    "text": "Warum brauchen wir überhaupt Wiederholungen?\nProblem mit nur einer Beobachtung pro Behandlung:\n\n\n\n\n\n\n\n\n\n\n\n\nErgebnisse:\n\n\n\nBehandlung\nWert\n\n\n\n\nA\n10\n\n\nB\n8\n\n\n\n\nWas können wir aussagen?\n\nA ist größer als B ✓\nAber: Keine Ahnung über Streuung! ✗\n→ Keine statistische Auswertung möglich\n\n\n\nMit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreibend nebeneinander zu stellen. Wir haben null Information über die Variabilität."
+  },
+  {
+    "objectID": "index.html#mindestanforderungen-für-auswertbarkeit",
+    "href": "index.html#mindestanforderungen-für-auswertbarkeit",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Mindestanforderungen für Auswertbarkeit",
+    "text": "Mindestanforderungen für Auswertbarkeit\n\n\n\n\n\n\nAbsolute Minimum\n\n\nStreng genommen: Mindestens 2 echte Wiederholungen pro Behandlung erforderlich!\n\n\n\nWarum mindestens 2?\n\nMit n=1: Keine Variabilität schätzbar → Keine Statistik möglich\nMit n=2: Gerade so auswertbar, aber sehr schwach\nn=3, 4, 5, …: Besser, stabiler, mehr Power\nIn der Praxis: Oft 3-4 Wiederholungen als Standard\n\nWas ermöglichen echte Wiederholungen?\n\nSchätzung der Variabilität innerhalb einer Behandlung\nStatistische Tests und Konfidenzintervalle\nAussagen über Signifikanz von Unterschieden"
   },
   {
     "objectID": "index.html#randomisation-ist-entscheidend",
@@ -88,7 +102,21 @@
     "href": "index.html#konkretes-beispiel-nord-vs.-süd",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Konkretes Beispiel: Nord vs. Süd",
-    "text": "Konkretes Beispiel: Nord vs. Süd\n\n\n\n\n\n\n\n\n\n\n\n\nWas wir sehen:\n\nFaktor B (B1, B2, B3, B4) ist randomisiert ✓\nFaktor A ist systematisch (Nord vs. Süd) ✗\n\n\nDas Problem:\n\nGesamte Nordhälfte = A1\nGesamte Südhälfte = A2\n→ n=1 pro Stufe von Faktor A!"
+    "text": "Konkretes Beispiel: Nord vs. Süd\n\n\n\n\n\n\n\n\n\n\n\n\nWas wir sehen:\n\nFaktor B (B1, B2) ist randomisiert ✓\nFaktor A ist systematisch (Nord vs. Süd) ✗\n\n\nDas Problem:\n\nGesamte Nordhälfte = A1\nGesamte Südhälfte = A2\n→ n=1 pro Stufe von Faktor A!\n\n\n:::\n\n\n\n\n\n\n\n\nImportant\n\n\nSystematische räumliche Struktur = Fehlende Unabhängigkeit\nDas gilt auf allen Ebenen des Versuchsdesigns!"
+  },
+  {
+    "objectID": "index.html#kernaussage-2",
+    "href": "index.html#kernaussage-2",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Kernaussage",
+    "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
+  },
+  {
+    "objectID": "index.html#wiederholungen-über-standorte",
+    "href": "index.html#wiederholungen-über-standorte",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Wiederholungen über Standorte",
+    "text": "Wiederholungen über Standorte\nSzenario:\n\nEinzelner Standort: Keine (oder nur wenige) Wiederholungen möglich\nLösung: Gleiche Behandlungen an mehreren Standorten"
   },
   {
     "objectID": "index.html#warum-ist-das-problematisch",
@@ -105,15 +133,15 @@
     "text": "Analogie zu Pseudo-Wiederholungen\n\n\nPseudo-Wiederholungen:\n\n1 Parzelle\nMehrfache Messungen darin\n= Keine Unabhängigkeit\n\n\nPseudo-Split-Plot:\n\n1 Feldhälfte\nMehrfache Parzellen darin\n= Keine Unabhängigkeit für Faktor A\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nSystematische räumliche Struktur = Fehlende Unabhängigkeit\nDas gilt auf allen Ebenen des Versuchsdesigns!"
   },
   {
-    "objectID": "index.html#kernaussage-2",
-    "href": "index.html#kernaussage-2",
+    "objectID": "index.html#kernaussage-3",
+    "href": "index.html#kernaussage-3",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Kernaussage",
     "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
   },
   {
-    "objectID": "index.html#wiederholungen-über-standorte",
-    "href": "index.html#wiederholungen-über-standorte",
+    "objectID": "index.html#wiederholungen-über-standorte-1",
+    "href": "index.html#wiederholungen-über-standorte-1",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Wiederholungen über Standorte",
     "text": "Wiederholungen über Standorte\nSzenario:\n\nEinzelner Standort: Keine (oder nur wenige) Wiederholungen möglich\nLösung: Gleiche Behandlungen an mehreren Standorten\n\n\n\n\n\n\n\n\nVorteil\n\n\nErst durch mehrere Standorte wird die Auswertung möglich und robuster!\n→ “Standort” wird zu einer weiteren Ebene im Design"

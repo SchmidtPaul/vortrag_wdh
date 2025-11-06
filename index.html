@@ -172,26 +172,110 @@ Dr.&nbsp;Paul Schmidt
 <h1>1. Echte/Unabhängige Wiederholungen</h1>
 
 </section>
-<section id="grundprinzip" class="slide level2">
-<h2>Grundprinzip</h2>
+<section id="was-ist-eine-versuchseinheit" class="slide level2 smaller">
+<h2>Was ist eine Versuchseinheit?</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition: Versuchseinheit (Experimental Unit)</strong></p>
+</div>
+<div class="callout-content">
+<p>Die <strong>kleinste Einheit</strong>, der eine Behandlung <strong>unabhängig</strong> zugewiesen werden kann und an der eine Beobachtung gemacht wird.</p>
+</div>
+</div>
+</div>
+<p><strong>Im Feldversuch:</strong></p>
+<ul>
+<li>In der Regel ist die <strong>Parzelle</strong> unsere Versuchseinheit</li>
+<li>Manchmal kann es aber auch anders sein (z.B. ganze Felder, Pflanzreihen, etc.)</li>
+</ul>
+</section>
+<section id="warum-brauchen-wir-überhaupt-wiederholungen" class="slide level2">
+<h2>Warum brauchen wir überhaupt Wiederholungen?</h2>
+<p><strong>Problem mit nur einer Beobachtung pro Behandlung:</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Ergebnisse:</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Behandlung</th>
+<th>Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Was können wir aussagen?</strong></p>
+<ul>
+<li>A ist größer als B ✓</li>
+<li>Aber: <strong>Keine Ahnung über Streuung!</strong> ✗</li>
+<li>→ Keine statistische Auswertung möglich</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>Mit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreibend nebeneinander zu stellen. Wir haben null Information über die Variabilität.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="mindestanforderungen-für-auswertbarkeit" class="slide level2">
+<h2>Mindestanforderungen für Auswertbarkeit</h2>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Versuchseinheit = Parzelle</strong></p>
+<p><strong>Absolute Minimum</strong></p>
 </div>
 <div class="callout-content">
-<p>Die Parzelle ist unsere grundlegende Beobachtungseinheit im Feldversuch.</p>
+<p><strong>Streng genommen: Mindestens 2 echte Wiederholungen</strong> pro Behandlung erforderlich!</p>
 </div>
 </div>
 </div>
-<p><strong>Mindestanforderungen:</strong></p>
+<p><strong>Warum mindestens 2?</strong></p>
 <ul>
-<li>Mindestens <strong>2-3 echte Wiederholungen</strong> pro Behandlung</li>
-<li>Erst dadurch wird ein Versuch statistisch auswertbar</li>
-<li>Schätzung der Variabilität innerhalb einer Behandlung</li>
+<li class="fragment">Mit <strong>n=1</strong>: Keine Variabilität schätzbar → Keine Statistik möglich</li>
+<li class="fragment">Mit <strong>n=2</strong>: Gerade so auswertbar, aber sehr schwach</li>
+<li class="fragment"><strong>n=3, 4, 5, …</strong>: Besser, stabiler, mehr Power</li>
+<li class="fragment">In der Praxis: Oft 3-4 Wiederholungen als Standard</li>
+</ul>
+<p><strong>Was ermöglichen echte Wiederholungen?</strong></p>
+<ul>
+<li>Schätzung der Variabilität <strong>innerhalb</strong> einer Behandlung</li>
+<li>Statistische Tests und Konfidenzintervalle</li>
+<li>Aussagen über Signifikanz von Unterschieden</li>
 </ul>
 </section>
 <section id="randomisation-ist-entscheidend" class="slide level2 smaller">
@@ -211,14 +295,14 @@ Dr.&nbsp;Paul Schmidt
 <section id="visualisierung-gutes-design" class="slide level2">
 <h2>Visualisierung: Gutes Design</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="fragment">
 <p>✓ Räumlich unabhängig = Statistisch unabhängig</p>
 </div>
 </section>
 <section id="visualisierung-schlechtes-design" class="slide level2">
 <h2>Visualisierung: Schlechtes Design</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><div class="fragment">
 <p>✗ Systematische Anordnung = Confounding mit räumlichen Effekten</p>
 </div>
 </section>
@@ -397,7 +481,7 @@ Dr.&nbsp;Paul Schmidt
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -405,7 +489,7 @@ Dr.&nbsp;Paul Schmidt
 </div><div class="column" style="width:50%;">
 <p><strong>Was wir sehen:</strong></p>
 <ul>
-<li>Faktor B (B1, B2, B3, B4) ist randomisiert ✓</li>
+<li>Faktor B (B1, B2) ist randomisiert ✓</li>
 <li>Faktor A ist systematisch (Nord vs.&nbsp;Süd) ✗</li>
 </ul>
 <p><br></p>
@@ -416,6 +500,60 @@ Dr.&nbsp;Paul Schmidt
 <li>→ <strong>n=1</strong> pro Stufe von Faktor A!</li>
 </ul>
 </div></div>
+<p>:::</p>
+<p><br></p>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Systematische räumliche Struktur = Fehlende Unabhängigkeit</strong></p>
+<p>Das gilt auf <strong>allen Ebenen</strong> des Versuchsdesigns!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="kernaussage-2" class="slide level2">
+<h2>Kernaussage</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>⭐ Take-Home Message</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Vorsicht vor der Grauzone!</strong></p>
+<ul>
+<li>Systematische Anordnung = versteckte Pseudo-Wiederholung</li>
+<li>Häufiger Fehler bei On-Farm-Versuchen</li>
+<li>Große Parzellenzahl ≠ Viele unabhängige Wiederholungen</li>
+</ul>
+<p><strong>Entscheidend ist:</strong></p>
+<ul>
+<li>NICHT die Anzahl der Parzellen</li>
+<li>Sondern die <strong>räumliche Unabhängigkeit</strong> der Behandlungen</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="multi-environment-trials" class="title-slide slide level1 center" data-background-color="#495057">
+<h1>4. Multi-Environment Trials</h1>
+
+</section>
+<section id="wiederholungen-über-standorte" class="slide level2">
+<h2>Wiederholungen über Standorte</h2>
+<p><strong>Szenario:</strong></p>
+<ul>
+<li>Einzelner Standort: Keine (oder nur wenige) Wiederholungen möglich</li>
+<li><strong>Lösung:</strong> Gleiche Behandlungen an mehreren Standorten</li>
+</ul>
 </section>
 <section id="warum-ist-das-problematisch" class="slide level2 smaller">
 <h2>Warum ist das problematisch?</h2>
@@ -482,7 +620,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </div>
 </section>
-<section id="kernaussage-2" class="slide level2">
+<section id="kernaussage-3" class="slide level2">
 <h2>Kernaussage</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -506,11 +644,11 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </section></section>
 <section>
-<section id="multi-environment-trials" class="title-slide slide level1 center" data-background-color="#495057">
+<section id="multi-environment-trials-1" class="title-slide slide level1 center" data-background-color="#495057">
 <h1>4. Multi-Environment Trials</h1>
 
 </section>
-<section id="wiederholungen-über-standorte" class="slide level2">
+<section id="wiederholungen-über-standorte-1" class="slide level2">
 <h2>Wiederholungen über Standorte</h2>
 <p><strong>Szenario:</strong></p>
 <ul>
