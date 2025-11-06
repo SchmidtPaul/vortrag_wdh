@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT
 
 permissions:
   contents: read
