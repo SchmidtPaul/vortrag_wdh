@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html#einleitung",
+    "href": "index.html#einleitung",
+    "title": "Meine Präsentation",
+    "section": "Einleitung",
+    "text": "Einleitung\nDies ist die erste Folie Ihrer Präsentation.\n\nBullet Point 1\nBullet Point 2\nBullet Point 3"
+  },
+  {
+    "objectID": "index.html#folie-mit-code",
+    "href": "index.html#folie-mit-code",
+    "title": "Meine Präsentation",
+    "section": "Folie mit Code",
+    "text": "Folie mit Code\nSie können Code-Blöcke einfügen:\n\n# R Code Beispiel\nx &lt;- c(1, 2, 3, 4, 5)\nmean(x)"
+  },
+  {
+    "objectID": "index.html#folie-mit-zwei-spalten",
+    "href": "index.html#folie-mit-zwei-spalten",
+    "title": "Meine Präsentation",
+    "section": "Folie mit zwei Spalten",
+    "text": "Folie mit zwei Spalten\n\n\nLinke Spalte\n\nPunkt 1\nPunkt 2\n\n\nRechte Spalte\n\nPunkt A\nPunkt B"
+  },
+  {
+    "objectID": "index.html#mathematische-formeln",
+    "href": "index.html#mathematische-formeln",
+    "title": "Meine Präsentation",
+    "section": "Mathematische Formeln",
+    "text": "Mathematische Formeln\nSie können LaTeX-Formeln verwenden:\n\\[E = mc^2\\]\nInline-Formeln: \\(\\alpha + \\beta = \\gamma\\)"
+  },
+  {
+    "objectID": "index.html#hervorgehobener-text",
+    "href": "index.html#hervorgehobener-text",
+    "title": "Meine Präsentation",
+    "section": "Hervorgehobener Text",
+    "text": "Hervorgehobener Text\n\n\n\n\n\n\nHinweis\n\n\nDies ist ein wichtiger Hinweis!\n\n\n\n\n\n\n\n\n\nWarnung\n\n\nDies ist eine Warnung."
+  },
+  {
+    "objectID": "index.html#zusammenfassung",
+    "href": "index.html#zusammenfassung",
+    "title": "Meine Präsentation",
+    "section": "Zusammenfassung",
+    "text": "Zusammenfassung\n\nQuarto macht Präsentationen einfach\nRevealjs bietet viele Funktionen\nSie können dies nach Ihren Bedürfnissen anpassen"
+  },
+  {
+    "objectID": "index.html#vielen-dank",
+    "href": "index.html#vielen-dank",
+    "title": "Meine Präsentation",
+    "section": "Vielen Dank!",
+    "text": "Vielen Dank!\nFragen?"
+  }
+]
