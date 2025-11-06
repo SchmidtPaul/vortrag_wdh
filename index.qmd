@@ -382,6 +382,44 @@ desplot(field_split,
 - → **n=1** pro Stufe von Faktor A!
 :::
 :::
+:::
+
+<br>
+
+. . .
+
+::: {.callout-important}
+**Systematische räumliche Struktur = Fehlende Unabhängigkeit**
+
+Das gilt auf **allen Ebenen** des Versuchsdesigns!
+:::
+
+## Kernaussage
+
+::: {.callout-note icon=false}
+## ⭐ Take-Home Message
+**Vorsicht vor der Grauzone!**
+
+- Systematische Anordnung = versteckte Pseudo-Wiederholung
+- Häufiger Fehler bei On-Farm-Versuchen
+- Große Parzellenzahl ≠ Viele unabhängige Wiederholungen
+
+**Entscheidend ist:**
+
+- NICHT die Anzahl der Parzellen
+- Sondern die **räumliche Unabhängigkeit** der Behandlungen
+:::
+
+# 4. Multi-Environment Trials {background-color="#495057"}
+
+## Wiederholungen über Standorte
+
+**Szenario:**
+
+- Einzelner Standort: Keine (oder nur wenige) Wiederholungen möglich
+- **Lösung:** Gleiche Behandlungen an mehreren Standorten
+
+. . .
 
 ## Warum ist das problematisch? {.smaller}
 
