@@ -63,6 +63,7 @@ Die **kleinste Einheit**, der eine Behandlung **unabhängig** zugewiesen werden 
 #| fig-height: 3
 
 library(desplot)
+library(ggplot2)
 
 # Minimalbeispiel: Nur 1x A und 1x B
 minimal <- data.frame(
@@ -149,6 +150,7 @@ Mit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreib
 #| fig-height: 5
 
 library(desplot)
+library(ggplot2)
 
 set.seed(123)
 field_good <- expand.grid(row = 1:4, col = 1:6)
@@ -180,6 +182,9 @@ desplot(field_good,
 #| echo: false
 #| fig-width: 10
 #| fig-height: 5
+
+library(desplot)
+library(ggplot2)
 
 field_bad <- expand.grid(row = 1:4, col = 1:6)
 field_bad$treatment <- rep(c("A", "B"), each = 12)
@@ -335,6 +340,7 @@ Unvollständige oder systematische Randomisation führt zu versteckten Pseudo-Wi
 #| fig-height: 6
 
 library(desplot)
+library(ggplot2)
 
 field_split <- data.frame(
   row = rep(1:8, each = 4),
