@@ -5,7 +5,8 @@ author: "Dr. Paul Schmidt"
 date: "28. November 2024"
 format:
   revealjs:
-    theme: serif
+    theme: default
+    css: custom.css
     slide-number: true
     chalkboard: true
     preview-links: auto
@@ -36,7 +37,7 @@ format:
 Heute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, die alle kennen, aber wo es wichtige Details gibt.
 :::
 
-# 1. Echte/Unabhängige Wiederholungen {background-color="#43464B"}
+# 1. Echte/Unabhängige Wiederholungen {background-color="#495057"}
 
 ## Grundprinzip
 
@@ -80,15 +81,15 @@ field$treatment <- sample(rep(c("A", "B", "C"), each = 8))
 ggplot(field, aes(x = col, y = row, fill = treatment)) +
   geom_tile(color = "white", linewidth = 2) +
   geom_text(aes(label = treatment), size = 8, fontface = "bold", color = "white") +
-  scale_fill_manual(values = c("A" = "#2E86AB", "B" = "#A23B72", "C" = "#F18F01")) +
+  scale_fill_manual(values = c("A" = "#00923f", "B" = "#bce2cc", "C" = "#4758ab")) +
   labs(title = "Vollständig randomisiertes Design (CRD)",
        subtitle = "Behandlungen sind zufällig über das Feld verteilt") +
   theme_void() +
-  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5),
-        plot.subtitle = element_text(size = 14, hjust = 0.5),
+  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5, family = "Arial"),
+        plot.subtitle = element_text(size = 14, hjust = 0.5, family = "Arial"),
         legend.position = "bottom",
         legend.title = element_blank(),
-        legend.text = element_text(size = 12))
+        legend.text = element_text(size = 12, family = "Arial"))
 ```
 
 ::: {.fragment}
@@ -108,15 +109,15 @@ field_bad$treatment <- rep(c("A", "B", "C"), each = 8)
 ggplot(field_bad, aes(x = col, y = row, fill = treatment)) +
   geom_tile(color = "white", linewidth = 2) +
   geom_text(aes(label = treatment), size = 8, fontface = "bold", color = "white") +
-  scale_fill_manual(values = c("A" = "#2E86AB", "B" = "#A23B72", "C" = "#F18F01")) +
+  scale_fill_manual(values = c("A" = "#00923f", "B" = "#bce2cc", "C" = "#4758ab")) +
   labs(title = "Systematisches Design",
        subtitle = "Behandlungen sind nicht randomisiert - PROBLEMATISCH!") +
   theme_void() +
-  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5, color = "darkred"),
-        plot.subtitle = element_text(size = 14, hjust = 0.5, color = "darkred"),
+  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.5, color = "#ad0000", family = "Arial"),
+        plot.subtitle = element_text(size = 14, hjust = 0.5, color = "#ad0000", family = "Arial"),
         legend.position = "bottom",
         legend.title = element_blank(),
-        legend.text = element_text(size = 12))
+        legend.text = element_text(size = 12, family = "Arial"))
 ```
 
 ::: {.fragment}
@@ -136,7 +137,7 @@ Sie erfordern:
 - ✓ Statistische Unabhängigkeit
 :::
 
-# 2. Pseudo-Wiederholungen {background-color="#43464B"}
+# 2. Pseudo-Wiederholungen {background-color="#495057"}
 
 ## Definition
 
@@ -227,7 +228,7 @@ Diese Daten sind wertvoll für räumliche Analysen und Präzision, aber man muss
 - Bei der Analyse muss die hierarchische Struktur berücksichtigt werden
 :::
 
-# 3. Die Grauzone {background-color="#43464B"}
+# 3. Die Grauzone {background-color="#495057"}
 
 ## Das Problem: Pseudo-Split-Plot
 
@@ -263,14 +264,14 @@ field_split <- data.frame(
 ggplot(field_split, aes(x = col, y = row, fill = A)) +
   geom_tile(color = "white", linewidth = 2) +
   geom_text(aes(label = B), size = 6, fontface = "bold", color = "white") +
-  scale_fill_manual(values = c("A1" = "#2E86AB", "A2" = "#A23B72")) +
+  scale_fill_manual(values = c("A1" = "#00923f", "A2" = "#ad0000")) +
   annotate("text", x = 2.5, y = 7, label = "NÖRDLICHE HÄLFTE\n(Faktor A1)",
            size = 5, fontface = "bold", color = "white") +
   annotate("text", x = 2.5, y = 2, label = "SÜDLICHE HÄLFTE\n(Faktor A2)",
            size = 5, fontface = "bold", color = "white") +
   labs(title = "Problematisches Layout") +
   theme_void() +
-  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, color = "darkred"),
+  theme(plot.title = element_text(size = 14, face = "bold", hjust = 0.5, color = "#ad0000", family = "Arial"),
         legend.position = "none")
 ```
 :::
@@ -358,7 +359,7 @@ Das gilt auf **allen Ebenen** des Versuchsdesigns!
 - Sondern die **räumliche Unabhängigkeit** der Behandlungen
 :::
 
-# 4. Multi-Environment Trials {background-color="#43464B"}
+# 4. Multi-Environment Trials {background-color="#495057"}
 
 ## Wiederholungen über Standorte
 
@@ -398,7 +399,7 @@ Erst durch mehrere Standorte wird die Auswertung möglich und robuster!
 **Genotyp × Environment Interaktion:** Behandlungen können je nach Standort unterschiedlich wirken!
 :::
 
-# Zusammenfassung {background-color="#43464B"}
+# Zusammenfassung {background-color="#495057"}
 
 ## Kernbotschaften {.smaller}
 
