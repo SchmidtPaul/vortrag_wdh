@@ -1,0 +1,85 @@
+---
+title: "Meine Präsentation"
+subtitle: "Ein Quarto Reveal.js Vortrag"
+author: "Ihr Name"
+date: today
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    logo: ""
+    footer: "Präsentation erstellt mit Quarto"
+---
+
+## Einleitung
+
+Dies ist die erste Folie Ihrer Präsentation.
+
+- Bullet Point 1
+- Bullet Point 2
+- Bullet Point 3
+
+## Folie mit Code
+
+Sie können Code-Blöcke einfügen:
+
+```{r}
+#| echo: true
+#| eval: false
+
+# R Code Beispiel
+x <- c(1, 2, 3, 4, 5)
+mean(x)
+```
+
+## Folie mit zwei Spalten
+
+:::: {.columns}
+
+::: {.column width="50%"}
+**Linke Spalte**
+
+- Punkt 1
+- Punkt 2
+:::
+
+::: {.column width="50%"}
+**Rechte Spalte**
+
+- Punkt A
+- Punkt B
+:::
+
+::::
+
+## Mathematische Formeln
+
+Sie können LaTeX-Formeln verwenden:
+
+$$E = mc^2$$
+
+Inline-Formeln: $\alpha + \beta = \gamma$
+
+## Hervorgehobener Text
+
+::: {.callout-note}
+## Hinweis
+Dies ist ein wichtiger Hinweis!
+:::
+
+::: {.callout-warning}
+## Warnung
+Dies ist eine Warnung.
+:::
+
+## Zusammenfassung
+
+- Quarto macht Präsentationen einfach
+- Revealjs bietet viele Funktionen
+- Sie können dies nach Ihren Bedürfnissen anpassen
+
+## Vielen Dank!
+
+Fragen?
