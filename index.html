@@ -263,20 +263,15 @@ Dr.&nbsp;Paul Schmidt
 </div>
 <p><strong>Werte:</strong> A = 10, B = 8</p>
 </div><div class="column" style="width:60%;">
-<p><strong>Welche statistischen Maße können wir NICHT berechnen?</strong></p>
+<p><strong>Welche statistischen Maße sind NICHT möglich?</strong></p>
 <ul>
 <li class="fragment"><strong>Varianz</strong> ✗</li>
 <li class="fragment"><strong>Standardabweichung</strong> ✗</li>
 <li class="fragment"><strong>Standardfehler</strong> ✗</li>
 <li class="fragment"><strong>Konfidenzintervalle</strong> ✗</li>
-<li class="fragment"><strong>t-Test</strong> (oder andere statistische Tests) ✗</li>
+<li class="fragment"><strong>t-Test</strong> (oder andere Tests) ✗</li>
+<li class="fragment">Mittelwert, Minimum, Maximum? → Sinnlos bei nur einem Wert</li>
 </ul>
-<p><strong>Selbst vermeintlich einfache Maße sind problematisch:</strong></p>
-<ul>
-<li class="fragment">Mittelwert? → Von einem Wert? Sinnlos.</li>
-<li class="fragment">Minimum/Maximum? → Gibt nur diesen einen Wert.</li>
-</ul>
-<p><br></p>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -286,7 +281,7 @@ Dr.&nbsp;Paul Schmidt
 <p><strong>Warning</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Mit n=1 pro Behandlung:</strong> Null Information über die Variabilität innerhalb einer Behandlung!</p>
+<p>Null Information über Variabilität!</p>
 </div>
 </div>
 </div>
@@ -311,6 +306,33 @@ Dr.&nbsp;Paul Schmidt
 <li class="fragment">Erst ab <strong>n=2</strong> sind all diese Maße überhaupt möglich bzw. sinnvoll</li>
 <li class="fragment">Mit steigendem n (3, 4, 5, …) werden die Ergebnisse prinzipiell zuverlässiger und präziser</li>
 </ul>
+</section>
+<section id="vergleich-n1-vs.-n2" class="slide level2 smaller">
+<h2>Vergleich: n=1 vs.&nbsp;n=2</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Werte:</strong> A = 10, B = 8</p>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Werte:</strong> A = 10, 11; B = 7, 8</p>
+</div></div>
 </section>
 <section id="warum-echte-wiederholungen" class="slide level2">
 <h2>Warum “echte” Wiederholungen?</h2>
@@ -370,7 +392,7 @@ Dr.&nbsp;Paul Schmidt
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="384"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="384"></p>
 </figure>
 </div>
 </div>
@@ -483,14 +505,14 @@ Dr.&nbsp;Paul Schmidt
 <section id="visualisierung-gutes-design" class="slide level2">
 <h2>Visualisierung: Gutes Design</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"><div class="fragment">
 <p>✓ Räumlich unabhängig = Statistisch unabhängig</p>
 </div>
 </section>
 <section id="visualisierung-schlechtes-design" class="slide level2">
 <h2>Visualisierung: Schlechtes Design</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"><div class="fragment">
 <p>✗ Systematische Anordnung = Confounding mit räumlichen Effekten</p>
 </div>
 </section>
@@ -549,7 +571,7 @@ Dr.&nbsp;Paul Schmidt
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="480"></p>
 </figure>
 </div>
 </div>

@@ -25,7 +25,7 @@
     "href": "index.html#was-bedeutet-keine-statistik-möglich",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Was bedeutet “keine Statistik möglich”?",
-    "text": "Was bedeutet “keine Statistik möglich”?\n\n\n\n\n\n\n\n\n\n\n\nWerte: A = 10, B = 8\n\nWelche statistischen Maße können wir NICHT berechnen?\n\nVarianz ✗\nStandardabweichung ✗\nStandardfehler ✗\nKonfidenzintervalle ✗\nt-Test (oder andere statistische Tests) ✗\n\nSelbst vermeintlich einfache Maße sind problematisch:\n\nMittelwert? → Von einem Wert? Sinnlos.\nMinimum/Maximum? → Gibt nur diesen einen Wert.\n\n\n\n\n\n\n\n\nWarning\n\n\nMit n=1 pro Behandlung: Null Information über die Variabilität innerhalb einer Behandlung!"
+    "text": "Was bedeutet “keine Statistik möglich”?\n\n\n\n\n\n\n\n\n\n\n\nWerte: A = 10, B = 8\n\nWelche statistischen Maße sind NICHT möglich?\n\nVarianz ✗\nStandardabweichung ✗\nStandardfehler ✗\nKonfidenzintervalle ✗\nt-Test (oder andere Tests) ✗\nMittelwert, Minimum, Maximum? → Sinnlos bei nur einem Wert\n\n\n\n\n\n\n\nWarning\n\n\nNull Information über Variabilität!"
   },
   {
     "objectID": "index.html#mindestanforderungen-für-auswertbarkeit",
@@ -33,6 +33,13 @@
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Mindestanforderungen für Auswertbarkeit",
     "text": "Mindestanforderungen für Auswertbarkeit\n\n\n\n\n\n\nAbsolutes Minimum\n\n\nStreng genommen: Mindestens 2 echte Wiederholungen pro Behandlung erforderlich!\n\n\n\n\nErst ab n=2 sind all diese Maße überhaupt möglich bzw. sinnvoll\nMit steigendem n (3, 4, 5, …) werden die Ergebnisse prinzipiell zuverlässiger und präziser"
+  },
+  {
+    "objectID": "index.html#vergleich-n1-vs.-n2",
+    "href": "index.html#vergleich-n1-vs.-n2",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Vergleich: n=1 vs. n=2",
+    "text": "Vergleich: n=1 vs. n=2\n\n\n\n\n\n\n\n\n\n\n\nWerte: A = 10, B = 8\n\n\n\n\n\n\n\n\n\n\nWerte: A = 10, 11; B = 7, 8"
   },
   {
     "objectID": "index.html#warum-echte-wiederholungen",
