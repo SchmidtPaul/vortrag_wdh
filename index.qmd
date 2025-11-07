@@ -29,26 +29,29 @@ options(ggplot2.discrete.colour = c("#00923f", "#bce2cc", "#4758ab", "#ad0000", 
 ## Agenda {.smaller}
 
 ::: {.incremental}
-1. **Echte/Unabhängige Wiederholungen**
-   *Randomisation als Grundprinzip*
+1. **Grundlagen: Warum Wiederholungen?**
+   *Versuchseinheit und Mindestanforderungen*
 
 2. **Pseudo-Wiederholungen**
    *Messwiederholungen innerhalb einer Versuchseinheit*
 
-3. **Die Grauzone**
+3. **Echte Wiederholungen**
+   *Randomisation als Grundprinzip*
+
+4. **Die Grauzone**
    *Confounding durch unvollständige Randomisation*
 
-4. **Multi-Environment Trials**
+5. **Multi-Environment Trials**
    *Wiederholungen über Standorte hinweg*
 
-5. **Kernbotschaften & Diskussion**
+6. **Kernbotschaften & Diskussion**
 :::
 
 ::: {.notes}
 Heute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, die alle kennen, aber wo es wichtige Details gibt.
 :::
 
-# 1. Echte/Unabhängige Wiederholungen {background-color="#495057"}
+# 1. Grundlagen {background-color="#495057"}
 
 ## Was ist eine Versuchseinheit? {.smaller}
 
@@ -178,6 +181,143 @@ desplot(minimal,
 - Mit steigendem n (3, 4, 5, ...) werden die Ergebnisse prinzipiell zuverlässiger und präziser
 :::
 
+## Warum "echte" Wiederholungen?
+
+Wir haben bis jetzt gesagt:
+
+- n=1 pro Behandlung: **Keine Statistik möglich**
+- n≥2 pro Behandlung: **Statistik möglich**
+
+. . .
+
+::: {.callout-warning}
+## Aber Achtung!
+Mehrere Werte zu haben, heißt nicht automatisch mehrere **echte Wiederholungen** zu haben!
+:::
+
+. . .
+
+→ Was macht den Unterschied zwischen **echten** und **unechten** Wiederholungen?
+
+# 2. Pseudo-Wiederholungen {background-color="#495057"}
+
+## Was sind Pseudo-Wiederholungen?
+
+::: {.callout-warning}
+## Pseudo-Wiederholungen (Messwiederholungen)
+Mehrfache Messungen **innerhalb derselben Versuchseinheit** (z.B. Parzelle)
+:::
+
+<br>
+
+**Das Problem:**
+
+Messungen innerhalb derselben Parzelle sind **nicht unabhängig** voneinander!
+
+## Beispiel: 10 Messungen ≠ n=10 {.smaller}
+
+:::: {.columns}
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 2
+
+# Gleicher Plot: 2 Parzellen
+minimal <- data.frame(
+  col = c(1, 2),
+  row = c(1, 1),
+  treatment = c("A", "B")
+)
+
+desplot(minimal,
+        form = treatment ~ col + row,
+        text = treatment,
+        cex = 1.5,
+        main = "2 Parzellen auf dem Feld",
+        show.key = FALSE,
+        aspect = 1/2,
+        gg = TRUE) +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 12, hjust = 0.5, family = "Arial"))
+```
+:::
+
+::: {.column width="60%"}
+**Szenario:**
+
+Wir gehen in dieses Feld und messen in jeder Parzelle **10× die Pflanzenhöhe** (mit Meterstab an verschiedenen Stellen).
+
+**Ergebnis:**
+
+- ✓ 20 Messwerte insgesamt
+- ✗ **NICHT** n=10 pro Behandlung!
+- ✓ Immer noch nur **n=1** pro Behandlung
+
+. . .
+
+::: {.callout-important}
+Mehrfach dieselbe Parzelle beproben ≠ Mehrere Parzellen haben!
+:::
+:::
+::::
+
+## Intuitive Analogie
+
+**3 Blutabnahmen bei 3 verschiedenen Menschen:**
+
+→ ✓ **3 unabhängige Wiederholungen**
+
+<br>
+
+**3 Blutabnahmen bei 1 Person (an 3 Stellen):**
+
+→ ✗ **Nur 1 unabhängige Einheit** (Person)
+
+<br>
+
+::: {.fragment}
+**Jeder versteht intuitiv: Das ist nicht dasselbe!**
+:::
+
+## Besonders relevant bei On-Farm-Versuchen {.smaller}
+
+**Moderne Sensortechnik ermöglicht viele Messungen:**
+
+::: {.incremental}
+- **Drohnen** mit Multispektralkameras: Tausende Pixel pro Parzelle
+- **Mähdrescher-Sensoren**: Ertragsmessung alle paar Meter
+- **Bodensensoren**: Kontinuierliche Messungen an festen Punkten
+- **GPS-basierte Probenahme**: Viele Messpunkte pro Großparzelle
+:::
+
+. . .
+
+::: {.callout-warning}
+## Häufiger Trugschluss
+*"Ich habe 1000 Messpunkte!"*
+
+→ **ABER:** Wenn alle in derselben räumlichen Einheit liegen = begrenzte statistische Unabhängigkeit
+:::
+
+## Kernaussage zu Pseudo-Wiederholungen
+
+::: {.callout-note icon=false}
+## ⭐ Take-Home Message
+**Messwiederholungen sind keine echten Wiederholungen.**
+
+- Sie erhöhen die Präzision der Messung
+- Sie reduzieren Messfehler
+- **Aber:** Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen
+- Bei der Analyse muss die hierarchische Struktur berücksichtigt werden
+:::
+
+# Echte/Unabhängige Wiederholungen {background-color="#495057"}
+
+## Was macht eine echte Wiederholung aus?
+
+Nachdem wir nun verstanden haben, was **Pseudo-Wiederholungen** sind, schauen wir uns an, was eine **echte Wiederholung** ausmacht.
+
 ## Randomisation ist entscheidend! {.smaller}
 
 ::: {.incremental}
@@ -260,97 +400,6 @@ Sie erfordern:
 - ✓ Randomisation
 - ✓ Räumliche Unabhängigkeit
 - ✓ Statistische Unabhängigkeit
-:::
-
-# 2. Pseudo-Wiederholungen {background-color="#495057"}
-
-## Definition
-
-::: {.callout-warning}
-## Pseudo-Wiederholungen (Messwiederholungen)
-Mehrfache Messungen **innerhalb derselben Versuchseinheit** (Parzelle)
-:::
-
-<br>
-
-::: {.fragment}
-**Das Problem:**
-
-→ Messungen innerhalb derselben Parzelle sind **nicht unabhängig** voneinander
-:::
-
-## Beispiel 1: Einfache Messung {.smaller}
-
-**Szenario:**
-
-- 10 Parzellen auf dem Feld
-- 3 Messungen der Pflanzenhöhe pro Parzelle (mit Meterstab an 3 Stellen)
-
-. . .
-
-**Ergebnis:**
-
-- ✓ 30 Messwerte
-- ✗ Aber **NICHT** 30 unabhängige Wiederholungen!
-- ✓ Sondern nur **10 unabhängige Wiederholungen** (Parzellen)
-
-. . .
-
-::: {.callout-important}
-Die 3 Messungen pro Parzelle teilen sich dieselbe Umwelt, denselben Boden, dieselbe Bewirtschaftung → **keine Unabhängigkeit**
-:::
-
-## Beispiel 2: Moderne Sensortechnik {.smaller}
-
-**Szenario:**
-
-- Traktor mit GPS-basierter Sensortechnik
-- Viele Messpunkte pro Meter innerhalb einer Parzelle
-- Koordinaten-basierte Datenerfassung (z.B. Ertragskartierung)
-
-. . .
-
-**Ergebnis:**
-
-- ✓ Sehr hohe Datenmenge (Hunderte/Tausende Messpunkte)
-- ✗ Aber begrenzte **statistische Unabhängigkeit**
-- Die Parzelle bleibt die Versuchseinheit!
-
-. . .
-
-::: {.callout-tip}
-## In der Praxis
-Diese Daten sind wertvoll für räumliche Analysen und Präzision, aber man muss die Hierarchie der Daten bei der Auswertung berücksichtigen.
-:::
-
-## Intuitive Analogie
-
-**3 Blutabnahmen bei 3 verschiedenen Menschen:**
-
-→ ✓ **3 unabhängige Wiederholungen**
-
-<br>
-
-**3 Blutabnahmen bei 1 Person (an 3 Stellen):**
-
-→ ✗ **Nur 1 unabhängige Einheit** (Person)
-
-<br>
-
-::: {.fragment}
-**Jeder versteht intuitiv: Das ist nicht dasselbe!**
-:::
-
-## Kernaussage
-
-::: {.callout-note icon=false}
-## ⭐ Take-Home Message
-**Messwiederholungen sind keine echten Wiederholungen.**
-
-- Sie erhöhen die Präzision der Messung
-- Sie reduzieren Messfehler
-- **Aber:** Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen
-- Bei der Analyse muss die hierarchische Struktur berücksichtigt werden
 :::
 
 # 3. Die Grauzone {background-color="#495057"}
