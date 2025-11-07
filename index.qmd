@@ -1,8 +1,7 @@
 ---
 title: "Wiederholungen in landwirtschaftlichen Feldversuchen"
-subtitle: "Nuancen, Probleme und häufige Fallstricke"
+subtitle: "Grundsatzvortrag"
 author: "Dr. Paul Schmidt"
-date: "28. November 2024"
 format:
   revealjs:
     theme: default
@@ -13,6 +12,9 @@ format:
     footer: "On-farm-Experimente-Workshop | 28.11.2024 | Landwirtschaftskammer Niedersachsen"
     transition: slide
     background-transition: fade
+  pdf:
+    documentclass: beamer
+    theme: default
 ---
 
 ```{r setup}
