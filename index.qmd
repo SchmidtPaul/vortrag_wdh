@@ -15,6 +15,17 @@ format:
     background-transition: fade
 ---
 
+```{r setup}
+#| include: false
+
+library(ggplot2)
+library(desplot)
+
+# Setze globale Farbpalette für alle ggplot2/desplot Grafiken
+options(ggplot2.discrete.fill = c("#00923f", "#bce2cc", "#4758ab", "#ad0000", "#cba135"))
+options(ggplot2.discrete.colour = c("#00923f", "#bce2cc", "#4758ab", "#ad0000", "#cba135"))
+```
+
 ## Agenda {.smaller}
 
 ::: {.incremental}
@@ -60,9 +71,6 @@ Die **kleinste Einheit**, der eine Behandlung **unabhängig** zugewiesen werden 
 #| fig-width: 5
 #| fig-height: 2.5
 
-library(desplot)
-library(ggplot2)
-
 # Minimalbeispiel: Nur 1x A und 1x B
 minimal <- data.frame(
   col = c(1, 2),
@@ -72,7 +80,6 @@ minimal <- data.frame(
 
 desplot(minimal,
         form = treatment ~ col + row,
-        col.regions = c("#00923f", "#bce2cc"),
         text = treatment,
         cex = 1.5,
         main = "Versuch mit n=1",
@@ -145,16 +152,12 @@ Mit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreib
 #| fig-width: 10
 #| fig-height: 5
 
-library(desplot)
-library(ggplot2)
-
 set.seed(123)
 field_good <- expand.grid(row = 1:4, col = 1:6)
 field_good$treatment <- sample(rep(c("A", "B"), each = 12))
 
 desplot(field_good,
         form = treatment ~ col + row,
-        col.regions = c("A" = "#00923f", "B" = "#bce2cc"),
         text = treatment,
         cex = 1.5,
         main = "Vollständig randomisiertes Design (CRD)\nBehandlungen sind zufällig über das Feld verteilt",
@@ -179,15 +182,11 @@ desplot(field_good,
 #| fig-width: 10
 #| fig-height: 5
 
-library(desplot)
-library(ggplot2)
-
 field_bad <- expand.grid(row = 1:4, col = 1:6)
 field_bad$treatment <- rep(c("A", "B"), each = 12)
 
 desplot(field_bad,
         form = treatment ~ col + row,
-        col.regions = c("A" = "#00923f", "B" = "#bce2cc"),
         text = treatment,
         cex = 1.5,
         main = "Systematisches Design\nBehandlungen sind nicht randomisiert - PROBLEMATISCH!",
@@ -335,9 +334,6 @@ Unvollständige oder systematische Randomisation führt zu versteckten Pseudo-Wi
 #| fig-width: 5
 #| fig-height: 6
 
-library(desplot)
-library(ggplot2)
-
 field_split <- data.frame(
   row = rep(1:8, each = 4),
   col = rep(1:4, 8),
@@ -345,6 +341,7 @@ field_split <- data.frame(
   B = rep(c("B1", "B2"), 16)
 )
 
+# Hier brauchen wir spezielle Farben (Grün vs. Rot) um das Problem zu visualisieren
 desplot(field_split,
         form = A ~ col + row,
         text = B,
