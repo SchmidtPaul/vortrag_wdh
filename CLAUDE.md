@@ -14,7 +14,6 @@
 ---
 
 ## Aktuelle Projekt-Struktur
-
 ```
 vortrag_wdh/
 ├── index.qmd                          # Hauptpräsentationsdatei (Quarto)
@@ -57,7 +56,6 @@ vortrag_wdh/
 ## R-Pakete
 
 Folgende R-Pakete werden in der GitHub Action installiert (mit Caching):
-
 ```
 rmarkdown, knitr, tidyverse, ggtext, desplot, agridat, broom, emmeans, scales
 ```
@@ -67,7 +65,6 @@ rmarkdown, knitr, tidyverse, ggtext, desplot, agridat, broom, emmeans, scales
 ## Design & Styling
 
 ### Farbpalette (in Reihenfolge der Relevanz)
-
 ```css
 #00923f  /* Grün - Primärfarbe, Behandlung A, Positive Elemente */
 #bce2cc  /* Hellgrün - Behandlung B */
@@ -79,9 +76,9 @@ rmarkdown, knitr, tidyverse, ggtext, desplot, agridat, broom, emmeans, scales
 ```
 
 **Verwendung in Plots:**
-- Gutes CRD Design: A=#00923f, B=#bce2cc, C=#4758ab
+- Gutes CRD Design: A=#00923f, B=#bce2cc
 - Schlechtes Design: Gleiche Farben, aber Titel in Rot (#ad0000)
-- Split-Plot Problem: A1=#00923f (Nord), A2=#ad0000 (Süd) - zeigt Problem visuell
+- Split-Plot Problem: Verschiedene Farben je nach Kontext
 
 ### Schriftart
 
@@ -93,56 +90,98 @@ rmarkdown, knitr, tidyverse, ggtext, desplot, agridat, broom, emmeans, scales
 
 ## Präsentations-Inhalt
 
-### Struktur (basierend auf `brainstorming_wiederholungen.md`)
+### Aktuelle Struktur
 
 1. **Agenda & Einleitung**
 
-2. **Sektion 1: Echte/Unabhängige Wiederholungen**
-   - Grundprinzip: Parzelle als Versuchseinheit
-   - Randomisation ist entscheidend
-   - Visualisierung: Gutes vs. schlechtes Design
-   - Kernaussage
+2. **Sektion 1: Grundlagen - Warum Wiederholungen?**
+   - Definition Versuchseinheit ("in der Regel Parzelle")
+   - Wieso Wiederholungen? (n=1 Beispiel)
+   - "Keine Statistik möglich" - detaillierte Auflistung
+   - Mindestanforderungen: n≥2
+   - Vergleich n=1 vs. n=2 mit Desplots
+   - Zwei ggplot-Visualisierungen:
+     - Plot 1: Nur beobachtete Werte (A=10, B=8)
+     - Plot 2: Mit simulierten Punkten um μ=9 (zeigt: beide könnten aus gleicher Population stammen)
+   - Überleitung: "Warum 'echte' Wiederholungen?"
 
 3. **Sektion 2: Pseudo-Wiederholungen**
-   - Definition: Mehrfache Messungen innerhalb einer Parzelle
-   - Beispiel 1: Meterstab-Messungen (10 Parzellen × 3 Messungen)
-   - Beispiel 2: Moderne Sensortechnik
-   - Intuitive Analogie: 3 Blutabnahmen bei 3 Personen vs. 1 Person
-   - Kernaussage
+   - Definition mit Synonymen (Pseudoreplikation, Messwiederholungen, etc.)
+   - Beispiel: 10 Messungen ≠ n=10
+   - Intuitive Analogie: Blutabnahme-Beispiel
+   - Besonders relevant bei On-Farm-Versuchen (3 Gründe)
+   - **NEU:** Wieso Pseudo-Wiederholungen? (Vorteile, aber nicht ausreichend)
 
-4. **Sektion 3: Die Grauzone - Pseudo-Split-Plot**
-   - Typisches Problem: Unvollständige Randomisation
-   - Konkretes Beispiel: Nord/Süd-Split mit Visualisierung
-   - Warum problematisch: Confounding mit räumlichen Effekten
-   - Analogie zu Pseudo-Wiederholungen
-   - Kernaussage
+4. **Sektion 3: Echte Wiederholungen**
+   - Definition echte Wiederholungen
+   - **NEU:** Fokus auf Unabhängigkeit als Ziel, Randomisation als Mittel
+   - Visualisierung: Randomisiert = Gut
+   - Visualisierung: Systematisch = Problematisch
+   - **NEU:** Daten aus Blindversuch (Piepho Uniformitätsversuch)
+   - **NEU:** "Fazit bis hierhin" - Vergleich 24 systematische vs. 4 randomisierte Parzellen
+   - **NEU:** "Okay" Übergangsfolie (mit Emoji 🥱)
 
-5. **Sektion 4: Multi-Environment Trials**
-   - Wiederholungen über Standorte
-   - Fixed vs. Random Effects
-   - Genotyp × Environment Interaktion
+5. **Sektion 4: Die Grauzone - Pseudo-Split-Plot**
+   - **NEU:** Typisches Szenario beschrieben (2×3 faktoriell)
+   - **NEU:** Drei aufeinanderfolgende Desplots:
+     - Füllfarbe nach Faktor 2 (1/2/3)
+     - Füllfarbe nach Stufenkombination (A1, A2, etc.)
+     - Füllfarbe nach Faktor 1 (A/B), Textfarbe nach Faktor 2
+   - **Status:** TODO ab hier (Rest noch nicht fertig)
 
-6. **Zusammenfassung**
-   - 4 Kernbotschaften
-   - Offene Fragen für Diskussion
-   - Kontakt & Dank
+6. **Sektion 5: Multi-Environment Trials** (noch nicht implementiert)
+
+7. **Zusammenfassung** (noch nicht implementiert)
 
 ### Technische Features
 
 - **Incremental slides:** `::: {.incremental}` - Punkte erscheinen nacheinander
 - **Fragments:** `::: {.fragment}` - Elemente erscheinen auf Klick
-- **Callout-Boxen:** `important`, `warning`, `tip`, `note`
+- **Callout-Boxen:** Alle auf Deutsch übersetzt ("Kernbotschaft" statt "Take-Home Message")
+- **Emojis:** ✅ ❌ statt ✓ ✗
 - **Zwei-Spalten-Layout:** `::: {.columns}`
 - **Kleinere Folien:** `{.smaller}` Klasse
 - **Speaker Notes:** `::: {.notes}`
-- **R-generierte Plots:** Alle Visualisierungen werden live mit ggplot2 erstellt
+- **R-generierte Plots:** Alle Visualisierungen werden live erstellt
+- **desplot Gitterlinien:** `out1`/`out2` Parameter für Parzellengrenzen
+
+---
+
+## Wichtige Erkenntnisse & Designentscheidungen
+
+### Terminologie (Recherchiert)
+
+**Pseudo-Wiederholungen (Deutsch):**
+- Pseudoreplikation, Pseudoreplikate, Unechte Wiederholungen, Technische Replikate, Messwiederholungen, Subsampling, Nested observations
+
+**Pseudoreplication (Englisch):**
+- Pseudoreplicates, Technical replicates, Subsamples, Within-unit replicates, Observational units (OUs), Measurement units (MUs)
+
+**Echte Wiederholungen (Deutsch):**
+- Unabhängige Wiederholungen, Biologische Replikate, Versuchseinheiten, Wahre Replikate, Randomisationseinheiten
+
+**True Replication (Englisch):**
+- Genuine replicates, Biological replicates (häufigster Begriff!), Independent replicates, Experimental units (EUs)
+
+### Piepho-Referenz
+
+**Vollständige Zitation:**
+Piepho, H.P. & Williams, E.R. (2010). Linear variance models for plant breeding trials. *Plant Breeding*, 129(1), 1–8. https://doi.org/10.1111/j.1439-0523.2009.01654.x
+
+**Daten:** Uniformitätsversuch Gerste, Ihinger Hof, Hohenheim, 2007
+**R-Package:** `agridat::piepho.barley.uniformity`
+
+### Piephos Lackmus-Test
+
+> "Wenn eine Analyse von Mittelwerten pro Randomisationseinheit mit klassischer Varianzanalyse nicht möglich ist, dann ist der Versuchsplan inadäquat!"
+
+**Wichtig aber noch nicht im Vortrag implementiert** - könnte in Grauzone oder Fazit eingefügt werden.
 
 ---
 
 ## Wichtige Git-Operationen
 
 ### Standard-Workflow
-
 ```bash
 # Änderungen machen
 git add <files>
@@ -167,12 +206,12 @@ git push -u origin claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT
 
 **User:** Dr. Paul Schmidt (Biostatistiker)
 **Expertise:** Landwirtschaftliche Feldversuche, Versuchsdesign, Statistik
-**Erfahrung mit Claude Code:** Erstes Mal - experimentiert mit dem Tool
 **Kommunikation:** Deutsch, duzen
 
 **Workshop-Details:**
 - Datum: 28. November 2024
 - Thema: On-Farm-Experimente
+- Ko-Referent: Prof. Hans-Peter Piepho (spricht über Randomisation im Detail)
 - Zielgruppe: Teilnehmer mit Grundkenntnissen zu Wiederholungen
 - Fokus: Nuancen und typische Probleme
 
@@ -180,24 +219,38 @@ git push -u origin claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT
 - Präsentation soll online verfügbar sein (GitHub Pages)
 - Automatisches Rendering via GitHub Actions
 - Refresh-basierter Workflow (kein manuelles Rendern lokal)
-- Bevorzugt: Schnelle Build-Zeiten (daher Caching implementiert)
+- RevealJS mit `history: false` (startet immer bei Folie 1)
 
 ---
 
 ## Offene Tasks / Nächste Schritte
 
-### Potenzielle Verbesserungen
-- [ ] Weitere Beispiel-Daten oder echte Feldversuche einbauen?
-- [ ] Mehr visuelle Elemente (Diagramme, Fotos)?
-- [ ] Code-Beispiele für statistische Analysen zeigen?
-- [ ] Animationen oder Übergänge verbessern?
-- [ ] Timing der Präsentation testen?
+### Noch zu implementieren (ab "TODO ab hier")
 
-### Inhaltliche Erweiterungen (aus Brainstorming)
-- [ ] Beispieldaten/Grafiken vorbereiten
-- [ ] Feldplan-Illustrationen erstellen (teilweise erledigt)
-- [ ] R-Code live zeigen? (bisher nur Plots)
-- [ ] Zeitplanung: Wie viele Minuten pro Abschnitt?
+- [ ] **Grauzone-Sektion vervollständigen:**
+  - Problem erklären: Warum ist systematische Anordnung von Faktor 1 problematisch?
+  - Analogie zu Pseudo-Wiederholungen
+  - n=1 für Faktor A trotz vieler Parzellen
+  - Confounding mit räumlichen Effekten
+  - Kernbotschaft
+
+- [ ] **Multi-Environment Trials:**
+  - Wiederholungen über Standorte
+  - Fixed vs. Random Effects
+  - Genotyp × Environment Interaktion
+  - Wann sinnvoll?
+
+- [ ] **Zusammenfassung:**
+  - 4 Kernbotschaften
+  - Offene Fragen für Diskussion
+  - Kontakt & Dank
+
+### Potenzielle Verbesserungen
+
+- [ ] Piephos Lackmus-Test irgendwo einbauen?
+- [ ] Mehr visuelle Elemente?
+- [ ] Timing der Präsentation testen?
+- [ ] Geostatistik-Warnung explizit einfügen?
 
 ---
 
@@ -221,6 +274,9 @@ git push -u origin claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT
 **Problem:** 403 Fehler beim Push zu main
 - **Lösung:** Nur zu `claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT` pushen!
 
+**Problem:** RevealJS startet nicht bei Folie 1
+- **Lösung:** `history: false` im YAML-Header setzen (bereits implementiert)
+
 ---
 
 ## Nützliche Befehle
@@ -231,7 +287,7 @@ git push -u origin claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT
 cat index.qmd
 
 # Nach bestimmten Strings suchen
-grep -n "Randomisation" index.qmd
+grep -n "TODO" index.qmd
 ```
 
 ### GitHub Actions Status
@@ -281,12 +337,44 @@ gh run list --limit 5
 - Alle Feldpläne von ggplot auf desplot umgestellt
 - Faktorstufen reduziert (A,B statt A,B,C wo möglich)
 - Alle Callout-Boxen auf Deutsch übersetzt ("Kernbotschaft" statt "Take-Home Message")
-- Redundante Texte entfernt ("Jeder versteht intuitiv...")
+- Redundante Texte entfernt
 
 **Workflow-Fixes:**
 - GitHub Actions: ggplot2 library zu allen desplot-Chunks hinzugefügt
 - Branch claude/read-claude-md-011CUrnBsraRqoGJHHaCHt2j zum Workflow hinzugefügt
 - Kompaktere Folien um Überlauf zu vermeiden
+
+### Session 3 (07. November 2025) - **AKTUELL**
+
+**Recherche & Terminologie:**
+- Umfassende Web-Recherche zu Pseudoreplikation/Pseudo-Wiederholungen
+- Synonyme gesammelt (Deutsch/Englisch) für beide Konzepte
+- Piepho (2010) Paper vollständig recherchiert und korrekt zitiert
+- Piephos "Lackmus-Test" identifiziert (noch nicht implementiert)
+
+**Inhaltliche Ergänzungen:**
+- Synonyme für Pseudo-Wiederholungen auf Folie ergänzt
+- Neue Folie: "Wieso Pseudo-Wiederholungen?" (Vorteile, aber Grenzen)
+- Fokus auf **Unabhängigkeit** als Ziel, **Randomisation** als Mittel
+- Uniformitätsversuch von Piepho & Williams (2010) als Beispiel integriert
+  - Daten aus `agridat::piepho.barley.uniformity`
+  - Zeigt räumliche Variabilität trotz identischer Behandlung
+- "Fazit bis hierhin" Folie: Vergleich 24 systematische vs. 4 randomisierte Parzellen
+- "Okay" Übergangsfolie mit Emoji 🥱 vor Grauzone
+- **Grauzone Intro:** Typisches Szenario (2×3 faktoriell) beschrieben
+- **Drei aufeinanderfolgende Desplots** zur schrittweisen Problem-Visualisierung
+
+**Technische Änderungen:**
+- Emojis (✅ ❌) statt Unicode-Zeichen (✓ ✗)
+- desplot mit `out1`/`out2` für Parzellengrenzen
+- desplot mit `gg=FALSE` für bessere Legenden
+- Manuelles problematisches Split-Plot Design erstellt (A/B systematisch, 1/2/3 scheinbar randomisiert)
+- Chunk-Wiederverwendung: Datensatz einmal erstellen, dann mehrfach plotten
+- `guides(label = "none")` zum Verstecken von Text-Legenden
+
+**Status:**
+- **Fertig:** Grundlagen, Pseudo-Wiederholungen, Echte Wiederholungen, Grauzone-Intro
+- **TODO:** Rest der Grauzone (Problembeschreibung), METs, Zusammenfassung
 
 ---
 
@@ -298,12 +386,14 @@ gh run list --limit 5
 3. Prüfe aktuellen Stand: `git status` und `git log --oneline -10`
 4. Teste Live-Präsentation: https://schmidtpaul.github.io/vortrag_wdh/
 5. Frage User nach gewünschten Änderungen
+6. Beachte: Vortrag ist bis "TODO ab hier" fertig, danach offene Punkte
 
 **Denk daran:**
 - Immer zu Branch `claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT` pushen
 - Nach Änderungen: Commit, Push, warten (~30-60s), User zum Refresh auffordern
 - User duzen, auf Deutsch kommunizieren
 - Diese CLAUDE.md am Ende der Session aktualisieren!
+- Piepho ist Ko-Referent → Keine Überschneidungen, sondern Ergänzung!
 
 ---
 
