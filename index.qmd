@@ -225,7 +225,7 @@ Heute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, 
 ## Was ist eine Versuchseinheit? {.smaller}
 
 ::: {.callout-tip}
-## Definition: Versuchseinheit (Experimental Unit)
+## Hinweis
 Die **kleinste Einheit**, der eine Behandlung **unabhängig** zugewiesen werden kann und an der eine Beobachtung gemacht wird.
 :::
 
@@ -332,77 +332,10 @@ Null Information über Variabilität!
 :::
 ::::
 
-## Das Problem mit n=1: Nur zwei Datenpunkte
-
-```{r}
-#| echo: false
-#| fig-width: 8
-#| fig-height: 5
-
-data_observed <- data.frame(
-  Behandlung = c("A", "B"),
-  Ertrag = c(10, 8),
-  Farbe = c("#00923f", "#bce2cc")
-)
-
-ggplot(data_observed, aes(x = Behandlung, y = Ertrag)) +
-  geom_point(aes(fill = Farbe), size = 4, shape = 21, color = "black", stroke = 1) +
-  scale_fill_identity() +
-  scale_y_continuous(limits = c(0, 13), breaks = seq(0, 13, 2)) +
-  labs(title = "Beobachtete Werte (n=1 pro Behandlung)",
-       x = "Behandlung",
-       y = "Ertrag [dt/ha]") +
-  theme_BioMath(base_family = "Arial")
-```
-
-## Was wir nicht sehen: Die mögliche Population
-
-```{r}
-#| echo: false
-#| fig-width: 8
-#| fig-height: 5
-
-set.seed(123)
-
-# Simulierte Daten: Beide Behandlungen kommen aus Population mit Mittelwert 9
-data_simulated <- data.frame(
-  Behandlung = rep(c("A", "B"), each = 50),
-  Ertrag = c(rnorm(50, mean = 9, sd = 1.5),
-             rnorm(50, mean = 9, sd = 1.5))
-)
-
-# Beobachtete Daten (wie vorher)
-data_observed <- data.frame(
-  Behandlung = c("A", "B"),
-  Ertrag = c(10, 8),
-  Farbe = c("#00923f", "#bce2cc")
-)
-
-ggplot() +
-  geom_point(data = data_simulated,
-             aes(x = Behandlung, y = Ertrag),
-             color = "gray70", alpha = 0.5, size = 2,
-             position = position_jitter(width = 0.1, height = 0)) +
-  geom_point(data = data_observed,
-             aes(x = Behandlung, y = Ertrag, fill = Farbe),
-             size = 4, shape = 21, color = "black", stroke = 1) +
-  scale_fill_identity() +
-  scale_y_continuous(limits = c(0, 13), breaks = seq(0, 13, 2)) +
-  labs(title = "Was wir nicht wissen: Mögliche Population",
-       subtitle = "Graue Punkte: Simulierte Werte aus Population mit gleichem Mittelwert (μ=9)",
-       x = "Behandlung",
-       y = "Ertrag [dt/ha]") +
-  theme_BioMath(base_family = "Arial")
-```
-
-::: {.fragment}
-**Kernproblem:** Mit nur n=1 könnten beide Werte zufällig aus derselben Population stammen!
-:::
-
 ## Mindestanforderungen für Auswertbarkeit
 
 ::: {.callout-important}
-## Absolutes Minimum
+## Wichtig
 **Streng genommen: Mindestens 2 echte Wiederholungen** pro Behandlung erforderlich!
 :::
 
@@ -470,6 +403,64 @@ desplot(minimal_n2,
 **Werte:** A = 10, 11; B = 7, 8
 :::
 ::::
+
+##
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+data_observed <- data.frame(
+  Behandlung = c("A", "B"),
+  Ertrag = c(10, 8),
+  Farbe = c("#00923f", "#bce2cc")
+)
+
+ggplot(data_observed, aes(x = Behandlung, y = Ertrag)) +
+  geom_point(aes(fill = Farbe), size = 4, shape = 21, color = "black", stroke = 1) +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(0, 13), breaks = seq(0, 13, 2)) +
+  labs(x = "Behandlung", y = "Ertrag [dt/ha]") +
+  theme_BioMath(base_family = "Arial")
+```
+
+##
+
+```{r}
+#| echo: false
+#| fig-width: 10
+#| fig-height: 6
+
+set.seed(123)
+
+# Simulierte Daten
+data_simulated <- data.frame(
+  Behandlung = rep(c("A", "B"), each = 50),
+  Ertrag = c(rnorm(50, mean = 9, sd = 1.5),
+             rnorm(50, mean = 9, sd = 1.5))
+)
+
+# Beobachtete Daten
+data_observed <- data.frame(
+  Behandlung = c("A", "B"),
+  Ertrag = c(10, 8),
+  Farbe = c("#00923f", "#bce2cc")
+)
+
+ggplot() +
+  geom_point(data = data_simulated,
+             aes(x = Behandlung, y = Ertrag),
+             color = "gray70", alpha = 0.5, size = 2,
+             position = position_jitter(width = 0.1, height = 0)) +
+  geom_point(data = data_observed,
+             aes(x = Behandlung, y = Ertrag, fill = Farbe),
+             size = 4, shape = 21, color = "black", stroke = 1) +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(0, 13), breaks = seq(0, 13, 2)) +
+  labs(x = "Behandlung", y = "Ertrag [dt/ha]") +
+  theme_BioMath(base_family = "Arial")
+```
 
 ## Warum "echte" Wiederholungen?
 
@@ -564,12 +555,6 @@ Mehrfach dieselbe Parzelle beproben ≠ Mehrere Parzellen haben!
 
 → ✗ **Nur 1 unabhängige Einheit** (Person)
 
-<br>
-
-::: {.fragment}
-**Jeder versteht intuitiv: Das ist nicht dasselbe!**
-:::
-
 ## Besonders relevant bei On-Farm-Versuchen {.smaller}
 
 **Moderne Sensortechnik ermöglicht viele Messungen:**
@@ -593,7 +578,7 @@ Mehrfach dieselbe Parzelle beproben ≠ Mehrere Parzellen haben!
 ## Kernaussage zu Pseudo-Wiederholungen
 
 ::: {.callout-note icon=false}
-## ⭐ Take-Home Message
+## ⭐ Kernbotschaft
 **Messwiederholungen sind keine echten Wiederholungen.**
 
 - Sie erhöhen die Präzision der Messung
@@ -682,7 +667,7 @@ desplot(field_bad,
 ## Kernaussage
 
 ::: {.callout-note icon=false}
-## ⭐ Take-Home Message
+## ⭐ Kernbotschaft
 **Echte, unabhängige Wiederholungen** sind die Grundlage für statistische Auswertungen.
 
 Sie erfordern:
@@ -774,7 +759,7 @@ Das gilt auf **allen Ebenen** des Versuchsdesigns!
 ## Kernaussage
 
 ::: {.callout-note icon=false}
-## ⭐ Take-Home Message
+## ⭐ Kernbotschaft
 **Vorsicht vor der Grauzone!**
 
 - Systematische Anordnung = versteckte Pseudo-Wiederholung
@@ -852,7 +837,7 @@ Das gilt auf **allen Ebenen** des Versuchsdesigns!
 ## Kernaussage
 
 ::: {.callout-note icon=false}
-## ⭐ Take-Home Message
+## ⭐ Kernbotschaft
 **Vorsicht vor der Grauzone!**
 
 - Systematische Anordnung = versteckte Pseudo-Wiederholung

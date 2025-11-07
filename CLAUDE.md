@@ -1,6 +1,6 @@
 # CLAUDE.md - Kontext für Claude Code Sessions
 
-**Letzte Aktualisierung:** 06. November 2025
+**Letzte Aktualisierung:** 07. November 2025
 
 ---
 
@@ -252,6 +252,41 @@ gh run list --limit 5
 - R Package Caching aktiviert
 - README erstellt
 - Diese CLAUDE.md Datei angelegt
+
+### Session 2 (07. November 2025)
+**Branch:** `claude/read-claude-md-011CUrnBsraRqoGJHHaCHt2j`
+
+**Inhaltliche Verbesserungen:**
+- Neue Folie: Definition Versuchseinheit mit "in der Regel" Nuance
+- Neue Folie: "Was bedeutet 'keine Statistik möglich'?" mit detaillierter Auflistung
+- Neue Folie: Minimalbeispiel n=1 mit Desplot und Wertetabelle
+- Korrektur: "Streng genommen mindestens 2 Wiederholungen" (nicht 2-3)
+- Neue Folie: Vergleich n=1 vs. n=2 mit Desplots
+- Zwei neue ggplot-Visualisierungen:
+  - Plot 1: Nur beobachtete Werte (A=10, B=8) mit Shape 21
+  - Plot 2: Mit 50 simulierten grauen Punkten um μ=9 im Hintergrund
+  - Zeigt: Mit n=1 könnten beide Werte aus gleicher Population stammen
+
+**Strukturelle Änderungen:**
+- Umstrukturierung: Pseudo-Wiederholungen VOR echten Wiederholungen
+- Neue Übergangsfolie: "Warum 'echte' Wiederholungen?"
+- Erweiterte Pseudo-Wiederholungen Sektion mit On-Farm-Beispielen
+- Agenda angepasst: 1. Grundlagen, 2. Pseudo, 3. Echte, 4. Grauzone, 5. METs
+- ggplot-Folien ohne Titel nach "Vergleich n=1 vs. n=2" verschoben
+
+**Technische Verbesserungen:**
+- Globale Farbpalette mit options(ggplot2.discrete.fill/colour)
+- theme_BioMath() Funktion für professionelles ggplot-Styling
+- library(ggtext) hinzugefügt (für theme_BioMath)
+- Alle Feldpläne von ggplot auf desplot umgestellt
+- Faktorstufen reduziert (A,B statt A,B,C wo möglich)
+- Alle Callout-Boxen auf Deutsch übersetzt ("Kernbotschaft" statt "Take-Home Message")
+- Redundante Texte entfernt ("Jeder versteht intuitiv...")
+
+**Workflow-Fixes:**
+- GitHub Actions: ggplot2 library zu allen desplot-Chunks hinzugefügt
+- Branch claude/read-claude-md-011CUrnBsraRqoGJHHaCHt2j zum Workflow hinzugefügt
+- Kompaktere Folien um Überlauf zu vermeiden
 
 ---
 
