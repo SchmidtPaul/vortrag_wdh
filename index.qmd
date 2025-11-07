@@ -855,275 +855,336 @@ desplot(field_pseudo,
         gg = FALSE)
 ```
 
-# TODO ab hier
+## Problem: Nur bei einem Faktor echte Wiederholungen {.smaller}
 
-## Häufiger Sonderfall: Pseudo-Split-Plot
-
-**Typisches Szenario:**
-
-- Zweifaktorieller Versuch: Faktor A × Faktor B
-- Versuch, ein Split-Plot-Design anzulegen
-- **Aber:** Faktor A ist NICHT randomisiert, sondern systematisch angeordnet
-
-## Konkretes Beispiel: Nord vs. Süd {.smaller}
-
-::: {.columns}
+:::: {.columns}
 ::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 2
+
+# Faktor 2 hervorheben (randomisiert)
+desplot(field_pseudo,
+        form = faktor2 ~ col + row,
+        text = label,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
+        cex = 1.2,
+        main = "Faktor 2 (1/2/3)",
+        show.key = FALSE,
+        aspect = 3/6,
+        gg = FALSE)
+```
+
+**Für Faktor 2 (1/2/3):**
+
+- ✅ Echte Wiederholungen pro Stufe
+- ✅ Randomisiert
+- ✅ Statistische Auswertung
+- keine Pseudowiederholungen
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 2
+
+# Faktor 1 hervorheben (systematisch)
+desplot(field_pseudo,
+        form = faktor1 ~ col + row,
+        text = label,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
+        cex = 1.2,
+        main = "Faktor 1 (A/B)",
+        show.key = FALSE,
+        aspect = 3/6,
+        gg = FALSE)
+```
+
+**Für Faktor 1 (A/B):**
+
+- ❌ n=1 Echte Wiederholung pro Stufe
+- ❌ Systematisch (2 Hälften)
+- ❌ Statistische Auswertung
+- je 9 Pseudowiederholungen
+
+:::
+::::
+
+```{r}
+#| include: false
+
+# Lösung 1: Split-Plot Design vorbereiten
+set.seed(42)
+
+field_splitplot <- data.frame(
+  row = rep(1:3, 6),
+  col = rep(1:6, each = 3),
+  block = rep(c("Block 1", "Block 2", "Block 3"), each = 6),
+  faktor1 = rep(c("B", "A", "A", "B", "A", "B"), each = 3)
+)
+
+# Innerhalb jeder Spalte (Main Plot) randomisiere die Sub Plots (1, 2, 3)
+faktor2_randomized <- c()
+for(i in 1:6) {
+  faktor2_randomized <- c(faktor2_randomized, sample(c("1", "2", "3")))
+}
+
+field_splitplot$faktor2 <- faktor2_randomized
+field_splitplot$label <- paste0(field_splitplot$faktor1, field_splitplot$faktor2)
+
+# Lösung 2: Dupliziertes Design mit A/B Tausch vorbereiten
+field_solution2 <- data.frame(
+  col = rep(1:6, each = 6),
+  row = rep(1:6, 6)
+)
+
+field_solution2$faktor1 <- NA
+
+for(i in 1:nrow(field_solution2)) {
+  current_col <- field_solution2$col[i]
+  current_row <- field_solution2$row[i]
+
+  if(current_row <= 3) {
+    if(current_col <= 3) {
+      field_solution2$faktor1[i] <- "A"
+    } else {
+      field_solution2$faktor1[i] <- "B"
+    }
+  } else {
+    if(current_col <= 3) {
+      field_solution2$faktor1[i] <- "B"
+    } else {
+      field_solution2$faktor1[i] <- "A"
+    }
+  }
+}
+
+field_solution2$faktor2 <- rep(field_pseudo$faktor2, 2)
+field_solution2$label <- paste0(field_solution2$faktor1, field_solution2$faktor2)
+```
+
+## Lösung 1 {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**Problemfall:**
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+
+# Problematisches Design zeigen
+desplot(field_pseudo,
+        form = faktor1 ~ col + row,
+        text = label,
+        col = faktor2,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
+        cex = 1.2,
+        main = NULL,
+        show.key = FALSE,
+        aspect = 3/6,
+        gg = FALSE)
+```
+:::
+
+::: {.column width="50%"}
+**Lösungsvorschlag 1:**
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+
+# Split-Plot Design
+desplot(field_splitplot,
+        form = faktor1 ~ col + row,
+        text = label,
+        col = faktor2,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
+        cex = 1.2,
+        main = NULL,
+        show.key = FALSE,
+        aspect = 3/6,
+        gg = FALSE)
+```
+:::
+::::
+
+## Lösung 2 {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**Problemfall:**
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+
+# Problematisches Design zeigen
+desplot(field_pseudo,
+        form = faktor1 ~ col + row,
+        text = label,
+        col = faktor2,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
+        cex = 1.2,
+        main = NULL,
+        show.key = FALSE,
+        aspect = 3/6,
+        gg = FALSE)
+```
+:::
+
+::: {.column width="50%"}
+**Lösungsvorschlag 2:**
 ```{r}
 #| echo: false
 #| fig-width: 5
 #| fig-height: 6
 
-field_split <- data.frame(
-  row = rep(1:8, each = 4),
-  col = rep(1:4, 8),
-  A = rep(c("A1", "A2"), each = 16),
-  B = rep(c("B1", "B2"), 16)
-)
-
-# Hier brauchen wir spezielle Farben (Grün vs. Rot) um das Problem zu visualisieren
-desplot(field_split,
-        form = A ~ col + row,
-        text = B,
-        col.regions = c("A1" = "#00923f", "A2" = "#ad0000"),
+# Dupliziertes Design mit A/B Tausch
+desplot(field_solution2,
+        form = faktor1 ~ col + row,
+        text = label,
+        col = faktor2,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
         cex = 1.2,
-        main = "Problematisches Layout",
+        main = NULL,
         show.key = FALSE,
-        aspect = 8/4,
-        gg = TRUE) +
-  annotate("text", x = 2.5, y = 7, label = "NÖRDLICHE HÄLFTE (A1)",
-           size = 4.5, fontface = "bold", color = "white") +
-  annotate("text", x = 2.5, y = 2, label = "SÜDLICHE HÄLFTE (A2)",
-           size = 4.5, fontface = "bold", color = "white") +
-  theme(text = element_text(family = "Arial"),
-        plot.title = element_text(size = 14, hjust = 0.5, color = "#ad0000", family = "Arial"))
+        aspect = 6/6,
+        gg = FALSE)
+```
+:::
+::::
+
+# 4. Versuchsserien {background-color="#00923f"}
+
+## Mehrere Standorte {.smaller}
+
+**Wiederholen kann man auch über verschiedene Orte:**
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
+
+# Nur obere Hälfte zeigen
+field_upper <- field_solution2[field_solution2$row <= 3, ]
+desplot(field_upper,
+        form = faktor1 ~ col + row,
+        text = label,
+        col = faktor2,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
+        cex = 1.2,
+        main = "Standort 1",
+        show.key = FALSE,
+        aspect = 3/6,
+        gg = FALSE)
 ```
 :::
 
 ::: {.column width="50%"}
-**Was wir sehen:**
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4
 
-- Faktor B (B1, B2) ist randomisiert ✅
-- Faktor A ist systematisch (Nord vs. Süd) ❌
-
-<br>
-
-**Das Problem:**
-
-- Gesamte Nordhälfte = A1
-- Gesamte Südhälfte = A2
-- → **n=1** pro Stufe von Faktor A!
+# Nur untere Hälfte zeigen
+field_lower <- field_solution2[field_solution2$row > 3, ]
+field_lower$row <- field_lower$row - 3  # Zeilen neu nummerieren
+desplot(field_lower,
+        form = faktor1 ~ col + row,
+        text = label,
+        col = faktor2,
+        out1 = col, out1.gpar = list(col = "grey", lty = 1),
+        out2 = row, out2.gpar = list(col = "grey", lty = 1),
+        cex = 1.2,
+        main = "Standort 2",
+        show.key = FALSE,
+        aspect = 3/6,
+        gg = FALSE)
+```
 :::
-:::
-:::
+::::
 
-<br>
+**Das Prinzip bleibt gleich:** Wiederholung auf der Ebene "Standort"
 
-. . .
+## Oder noch simpler: {.smaller}
 
-::: {.callout-important}
-**Systematische räumliche Struktur = Fehlende Unabhängigkeit**
+**Das funktioniert auch mit dem einfachsten Design:**
 
-Das gilt auf **allen Ebenen** des Versuchsdesigns!
-:::
-
-## Kernaussage
-
-::: {.callout-note icon=false}
-## ⭐ Kernbotschaft
-**Vorsicht vor der Grauzone!**
-
-- Systematische Anordnung = versteckte Pseudo-Wiederholung
-- Häufiger Fehler bei On-Farm-Versuchen
-- Große Parzellenzahl ≠ Viele unabhängige Wiederholungen
-
-**Entscheidend ist:**
-
-- NICHT die Anzahl der Parzellen
-- Sondern die **räumliche Unabhängigkeit** der Behandlungen
-:::
-
-# 4. Multi-Environment Trials {background-color="#00923f"}
-
-## Wiederholungen über Standorte
-
-**Szenario:**
-
-- Einzelner Standort: Keine (oder nur wenige) Wiederholungen möglich
-- **Lösung:** Gleiche Behandlungen an mehreren Standorten
-
-. . .
-
-## Warum ist das problematisch? {.smaller}
-
-::: {.incremental}
-1. **Alle A1-Parzellen** liegen in derselben Feldhälfte (Nord)
-2. **Alle A2-Parzellen** liegen in derselben Feldhälfte (Süd)
-3. Jeglicher Nord-Süd-Unterschied (Boden, Wasser, Mikroklima) ist **vollständig konfundiert** mit Faktor A
-4. Wir können **nicht unterscheiden**:
-   - Ist der Effekt aufgrund von Behandlung A?
-   - Oder aufgrund der Lage (Nord vs. Süd)?
-:::
-
-. . .
-
-::: {.callout-warning}
-## Häufiger Trugschluss
-*"Ich habe doch viele Parzellen!"*
-*"Ich habe doch A1×B1 mehrfach auf dem Feld!"*
-
-→ **ABER:** Alle Instanzen von A1 teilen dieselbe räumliche Einheit = keine Unabhängigkeit
-:::
-
-## Analogie zu Pseudo-Wiederholungen
-
-::: {.columns}
+:::: {.columns}
 ::: {.column width="50%"}
-**Pseudo-Wiederholungen:**
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 2.5
 
-- 1 Parzelle
-- Mehrfache Messungen darin
-- = Keine Unabhängigkeit
+# Minimalbeispiel Standort 1: A, B
+site1_minimal <- data.frame(
+  col = c(1, 2),
+  row = c(1, 1),
+  treatment = c("A", "B")
+)
+
+desplot(site1_minimal,
+        form = treatment ~ col + row,
+        text = treatment,
+        cex = 1.5,
+        main = "Standort 1",
+        show.key = FALSE,
+        aspect = 1/2,
+        gg = TRUE)
+```
 :::
 
 ::: {.column width="50%"}
-**Pseudo-Split-Plot:**
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 2.5
 
-- 1 Feldhälfte
-- Mehrfache Parzellen darin
-- = Keine Unabhängigkeit für Faktor A
+# Minimalbeispiel Standort 2: B, A (getauscht)
+site2_minimal <- data.frame(
+  col = c(1, 2),
+  row = c(1, 1),
+  treatment = c("B", "A")
+)
+
+desplot(site2_minimal,
+        form = treatment ~ col + row,
+        text = treatment,
+        cex = 1.5,
+        main = "Standort 2",
+        show.key = FALSE,
+        aspect = 1/2,
+        gg = TRUE)
+```
 :::
-:::
+::::
 
-<br>
+**Pro Standort:** Keine statistische Auswertung möglich ❌
 
-. . .
-
-::: {.callout-important}
-**Systematische räumliche Struktur = Fehlende Unabhängigkeit**
-
-Das gilt auf **allen Ebenen** des Versuchsdesigns!
-:::
-
-## Kernaussage
-
-::: {.callout-note icon=false}
-## ⭐ Kernbotschaft
-**Vorsicht vor der Grauzone!**
-
-- Systematische Anordnung = versteckte Pseudo-Wiederholung
-- Häufiger Fehler bei On-Farm-Versuchen
-- Große Parzellenzahl ≠ Viele unabhängige Wiederholungen
-
-**Entscheidend ist:**
-
-- NICHT die Anzahl der Parzellen
-- Sondern die **räumliche Unabhängigkeit** der Behandlungen
-:::
-
-# 4. Multi-Environment Trials {background-color="#00923f"}
-
-## Wiederholungen über Standorte
-
-**Szenario:**
-
-- Einzelner Standort: Keine (oder nur wenige) Wiederholungen möglich
-- **Lösung:** Gleiche Behandlungen an mehreren Standorten
-
-. . .
-
-::: {.callout-tip}
-## Vorteil
-Erst durch mehrere Standorte wird die Auswertung möglich und robuster!
-
-→ "Standort" wird zu einer weiteren Ebene im Design
-:::
-
-## Statistische Überlegungen {.smaller}
-
-**Wie behandeln wir "Standort" in der Analyse?**
-
-::: {.incremental}
-1. **Als Block (Fixed Effect)?**
-   - Wenn uns die spezifischen Standorte interessieren
-   - Wenn wir Aussagen über einzelne Standorte treffen wollen
-
-2. **Als Random Effect?**
-   - Wenn Standorte eine Stichprobe aus einer größeren Population sind
-   - Wenn wir über die getesteten Standorte hinaus generalisieren wollen
-   - → Häufigerer Ansatz bei Multi-Environment Trials
-:::
-
-. . .
+**Über beide Standorte hinweg:** n=2 für jede Behandlung → Statistische Auswertung möglich ✅ Ein Ort entspricht einem vollständigen Block
 
 ::: {.callout-note}
-## Wichtig zu beachten
-**Genotyp × Environment Interaktion:** Behandlungen können je nach Standort unterschiedlich wirken!
+## Aber
+**Behandlung × Umwelt Interaktion:** Behandlungen können je nach Standort unterschiedlich wirken!
+
+Diese Annahme treffen wir für Blöcke am selben Ort nicht.
 :::
 
-# Zusammenfassung {background-color="#00923f"}
+## TODO
 
-## Kernbotschaften {.smaller}
-
-::: {.incremental}
-1. **Echte Wiederholungen brauchen Randomisation**
-   - Räumlich unabhängig = Statistisch unabhängig
-   - Nicht die Anzahl zählt, sondern die Unabhängigkeit
-
-2. **Messwiederholungen sind keine echten Wiederholungen**
-   - Erhöhen Präzision, aber nicht Unabhängigkeit
-   - Hierarchische Struktur in der Analyse berücksichtigen
-
-3. **Vorsicht vor der Grauzone!**
-   - Systematische Anordnung = Confounding
-   - Häufiger Fehler bei On-Farm-Versuchen
-   - Große Parzellenzahl ≠ Viele unabhängige Wiederholungen
-
-4. **Die Randomisation ist entscheidend**
-   - Auf allen Ebenen des Designs
-   - Räumliche Unabhängigkeit der Behandlungen sicherstellen
-:::
-
-## Offene Fragen für die Diskussion
-
-::: {.incremental}
-- Wie geht man in der Praxis mit halb-systematischen Designs um?
-- Wann sind Kompromisse vertretbar?
-- Wie kommuniziert man diese Konzepte an Landwirte?
-- Welche statistischen Ansätze gibt es für suboptimale Designs?
-- Wie viele Wiederholungen sind "genug"?
-:::
-
-## Vielen Dank! {.center}
-
-<br>
-
-### Fragen & Diskussion
-
-<br>
-
-::: {.callout-tip icon=false}
-## Kontakt
-Dr. Paul Schmidt
-Biostatistiker
-
-Workshop On-Farm-Experimente
-28. November 2024
-:::
-
-<br>
-
-*Präsentation erstellt mit Quarto & Claude Code*
-
-
-## Kernaussage zu Pseudo-Wiederholungen
-
-::: {.callout-note icon=false}
-## ⭐ Kernbotschaft
-**Messwiederholungen sind keine echten Wiederholungen.**
-
-- Sie erhöhen die Präzision der Messung
-- Sie reduzieren Messfehler
-- **Aber:** Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen
-- Bei der Analyse muss die hierarchische Struktur berücksichtigt werden
-:::
+Kernbotschaften / Abschlussfolie
