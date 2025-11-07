@@ -21,11 +21,18 @@
     "text": "Warum brauchen wir überhaupt Wiederholungen?\n\n\n\n\n\n\n\n\n\n\n\n\nErgebnisse:\n\n\n\nBehandlung\nWert\n\n\n\n\nA\n10\n\n\nB\n8\n\n\n\nWas können wir aussagen?\n\nA ist größer als B ✓\nAber: Keine Ahnung über Streuung! ✗\n→ Keine statistische Auswertung möglich\n\n\n\nMit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreibend nebeneinander zu stellen. Wir haben null Information über die Variabilität."
   },
   {
+    "objectID": "index.html#was-bedeutet-keine-statistik-möglich",
+    "href": "index.html#was-bedeutet-keine-statistik-möglich",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Was bedeutet “keine Statistik möglich”?",
+    "text": "Was bedeutet “keine Statistik möglich”?\n\n\n\n\n\n\n\n\n\n\n\nWerte: A = 10, B = 8\n\nWelche statistischen Maße können wir NICHT berechnen?\n\nVarianz ✗\nStandardabweichung ✗\nStandardfehler ✗\nKonfidenzintervalle ✗\nt-Test (oder andere statistische Tests) ✗\n\nSelbst vermeintlich einfache Maße sind problematisch:\n\nMittelwert? → Von einem Wert? Sinnlos.\nMinimum/Maximum? → Gibt nur diesen einen Wert.\n\n\n\n\n\n\n\n\nWarning\n\n\nMit n=1 pro Behandlung: Null Information über die Variabilität innerhalb einer Behandlung!"
+  },
+  {
     "objectID": "index.html#mindestanforderungen-für-auswertbarkeit",
     "href": "index.html#mindestanforderungen-für-auswertbarkeit",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Mindestanforderungen für Auswertbarkeit",
-    "text": "Mindestanforderungen für Auswertbarkeit\n\n\n\n\n\n\nAbsolute Minimum\n\n\nStreng genommen: Mindestens 2 echte Wiederholungen pro Behandlung erforderlich!\n\n\n\nWarum mindestens 2?\n\nMit n=1: Keine Variabilität schätzbar → Keine Statistik möglich\nMit n=2: Gerade so auswertbar, aber sehr schwach\nn=3, 4, 5, …: Besser, stabiler, mehr Power\nIn der Praxis: Oft 3-4 Wiederholungen als Standard\n\nWas ermöglichen echte Wiederholungen?\n\nSchätzung der Variabilität innerhalb einer Behandlung\nStatistische Tests und Konfidenzintervalle\nAussagen über Signifikanz von Unterschieden"
+    "text": "Mindestanforderungen für Auswertbarkeit\n\n\n\n\n\n\nAbsolutes Minimum\n\n\nStreng genommen: Mindestens 2 echte Wiederholungen pro Behandlung erforderlich!\n\n\n\n\nErst ab n=2 sind all diese Maße überhaupt möglich bzw. sinnvoll\nMit steigendem n (3, 4, 5, …) werden die Ergebnisse prinzipiell zuverlässiger und präziser"
   },
   {
     "objectID": "index.html#randomisation-ist-entscheidend",
