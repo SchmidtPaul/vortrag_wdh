@@ -18,7 +18,7 @@
     "href": "index.html#warum-brauchen-wir-überhaupt-wiederholungen",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Warum brauchen wir überhaupt Wiederholungen?",
-    "text": "Warum brauchen wir überhaupt Wiederholungen?\nProblem mit nur einer Beobachtung pro Behandlung:\n\n\n\n\n\n\n\n\n\n\n\n\nErgebnisse:\n\n\n\nBehandlung\nWert\n\n\n\n\nA\n10\n\n\nB\n8\n\n\n\n\nWas können wir aussagen?\n\nA ist größer als B ✓\nAber: Keine Ahnung über Streuung! ✗\n→ Keine statistische Auswertung möglich\n\n\n\nMit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreibend nebeneinander zu stellen. Wir haben null Information über die Variabilität."
+    "text": "Warum brauchen wir überhaupt Wiederholungen?\n\n\n\n\n\n\n\n\n\n\n\n\nErgebnisse:\n\n\n\nBehandlung\nWert\n\n\n\n\nA\n10\n\n\nB\n8\n\n\n\nWas können wir aussagen?\n\nA ist größer als B ✓\nAber: Keine Ahnung über Streuung! ✗\n→ Keine statistische Auswertung möglich\n\n\n\nMit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreibend nebeneinander zu stellen. Wir haben null Information über die Variabilität."
   },
   {
     "objectID": "index.html#mindestanforderungen-für-auswertbarkeit",
