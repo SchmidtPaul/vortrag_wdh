@@ -51,16 +51,14 @@ Die **kleinste Einheit**, der eine Behandlung **unabhängig** zugewiesen werden 
 - In der Regel ist die **Parzelle** unsere Versuchseinheit
 - Manchmal kann es aber auch anders sein (z.B. ganze Felder, Pflanzreihen, etc.)
 
-## Warum brauchen wir überhaupt Wiederholungen?
-
-**Problem mit nur einer Beobachtung pro Behandlung:**
+## Warum brauchen wir überhaupt Wiederholungen? {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
 #| fig-width: 5
-#| fig-height: 3
+#| fig-height: 2.5
 
 library(desplot)
 library(ggplot2)
@@ -82,7 +80,7 @@ desplot(minimal,
         aspect = 1/2,
         gg = TRUE) +
   theme(text = element_text(family = "Arial"),
-        plot.title = element_text(size = 14, hjust = 0.5, family = "Arial"))
+        plot.title = element_text(size = 12, hjust = 0.5, family = "Arial"))
 ```
 :::
 
@@ -93,8 +91,6 @@ desplot(minimal,
 |------------|------|
 | A          | 10   |
 | B          | 8    |
-
-<br>
 
 **Was können wir aussagen?**
 
