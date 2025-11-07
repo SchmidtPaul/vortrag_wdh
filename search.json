@@ -28,6 +28,20 @@
     "text": "Was bedeutet “keine Statistik möglich”?\n\n\n\n\n\n\n\n\n\n\n\nWerte: A = 10, B = 8\n\nWelche statistischen Maße sind NICHT möglich?\n\nVarianz ✗\nStandardabweichung ✗\nStandardfehler ✗\nKonfidenzintervalle ✗\nt-Test (oder andere Tests) ✗\nMittelwert, Minimum, Maximum? → Sinnlos bei nur einem Wert\n\n\n\n\n\n\n\nWarning\n\n\nNull Information über Variabilität!"
   },
   {
+    "objectID": "index.html#das-problem-mit-n1-nur-zwei-datenpunkte",
+    "href": "index.html#das-problem-mit-n1-nur-zwei-datenpunkte",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Das Problem mit n=1: Nur zwei Datenpunkte",
+    "text": "Das Problem mit n=1: Nur zwei Datenpunkte"
+  },
+  {
+    "objectID": "index.html#was-wir-nicht-sehen-die-mögliche-population",
+    "href": "index.html#was-wir-nicht-sehen-die-mögliche-population",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Was wir nicht sehen: Die mögliche Population",
+    "text": "Was wir nicht sehen: Die mögliche Population\n\n\nKernproblem: Mit nur n=1 könnten beide Werte zufällig aus derselben Population stammen!"
+  },
+  {
     "objectID": "index.html#mindestanforderungen-für-auswertbarkeit",
     "href": "index.html#mindestanforderungen-für-auswertbarkeit",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
