@@ -140,94 +140,45 @@
     "text": "Typisches Szenario\n\nZweifaktorieller Versuch\n\nFaktor 1\n\n2 Stufen: A, B\n\nFaktor 2\n\n3 Stufen: 1, 2, 3\n\n\nEs gibt demnach 6 Kombinationen (A1, A2, A3, B1, B2, B3)\nMindestanforderung: 2 echte Wiederholungen, also 12 Parzellen\nTatsächlich: Ein Faktor schwer zu randomisieren, also Spaltanlage (Split-Plot)"
   },
   {
-    "objectID": "index.html#häufiger-sonderfall-pseudo-split-plot",
-    "href": "index.html#häufiger-sonderfall-pseudo-split-plot",
+    "objectID": "index.html#problem-nur-bei-einem-faktor-echte-wiederholungen",
+    "href": "index.html#problem-nur-bei-einem-faktor-echte-wiederholungen",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Häufiger Sonderfall: Pseudo-Split-Plot",
-    "text": "Häufiger Sonderfall: Pseudo-Split-Plot\nTypisches Szenario:\n\nZweifaktorieller Versuch: Faktor A × Faktor B\nVersuch, ein Split-Plot-Design anzulegen\nAber: Faktor A ist NICHT randomisiert, sondern systematisch angeordnet"
+    "section": "Problem: Nur bei einem Faktor echte Wiederholungen",
+    "text": "Problem: Nur bei einem Faktor echte Wiederholungen\n\n\n\n\n\n\n\n\n\n\n\nFür Faktor 2 (1/2/3):\n\n✅ Echte Wiederholungen pro Stufe\n✅ Randomisiert\n✅ Statistische Auswertung\nkeine Pseudowiederholungen\n\n\n\n\n\n\n\n\n\n\n\nFür Faktor 1 (A/B):\n\n❌ n=1 Echte Wiederholung pro Stufe\n❌ Systematisch (2 Hälften)\n❌ Statistische Auswertung\nje 9 Pseudowiederholungen"
   },
   {
-    "objectID": "index.html#konkretes-beispiel-nord-vs.-süd",
-    "href": "index.html#konkretes-beispiel-nord-vs.-süd",
+    "objectID": "index.html#lösung-1",
+    "href": "index.html#lösung-1",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Konkretes Beispiel: Nord vs. Süd",
-    "text": "Konkretes Beispiel: Nord vs. Süd\n\n\n\n\n\n\n\n\n\n\n\n\nWas wir sehen:\n\nFaktor B (B1, B2) ist randomisiert ✅\nFaktor A ist systematisch (Nord vs. Süd) ❌\n\n\nDas Problem:\n\nGesamte Nordhälfte = A1\nGesamte Südhälfte = A2\n→ n=1 pro Stufe von Faktor A!\n\n\n:::\n\n\n\n\n\n\n\n\nImportant\n\n\nSystematische räumliche Struktur = Fehlende Unabhängigkeit\nDas gilt auf allen Ebenen des Versuchsdesigns!"
+    "section": "Lösung 1",
+    "text": "Lösung 1\n\n\nProblemfall:\n\n\n\n\n\n\n\n\n\n\nLösungsvorschlag 1:"
   },
   {
-    "objectID": "index.html#kernaussage",
-    "href": "index.html#kernaussage",
+    "objectID": "index.html#lösung-2",
+    "href": "index.html#lösung-2",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Kernaussage",
-    "text": "Kernaussage\n\n\n\n⭐ Kernbotschaft\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
+    "section": "Lösung 2",
+    "text": "Lösung 2\n\n\nProblemfall:\n\n\n\n\n\n\n\n\n\n\nLösungsvorschlag 2:"
   },
   {
-    "objectID": "index.html#wiederholungen-über-standorte",
-    "href": "index.html#wiederholungen-über-standorte",
+    "objectID": "index.html#mehrere-standorte",
+    "href": "index.html#mehrere-standorte",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Wiederholungen über Standorte",
-    "text": "Wiederholungen über Standorte\nSzenario:\n\nEinzelner Standort: Keine (oder nur wenige) Wiederholungen möglich\nLösung: Gleiche Behandlungen an mehreren Standorten"
+    "section": "Mehrere Standorte",
+    "text": "Mehrere Standorte\nWiederholen kann man auch über verschiedene Orte:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDas Prinzip bleibt gleich: Wiederholung auf der Ebene “Standort”"
   },
   {
-    "objectID": "index.html#warum-ist-das-problematisch",
-    "href": "index.html#warum-ist-das-problematisch",
+    "objectID": "index.html#oder-noch-simpler",
+    "href": "index.html#oder-noch-simpler",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Warum ist das problematisch?",
-    "text": "Warum ist das problematisch?\n\nAlle A1-Parzellen liegen in derselben Feldhälfte (Nord)\nAlle A2-Parzellen liegen in derselben Feldhälfte (Süd)\nJeglicher Nord-Süd-Unterschied (Boden, Wasser, Mikroklima) ist vollständig konfundiert mit Faktor A\nWir können nicht unterscheiden:\n\nIst der Effekt aufgrund von Behandlung A?\nOder aufgrund der Lage (Nord vs. Süd)?\n\n\n\n\n\n\n\n\n\nHäufiger Trugschluss\n\n\n“Ich habe doch viele Parzellen!” “Ich habe doch A1×B1 mehrfach auf dem Feld!”\n→ ABER: Alle Instanzen von A1 teilen dieselbe räumliche Einheit = keine Unabhängigkeit"
+    "section": "Oder noch simpler:",
+    "text": "Oder noch simpler:\nDas funktioniert auch mit dem einfachsten Design:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPro Standort: Keine statistische Auswertung möglich ❌\nÜber beide Standorte hinweg: n=2 für jede Behandlung → Statistische Auswertung möglich ✅ Ein Ort entspricht einem vollständigen Block\n\n\n\n\n\n\nAber\n\n\nBehandlung × Umwelt Interaktion: Behandlungen können je nach Standort unterschiedlich wirken!\nDiese Annahme treffen wir für Blöcke am selben Ort nicht."
   },
   {
-    "objectID": "index.html#analogie-zu-pseudo-wiederholungen",
-    "href": "index.html#analogie-zu-pseudo-wiederholungen",
+    "objectID": "index.html#todo",
+    "href": "index.html#todo",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Analogie zu Pseudo-Wiederholungen",
-    "text": "Analogie zu Pseudo-Wiederholungen\n\n\nPseudo-Wiederholungen:\n\n1 Parzelle\nMehrfache Messungen darin\n= Keine Unabhängigkeit\n\n\nPseudo-Split-Plot:\n\n1 Feldhälfte\nMehrfache Parzellen darin\n= Keine Unabhängigkeit für Faktor A\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nSystematische räumliche Struktur = Fehlende Unabhängigkeit\nDas gilt auf allen Ebenen des Versuchsdesigns!"
-  },
-  {
-    "objectID": "index.html#kernaussage-1",
-    "href": "index.html#kernaussage-1",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Kernaussage",
-    "text": "Kernaussage\n\n\n\n⭐ Kernbotschaft\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
-  },
-  {
-    "objectID": "index.html#wiederholungen-über-standorte-1",
-    "href": "index.html#wiederholungen-über-standorte-1",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Wiederholungen über Standorte",
-    "text": "Wiederholungen über Standorte\nSzenario:\n\nEinzelner Standort: Keine (oder nur wenige) Wiederholungen möglich\nLösung: Gleiche Behandlungen an mehreren Standorten\n\n\n\n\n\n\n\n\nVorteil\n\n\nErst durch mehrere Standorte wird die Auswertung möglich und robuster!\n→ “Standort” wird zu einer weiteren Ebene im Design"
-  },
-  {
-    "objectID": "index.html#statistische-überlegungen",
-    "href": "index.html#statistische-überlegungen",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Statistische Überlegungen",
-    "text": "Statistische Überlegungen\nWie behandeln wir “Standort” in der Analyse?\n\nAls Block (Fixed Effect)?\n\nWenn uns die spezifischen Standorte interessieren\nWenn wir Aussagen über einzelne Standorte treffen wollen\n\nAls Random Effect?\n\nWenn Standorte eine Stichprobe aus einer größeren Population sind\nWenn wir über die getesteten Standorte hinaus generalisieren wollen\n→ Häufigerer Ansatz bei Multi-Environment Trials\n\n\n\n\n\n\n\n\n\nWichtig zu beachten\n\n\nGenotyp × Environment Interaktion: Behandlungen können je nach Standort unterschiedlich wirken!"
-  },
-  {
-    "objectID": "index.html#kernbotschaften",
-    "href": "index.html#kernbotschaften",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Kernbotschaften",
-    "text": "Kernbotschaften\n\nEchte Wiederholungen brauchen Randomisation\n\nRäumlich unabhängig = Statistisch unabhängig\nNicht die Anzahl zählt, sondern die Unabhängigkeit\n\nMesswiederholungen sind keine echten Wiederholungen\n\nErhöhen Präzision, aber nicht Unabhängigkeit\nHierarchische Struktur in der Analyse berücksichtigen\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = Confounding\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nDie Randomisation ist entscheidend\n\nAuf allen Ebenen des Designs\nRäumliche Unabhängigkeit der Behandlungen sicherstellen"
-  },
-  {
-    "objectID": "index.html#offene-fragen-für-die-diskussion",
-    "href": "index.html#offene-fragen-für-die-diskussion",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Offene Fragen für die Diskussion",
-    "text": "Offene Fragen für die Diskussion\n\nWie geht man in der Praxis mit halb-systematischen Designs um?\nWann sind Kompromisse vertretbar?\nWie kommuniziert man diese Konzepte an Landwirte?\nWelche statistischen Ansätze gibt es für suboptimale Designs?\nWie viele Wiederholungen sind “genug”?"
-  },
-  {
-    "objectID": "index.html#vielen-dank",
-    "href": "index.html#vielen-dank",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Vielen Dank!",
-    "text": "Vielen Dank!\n\nFragen & Diskussion\n\n\n\n\nKontakt\n\n\nDr. Paul Schmidt Biostatistiker\nWorkshop On-Farm-Experimente 28. November 2024\n\n\n\n\nPräsentation erstellt mit Quarto & Claude Code"
-  },
-  {
-    "objectID": "index.html#kernaussage-zu-pseudo-wiederholungen",
-    "href": "index.html#kernaussage-zu-pseudo-wiederholungen",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Kernaussage zu Pseudo-Wiederholungen",
-    "text": "Kernaussage zu Pseudo-Wiederholungen\n\n\n\n⭐ Kernbotschaft\n\n\nMesswiederholungen sind keine echten Wiederholungen.\n\nSie erhöhen die Präzision der Messung\nSie reduzieren Messfehler\nAber: Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen\nBei der Analyse muss die hierarchische Struktur berücksichtigt werden"
+    "section": "TODO",
+    "text": "TODO\nKernbotschaften / Abschlussfolie"
   }
 ]
