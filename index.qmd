@@ -146,25 +146,19 @@ desplot(minimal,
 :::
 
 ::: {.column width="60%"}
-**Welche statistischen Maße können wir NICHT berechnen?**
+**Welche statistischen Maße sind NICHT möglich?**
 
 ::: {.incremental}
 - **Varianz** ✗
 - **Standardabweichung** ✗
 - **Standardfehler** ✗
 - **Konfidenzintervalle** ✗
-- **t-Test** (oder andere statistische Tests) ✗
-
-**Selbst vermeintlich einfache Maße sind problematisch:**
-
-- Mittelwert? → Von einem Wert? Sinnlos.
-- Minimum/Maximum? → Gibt nur diesen einen Wert.
-:::
-
-<br>
+- **t-Test** (oder andere Tests) ✗
+- Mittelwert, Minimum, Maximum? → Sinnlos bei nur einem Wert
 
 ::: {.callout-warning}
-**Mit n=1 pro Behandlung:** Null Information über die Variabilität innerhalb einer Behandlung!
+Null Information über Variabilität!
+:::
 :::
 :::
 ::::
@@ -180,6 +174,66 @@ desplot(minimal,
 - Erst ab **n=2** sind all diese Maße überhaupt möglich bzw. sinnvoll
 - Mit steigendem n (3, 4, 5, ...) werden die Ergebnisse prinzipiell zuverlässiger und präziser
 :::
+
+## Vergleich: n=1 vs. n=2 {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 2
+
+# n=1: Eine Zeile mit A und B
+minimal_n1 <- data.frame(
+  col = c(1, 2),
+  row = c(1, 1),
+  treatment = c("A", "B")
+)
+
+desplot(minimal_n1,
+        form = treatment ~ col + row,
+        text = treatment,
+        cex = 1.5,
+        main = "Versuch mit n=1",
+        show.key = FALSE,
+        aspect = 1/2,
+        gg = TRUE) +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 12, hjust = 0.5, family = "Arial"))
+```
+
+**Werte:** A = 10, B = 8
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 3
+
+# n=2: Zwei Zeilen, randomisiert (A,B dann B,A)
+minimal_n2 <- data.frame(
+  col = c(1, 2, 1, 2),
+  row = c(1, 1, 2, 2),
+  treatment = c("A", "B", "B", "A")
+)
+
+desplot(minimal_n2,
+        form = treatment ~ col + row,
+        text = treatment,
+        cex = 1.5,
+        main = "Versuch mit n=2",
+        show.key = FALSE,
+        aspect = 2/2,
+        gg = TRUE) +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 12, hjust = 0.5, family = "Arial"))
+```
+
+**Werte:** A = 10, 11; B = 7, 8
+:::
+::::
 
 ## Warum "echte" Wiederholungen?
 
