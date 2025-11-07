@@ -20,10 +20,179 @@ format:
 
 library(ggplot2)
 library(desplot)
+library(ggtext)
 
 # Setze globale Farbpalette für alle ggplot2/desplot Grafiken
 options(ggplot2.discrete.fill = c("#00923f", "#bce2cc", "#4758ab", "#ad0000", "#cba135"))
 options(ggplot2.discrete.colour = c("#00923f", "#bce2cc", "#4758ab", "#ad0000", "#cba135"))
+
+# BioMath Theme Definition
+theme_BioMath <- function(base_size = 11,
+                          base_family = "",
+                          base_color = "#001509",
+                          axis_title_bold = FALSE,
+                          axis_title_just = "rt",
+                          ticks = FALSE,
+                          grid_x = FALSE,
+                          grid_y = FALSE,
+                          grid_color = "#C0BCB5",
+                          grid_linetype = "dotted",
+                          facette_distance = 1,
+                          facette_box = FALSE,
+                          facette_box_color = "#C0BCB5",
+                          title_size = 14,
+                          subtitle_size = 10,
+                          axistext_size = 10,
+                          ggtext_axis = TRUE,
+                          whitebg = TRUE,
+                          ...) {
+
+  tBM <- ggplot2::theme_minimal(base_family = base_family, base_size = base_size, ...)
+  tBM <- tBM + theme(legend.background = element_blank())
+  tBM <- tBM + theme(legend.key = element_blank())
+  tBM <- tBM + theme(panel.grid=element_blank())
+
+  if (grid_x) {
+    tBM <- tBM +
+      theme(panel.grid.major.x = element_line(
+        linewidth = 0.2,
+        color = grid_color,
+        linetype = grid_linetype
+      ))
+  }
+
+  if (grid_y) {
+    tBM <- tBM +
+      theme(panel.grid.major.y = element_line(
+        linewidth = 0.2,
+        color = grid_color,
+        linetype = grid_linetype
+      ))
+  }
+
+  if (facette_box) {
+    tBM <- tBM +
+      theme(
+        panel.border = element_rect(fill = NA, colour = facette_box_color),
+        strip.background = element_rect(fill = NA, colour = NA),
+        strip.text.x = ggtext::element_textbox(size = base_size, color = facette_box_color),
+        strip.text.y = ggtext::element_textbox(size = base_size, color = facette_box_color),
+      )
+  }
+
+  tBM <- tBM +
+    theme(
+      panel.spacing = unit(facette_distance, "lines"),
+      plot.margin = margin(3,3,3,3)
+    )
+
+  tBM <- tBM +
+    theme(
+      strip.text.x = ggtext::element_textbox(
+        hjust = 0,
+        size = base_size,
+        color = facette_box_color
+      ),
+      strip.text.y = ggtext::element_textbox(
+        hjust = 0,
+        size = base_size,
+        color = facette_box_color,
+        orientation = "right-rotated"
+      ),
+      panel.border = element_rect(fill = NA, colour = NA),
+      strip.background = element_rect(fill = NA, colour = NA)
+    )
+
+  if (facette_box) {
+    tBM <- tBM +
+      theme(panel.border = element_rect(fill = NA, colour = facette_box_color))
+  }
+
+  tBM <- tBM + theme(axis.line=element_line(color=base_color, linewidth=0.15))
+
+  if (ticks) {
+    tBM <- tBM + theme(axis.ticks = element_line(linewidth=0.15))
+    tBM <- tBM + theme(axis.ticks.x = element_line(linewidth=0.15))
+    tBM <- tBM + theme(axis.ticks.y = element_line(linewidth=0.15))
+    tBM <- tBM + theme(axis.ticks.length = grid::unit(3, "pt"))
+  }
+
+  xj <- switch(tolower(substr(axis_title_just, 1, 1)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
+  yj <- switch(tolower(substr(axis_title_just, 2, 2)), b=0, l=0, m=0.5, c=0.5, r=1, t=1)
+
+  tBM <- tBM +
+    theme(
+      axis.title.x = ggtext::element_markdown(hjust=xj, size = base_size, color = base_color),
+      axis.title.y = ggtext::element_markdown(hjust=yj, size = base_size, color = base_color)
+    )
+
+  if(ggtext_axis){
+    tBM <- tBM +
+      theme(
+        axis.text.x = ggtext::element_markdown(
+          size = axistext_size,
+          color = base_color,
+          margin = margin(t = 1)
+        ),
+        axis.text.y = ggtext::element_markdown(
+          size = axistext_size,
+          color = base_color,
+          margin = margin(r = 1)
+        )
+      )
+  } else {
+    tBM <- tBM +
+      theme(
+        axis.text.x = element_text(
+          size = axistext_size,
+          color = base_color,
+          margin = margin(t = 1)
+        ),
+        axis.text.y = element_text(
+          size = axistext_size,
+          color = base_color,
+          margin = margin(r = 1)
+        )
+      )
+  }
+
+  tBM <- tBM +
+    theme(
+      plot.title.position = "plot",
+      plot.title = ggtext::element_textbox_simple(
+        size = title_size,
+        hjust = 0,
+        color = base_color,
+        margin = margin(b = 9)
+      )
+    )
+
+  tBM <- tBM + theme(
+    plot.subtitle = ggtext::element_textbox_simple(
+      size = subtitle_size,
+      face = "italic",
+      hjust = 0,
+      color = base_color,
+      margin = margin(-6, 0, 9, 0)
+    )
+  )
+
+  tBM <- tBM + theme(
+    plot.caption.position = "plot",
+    plot.caption = ggtext::element_textbox_simple(
+      hjust = 1, halign = 1,
+      color = "#C0BCB5",
+      size = axistext_size,
+      margin = margin(10, 0, 6, 0)
+    )
+  )
+
+  if (whitebg) {
+    tBM <- tBM + theme(plot.background = element_rect(fill = "white", colour = NA))
+  }
+
+  return(tBM)
+}
 ```
 
 ## Agenda {.smaller}
@@ -162,6 +331,73 @@ Null Information über Variabilität!
 :::
 :::
 ::::
+
+## Das Problem mit n=1: Nur zwei Datenpunkte
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+
+data_observed <- data.frame(
+  Behandlung = c("A", "B"),
+  Ertrag = c(10, 8),
+  Farbe = c("#00923f", "#bce2cc")
+)
+
+ggplot(data_observed, aes(x = Behandlung, y = Ertrag)) +
+  geom_point(aes(fill = Farbe), size = 4, shape = 21, color = "black", stroke = 1) +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(0, 13), breaks = seq(0, 13, 2)) +
+  labs(title = "Beobachtete Werte (n=1 pro Behandlung)",
+       x = "Behandlung",
+       y = "Ertrag [dt/ha]") +
+  theme_BioMath(base_family = "Arial")
+```
+
+## Was wir nicht sehen: Die mögliche Population
+
+```{r}
+#| echo: false
+#| fig-width: 8
+#| fig-height: 5
+
+set.seed(123)
+
+# Simulierte Daten: Beide Behandlungen kommen aus Population mit Mittelwert 9
+data_simulated <- data.frame(
+  Behandlung = rep(c("A", "B"), each = 50),
+  Ertrag = c(rnorm(50, mean = 9, sd = 1.5),
+             rnorm(50, mean = 9, sd = 1.5))
+)
+
+# Beobachtete Daten (wie vorher)
+data_observed <- data.frame(
+  Behandlung = c("A", "B"),
+  Ertrag = c(10, 8),
+  Farbe = c("#00923f", "#bce2cc")
+)
+
+ggplot() +
+  geom_point(data = data_simulated,
+             aes(x = Behandlung, y = Ertrag),
+             color = "gray70", alpha = 0.5, size = 2,
+             position = position_jitter(width = 0.1, height = 0)) +
+  geom_point(data = data_observed,
+             aes(x = Behandlung, y = Ertrag, fill = Farbe),
+             size = 4, shape = 21, color = "black", stroke = 1) +
+  scale_fill_identity() +
+  scale_y_continuous(limits = c(0, 13), breaks = seq(0, 13, 2)) +
+  labs(title = "Was wir nicht wissen: Mögliche Population",
+       subtitle = "Graue Punkte: Simulierte Werte aus Population mit gleichem Mittelwert (μ=9)",
+       x = "Behandlung",
+       y = "Ertrag [dt/ha]") +
+  theme_BioMath(base_family = "Arial")
+```
+
+::: {.fragment}
+**Kernproblem:** Mit nur n=1 könnten beide Werte zufällig aus derselben Population stammen!
+:::
 
 ## Mindestanforderungen für Auswertbarkeit
 
