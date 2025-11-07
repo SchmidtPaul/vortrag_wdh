@@ -147,8 +147,9 @@ Dr.&nbsp;Paul Schmidt
 <section id="agenda" class="slide level2 smaller">
 <h2>Agenda</h2>
 <ol type="1">
-<li class="fragment"><p><strong>Echte/Unabhängige Wiederholungen</strong> <em>Randomisation als Grundprinzip</em></p></li>
+<li class="fragment"><p><strong>Grundlagen: Warum Wiederholungen?</strong> <em>Versuchseinheit und Mindestanforderungen</em></p></li>
 <li class="fragment"><p><strong>Pseudo-Wiederholungen</strong> <em>Messwiederholungen innerhalb einer Versuchseinheit</em></p></li>
+<li class="fragment"><p><strong>Echte Wiederholungen</strong> <em>Randomisation als Grundprinzip</em></p></li>
 <li class="fragment"><p><strong>Die Grauzone</strong> <em>Confounding durch unvollständige Randomisation</em></p></li>
 <li class="fragment"><p><strong>Multi-Environment Trials</strong> <em>Wiederholungen über Standorte hinweg</em></p></li>
 <li class="fragment"><p><strong>Kernbotschaften &amp; Diskussion</strong></p></li>
@@ -168,8 +169,8 @@ Dr.&nbsp;Paul Schmidt
       }</style></aside>
 </section>
 <section>
-<section id="echteunabhängige-wiederholungen" class="title-slide slide level1 center" data-background-color="#495057">
-<h1>1. Echte/Unabhängige Wiederholungen</h1>
+<section id="grundlagen" class="title-slide slide level1 center" data-background-color="#495057">
+<h1>1. Grundlagen</h1>
 
 </section>
 <section id="was-ist-eine-versuchseinheit" class="slide level2 smaller">
@@ -311,6 +312,160 @@ Dr.&nbsp;Paul Schmidt
 <li class="fragment">Mit steigendem n (3, 4, 5, …) werden die Ergebnisse prinzipiell zuverlässiger und präziser</li>
 </ul>
 </section>
+<section id="warum-echte-wiederholungen" class="slide level2">
+<h2>Warum “echte” Wiederholungen?</h2>
+<p>Wir haben bis jetzt gesagt:</p>
+<ul>
+<li>n=1 pro Behandlung: <strong>Keine Statistik möglich</strong></li>
+<li>n≥2 pro Behandlung: <strong>Statistik möglich</strong></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Aber Achtung!</strong></p>
+</div>
+<div class="callout-content">
+<p>Mehrere Werte zu haben, heißt nicht automatisch mehrere <strong>echte Wiederholungen</strong> zu haben!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>→ Was macht den Unterschied zwischen <strong>echten</strong> und <strong>unechten</strong> Wiederholungen?</p>
+</div>
+</section></section>
+<section>
+<section id="pseudo-wiederholungen" class="title-slide slide level1 center" data-background-color="#495057">
+<h1>2. Pseudo-Wiederholungen</h1>
+
+</section>
+<section id="was-sind-pseudo-wiederholungen" class="slide level2">
+<h2>Was sind Pseudo-Wiederholungen?</h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Pseudo-Wiederholungen (Messwiederholungen)</strong></p>
+</div>
+<div class="callout-content">
+<p>Mehrfache Messungen <strong>innerhalb derselben Versuchseinheit</strong> (z.B. Parzelle)</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><strong>Das Problem:</strong></p>
+<p>Messungen innerhalb derselben Parzelle sind <strong>nicht unabhängig</strong> voneinander!</p>
+</section>
+<section id="beispiel-10-messungen-n10" class="slide level2 smaller">
+<h2>Beispiel: 10 Messungen ≠ n=10</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p><strong>Szenario:</strong></p>
+<p>Wir gehen in dieses Feld und messen in jeder Parzelle <strong>10× die Pflanzenhöhe</strong> (mit Meterstab an verschiedenen Stellen).</p>
+<p><strong>Ergebnis:</strong></p>
+<ul>
+<li>✓ 20 Messwerte insgesamt</li>
+<li>✗ <strong>NICHT</strong> n=10 pro Behandlung!</li>
+<li>✓ Immer noch nur <strong>n=1</strong> pro Behandlung</li>
+</ul>
+<p>. . .</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Mehrfach dieselbe Parzelle beproben ≠ Mehrere Parzellen haben!</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="intuitive-analogie" class="slide level2">
+<h2>Intuitive Analogie</h2>
+<p><strong>3 Blutabnahmen bei 3 verschiedenen Menschen:</strong></p>
+<p>→ ✓ <strong>3 unabhängige Wiederholungen</strong></p>
+<p><br></p>
+<p><strong>3 Blutabnahmen bei 1 Person (an 3 Stellen):</strong></p>
+<p>→ ✗ <strong>Nur 1 unabhängige Einheit</strong> (Person)</p>
+<p><br></p>
+<div class="fragment">
+<p><strong>Jeder versteht intuitiv: Das ist nicht dasselbe!</strong></p>
+</div>
+</section>
+<section id="besonders-relevant-bei-on-farm-versuchen" class="slide level2 smaller">
+<h2>Besonders relevant bei On-Farm-Versuchen</h2>
+<p><strong>Moderne Sensortechnik ermöglicht viele Messungen:</strong></p>
+<ul>
+<li class="fragment"><strong>Drohnen</strong> mit Multispektralkameras: Tausende Pixel pro Parzelle</li>
+<li class="fragment"><strong>Mähdrescher-Sensoren</strong>: Ertragsmessung alle paar Meter</li>
+<li class="fragment"><strong>Bodensensoren</strong>: Kontinuierliche Messungen an festen Punkten</li>
+<li class="fragment"><strong>GPS-basierte Probenahme</strong>: Viele Messpunkte pro Großparzelle</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Häufiger Trugschluss</strong></p>
+</div>
+<div class="callout-content">
+<p><em>“Ich habe 1000 Messpunkte!”</em></p>
+<p>→ <strong>ABER:</strong> Wenn alle in derselben räumlichen Einheit liegen = begrenzte statistische Unabhängigkeit</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="kernaussage-zu-pseudo-wiederholungen" class="slide level2">
+<h2>Kernaussage zu Pseudo-Wiederholungen</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>⭐ Take-Home Message</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Messwiederholungen sind keine echten Wiederholungen.</strong></p>
+<ul>
+<li>Sie erhöhen die Präzision der Messung</li>
+<li>Sie reduzieren Messfehler</li>
+<li><strong>Aber:</strong> Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen</li>
+<li>Bei der Analyse muss die hierarchische Struktur berücksichtigt werden</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="echteunabhängige-wiederholungen" class="title-slide slide level1 center" data-background-color="#495057">
+<h1>Echte/Unabhängige Wiederholungen</h1>
+
+</section>
+<section id="was-macht-eine-echte-wiederholung-aus" class="slide level2">
+<h2>Was macht eine echte Wiederholung aus?</h2>
+<p>Nachdem wir nun verstanden haben, was <strong>Pseudo-Wiederholungen</strong> sind, schauen wir uns an, was eine <strong>echte Wiederholung</strong> ausmacht.</p>
+</section>
 <section id="randomisation-ist-entscheidend" class="slide level2 smaller">
 <h2>Randomisation ist entscheidend!</h2>
 <ul>
@@ -328,14 +483,14 @@ Dr.&nbsp;Paul Schmidt
 <section id="visualisierung-gutes-design" class="slide level2">
 <h2>Visualisierung: Gutes Design</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="fragment">
 <p>✓ Räumlich unabhängig = Statistisch unabhängig</p>
 </div>
 </section>
 <section id="visualisierung-schlechtes-design" class="slide level2">
 <h2>Visualisierung: Schlechtes Design</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><div class="fragment">
+<img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><div class="fragment">
 <p>✗ Systematische Anordnung = Confounding mit räumlichen Effekten</p>
 </div>
 </section>
@@ -353,126 +508,6 @@ Dr.&nbsp;Paul Schmidt
 <li>✓ Randomisation</li>
 <li>✓ Räumliche Unabhängigkeit</li>
 <li>✓ Statistische Unabhängigkeit</li>
-</ul>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="pseudo-wiederholungen" class="title-slide slide level1 center" data-background-color="#495057">
-<h1>2. Pseudo-Wiederholungen</h1>
-
-</section>
-<section id="definition" class="slide level2">
-<h2>Definition</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Pseudo-Wiederholungen (Messwiederholungen)</strong></p>
-</div>
-<div class="callout-content">
-<p>Mehrfache Messungen <strong>innerhalb derselben Versuchseinheit</strong> (Parzelle)</p>
-</div>
-</div>
-</div>
-<p><br></p>
-<div class="fragment">
-<p><strong>Das Problem:</strong></p>
-<p>→ Messungen innerhalb derselben Parzelle sind <strong>nicht unabhängig</strong> voneinander</p>
-</div>
-</section>
-<section id="beispiel-1-einfache-messung" class="slide level2 smaller">
-<h2>Beispiel 1: Einfache Messung</h2>
-<p><strong>Szenario:</strong></p>
-<ul>
-<li>10 Parzellen auf dem Feld</li>
-<li>3 Messungen der Pflanzenhöhe pro Parzelle (mit Meterstab an 3 Stellen)</li>
-</ul>
-<div class="fragment">
-<p><strong>Ergebnis:</strong></p>
-<ul>
-<li>✓ 30 Messwerte</li>
-<li>✗ Aber <strong>NICHT</strong> 30 unabhängige Wiederholungen!</li>
-<li>✓ Sondern nur <strong>10 unabhängige Wiederholungen</strong> (Parzellen)</li>
-</ul>
-</div>
-<div class="fragment">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>Die 3 Messungen pro Parzelle teilen sich dieselbe Umwelt, denselben Boden, dieselbe Bewirtschaftung → <strong>keine Unabhängigkeit</strong></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="beispiel-2-moderne-sensortechnik" class="slide level2 smaller">
-<h2>Beispiel 2: Moderne Sensortechnik</h2>
-<p><strong>Szenario:</strong></p>
-<ul>
-<li>Traktor mit GPS-basierter Sensortechnik</li>
-<li>Viele Messpunkte pro Meter innerhalb einer Parzelle</li>
-<li>Koordinaten-basierte Datenerfassung (z.B. Ertragskartierung)</li>
-</ul>
-<div class="fragment">
-<p><strong>Ergebnis:</strong></p>
-<ul>
-<li>✓ Sehr hohe Datenmenge (Hunderte/Tausende Messpunkte)</li>
-<li>✗ Aber begrenzte <strong>statistische Unabhängigkeit</strong></li>
-<li>Die Parzelle bleibt die Versuchseinheit!</li>
-</ul>
-</div>
-<div class="fragment">
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>In der Praxis</strong></p>
-</div>
-<div class="callout-content">
-<p>Diese Daten sind wertvoll für räumliche Analysen und Präzision, aber man muss die Hierarchie der Daten bei der Auswertung berücksichtigen.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="intuitive-analogie" class="slide level2">
-<h2>Intuitive Analogie</h2>
-<p><strong>3 Blutabnahmen bei 3 verschiedenen Menschen:</strong></p>
-<p>→ ✓ <strong>3 unabhängige Wiederholungen</strong></p>
-<p><br></p>
-<p><strong>3 Blutabnahmen bei 1 Person (an 3 Stellen):</strong></p>
-<p>→ ✗ <strong>Nur 1 unabhängige Einheit</strong> (Person)</p>
-<p><br></p>
-<div class="fragment">
-<p><strong>Jeder versteht intuitiv: Das ist nicht dasselbe!</strong></p>
-</div>
-</section>
-<section id="kernaussage-1" class="slide level2">
-<h2>Kernaussage</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>⭐ Take-Home Message</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Messwiederholungen sind keine echten Wiederholungen.</strong></p>
-<ul>
-<li>Sie erhöhen die Präzision der Messung</li>
-<li>Sie reduzieren Messfehler</li>
-<li><strong>Aber:</strong> Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen</li>
-<li>Bei der Analyse muss die hierarchische Struktur berücksichtigt werden</li>
 </ul>
 </div>
 </div>
@@ -514,7 +549,7 @@ Dr.&nbsp;Paul Schmidt
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -552,7 +587,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </div>
 </section>
-<section id="kernaussage-2" class="slide level2">
+<section id="kernaussage-1" class="slide level2">
 <h2>Kernaussage</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -653,7 +688,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </div>
 </section>
-<section id="kernaussage-3" class="slide level2">
+<section id="kernaussage-2" class="slide level2">
 <h2>Kernaussage</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">

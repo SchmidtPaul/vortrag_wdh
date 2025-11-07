@@ -4,7 +4,7 @@
     "href": "index.html#agenda",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Agenda",
-    "text": "Agenda\n\nEchte/Unabhängige Wiederholungen Randomisation als Grundprinzip\nPseudo-Wiederholungen Messwiederholungen innerhalb einer Versuchseinheit\nDie Grauzone Confounding durch unvollständige Randomisation\nMulti-Environment Trials Wiederholungen über Standorte hinweg\nKernbotschaften & Diskussion\n\n\nHeute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, die alle kennen, aber wo es wichtige Details gibt."
+    "text": "Agenda\n\nGrundlagen: Warum Wiederholungen? Versuchseinheit und Mindestanforderungen\nPseudo-Wiederholungen Messwiederholungen innerhalb einer Versuchseinheit\nEchte Wiederholungen Randomisation als Grundprinzip\nDie Grauzone Confounding durch unvollständige Randomisation\nMulti-Environment Trials Wiederholungen über Standorte hinweg\nKernbotschaften & Diskussion\n\n\nHeute fokussieren wir uns auf die Nuancen des Themas Wiederholungen - Konzepte, die alle kennen, aber wo es wichtige Details gibt."
   },
   {
     "objectID": "index.html#was-ist-eine-versuchseinheit",
@@ -35,6 +35,55 @@
     "text": "Mindestanforderungen für Auswertbarkeit\n\n\n\n\n\n\nAbsolutes Minimum\n\n\nStreng genommen: Mindestens 2 echte Wiederholungen pro Behandlung erforderlich!\n\n\n\n\nErst ab n=2 sind all diese Maße überhaupt möglich bzw. sinnvoll\nMit steigendem n (3, 4, 5, …) werden die Ergebnisse prinzipiell zuverlässiger und präziser"
   },
   {
+    "objectID": "index.html#warum-echte-wiederholungen",
+    "href": "index.html#warum-echte-wiederholungen",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Warum “echte” Wiederholungen?",
+    "text": "Warum “echte” Wiederholungen?\nWir haben bis jetzt gesagt:\n\nn=1 pro Behandlung: Keine Statistik möglich\nn≥2 pro Behandlung: Statistik möglich\n\n\n\n\n\n\n\n\nAber Achtung!\n\n\nMehrere Werte zu haben, heißt nicht automatisch mehrere echte Wiederholungen zu haben!\n\n\n\n\n\n→ Was macht den Unterschied zwischen echten und unechten Wiederholungen?"
+  },
+  {
+    "objectID": "index.html#was-sind-pseudo-wiederholungen",
+    "href": "index.html#was-sind-pseudo-wiederholungen",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Was sind Pseudo-Wiederholungen?",
+    "text": "Was sind Pseudo-Wiederholungen?\n\n\n\n\n\n\nPseudo-Wiederholungen (Messwiederholungen)\n\n\nMehrfache Messungen innerhalb derselben Versuchseinheit (z.B. Parzelle)\n\n\n\n\nDas Problem:\nMessungen innerhalb derselben Parzelle sind nicht unabhängig voneinander!"
+  },
+  {
+    "objectID": "index.html#beispiel-10-messungen-n10",
+    "href": "index.html#beispiel-10-messungen-n10",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Beispiel: 10 Messungen ≠ n=10",
+    "text": "Beispiel: 10 Messungen ≠ n=10\n\n\n\n\n\n\n\n\n\n\n\n\nSzenario:\nWir gehen in dieses Feld und messen in jeder Parzelle 10× die Pflanzenhöhe (mit Meterstab an verschiedenen Stellen).\nErgebnis:\n\n✓ 20 Messwerte insgesamt\n✗ NICHT n=10 pro Behandlung!\n✓ Immer noch nur n=1 pro Behandlung\n\n. . .\n\n\n\n\n\n\nImportant\n\n\nMehrfach dieselbe Parzelle beproben ≠ Mehrere Parzellen haben!"
+  },
+  {
+    "objectID": "index.html#intuitive-analogie",
+    "href": "index.html#intuitive-analogie",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Intuitive Analogie",
+    "text": "Intuitive Analogie\n3 Blutabnahmen bei 3 verschiedenen Menschen:\n→ ✓ 3 unabhängige Wiederholungen\n\n3 Blutabnahmen bei 1 Person (an 3 Stellen):\n→ ✗ Nur 1 unabhängige Einheit (Person)\n\n\nJeder versteht intuitiv: Das ist nicht dasselbe!"
+  },
+  {
+    "objectID": "index.html#besonders-relevant-bei-on-farm-versuchen",
+    "href": "index.html#besonders-relevant-bei-on-farm-versuchen",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Besonders relevant bei On-Farm-Versuchen",
+    "text": "Besonders relevant bei On-Farm-Versuchen\nModerne Sensortechnik ermöglicht viele Messungen:\n\nDrohnen mit Multispektralkameras: Tausende Pixel pro Parzelle\nMähdrescher-Sensoren: Ertragsmessung alle paar Meter\nBodensensoren: Kontinuierliche Messungen an festen Punkten\nGPS-basierte Probenahme: Viele Messpunkte pro Großparzelle\n\n\n\n\n\n\n\n\nHäufiger Trugschluss\n\n\n“Ich habe 1000 Messpunkte!”\n→ ABER: Wenn alle in derselben räumlichen Einheit liegen = begrenzte statistische Unabhängigkeit"
+  },
+  {
+    "objectID": "index.html#kernaussage-zu-pseudo-wiederholungen",
+    "href": "index.html#kernaussage-zu-pseudo-wiederholungen",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Kernaussage zu Pseudo-Wiederholungen",
+    "text": "Kernaussage zu Pseudo-Wiederholungen\n\n\n\n⭐ Take-Home Message\n\n\nMesswiederholungen sind keine echten Wiederholungen.\n\nSie erhöhen die Präzision der Messung\nSie reduzieren Messfehler\nAber: Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen\nBei der Analyse muss die hierarchische Struktur berücksichtigt werden"
+  },
+  {
+    "objectID": "index.html#was-macht-eine-echte-wiederholung-aus",
+    "href": "index.html#was-macht-eine-echte-wiederholung-aus",
+    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
+    "section": "Was macht eine echte Wiederholung aus?",
+    "text": "Was macht eine echte Wiederholung aus?\nNachdem wir nun verstanden haben, was Pseudo-Wiederholungen sind, schauen wir uns an, was eine echte Wiederholung ausmacht."
+  },
+  {
     "objectID": "index.html#randomisation-ist-entscheidend",
     "href": "index.html#randomisation-ist-entscheidend",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
@@ -63,41 +112,6 @@
     "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nEchte, unabhängige Wiederholungen sind die Grundlage für statistische Auswertungen.\nSie erfordern:\n\n✓ Randomisation\n✓ Räumliche Unabhängigkeit\n✓ Statistische Unabhängigkeit"
   },
   {
-    "objectID": "index.html#definition",
-    "href": "index.html#definition",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Definition",
-    "text": "Definition\n\n\n\n\n\n\nPseudo-Wiederholungen (Messwiederholungen)\n\n\nMehrfache Messungen innerhalb derselben Versuchseinheit (Parzelle)\n\n\n\n\n\nDas Problem:\n→ Messungen innerhalb derselben Parzelle sind nicht unabhängig voneinander"
-  },
-  {
-    "objectID": "index.html#beispiel-1-einfache-messung",
-    "href": "index.html#beispiel-1-einfache-messung",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Beispiel 1: Einfache Messung",
-    "text": "Beispiel 1: Einfache Messung\nSzenario:\n\n10 Parzellen auf dem Feld\n3 Messungen der Pflanzenhöhe pro Parzelle (mit Meterstab an 3 Stellen)\n\n\nErgebnis:\n\n✓ 30 Messwerte\n✗ Aber NICHT 30 unabhängige Wiederholungen!\n✓ Sondern nur 10 unabhängige Wiederholungen (Parzellen)\n\n\n\n\n\n\n\n\n\nImportant\n\n\nDie 3 Messungen pro Parzelle teilen sich dieselbe Umwelt, denselben Boden, dieselbe Bewirtschaftung → keine Unabhängigkeit"
-  },
-  {
-    "objectID": "index.html#beispiel-2-moderne-sensortechnik",
-    "href": "index.html#beispiel-2-moderne-sensortechnik",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Beispiel 2: Moderne Sensortechnik",
-    "text": "Beispiel 2: Moderne Sensortechnik\nSzenario:\n\nTraktor mit GPS-basierter Sensortechnik\nViele Messpunkte pro Meter innerhalb einer Parzelle\nKoordinaten-basierte Datenerfassung (z.B. Ertragskartierung)\n\n\nErgebnis:\n\n✓ Sehr hohe Datenmenge (Hunderte/Tausende Messpunkte)\n✗ Aber begrenzte statistische Unabhängigkeit\nDie Parzelle bleibt die Versuchseinheit!\n\n\n\n\n\n\n\n\n\nIn der Praxis\n\n\nDiese Daten sind wertvoll für räumliche Analysen und Präzision, aber man muss die Hierarchie der Daten bei der Auswertung berücksichtigen."
-  },
-  {
-    "objectID": "index.html#intuitive-analogie",
-    "href": "index.html#intuitive-analogie",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Intuitive Analogie",
-    "text": "Intuitive Analogie\n3 Blutabnahmen bei 3 verschiedenen Menschen:\n→ ✓ 3 unabhängige Wiederholungen\n\n3 Blutabnahmen bei 1 Person (an 3 Stellen):\n→ ✗ Nur 1 unabhängige Einheit (Person)\n\n\nJeder versteht intuitiv: Das ist nicht dasselbe!"
-  },
-  {
-    "objectID": "index.html#kernaussage-1",
-    "href": "index.html#kernaussage-1",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Kernaussage",
-    "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nMesswiederholungen sind keine echten Wiederholungen.\n\nSie erhöhen die Präzision der Messung\nSie reduzieren Messfehler\nAber: Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen\nBei der Analyse muss die hierarchische Struktur berücksichtigt werden"
-  },
-  {
     "objectID": "index.html#das-problem-pseudo-split-plot",
     "href": "index.html#das-problem-pseudo-split-plot",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
@@ -112,8 +126,8 @@
     "text": "Konkretes Beispiel: Nord vs. Süd\n\n\n\n\n\n\n\n\n\n\n\n\nWas wir sehen:\n\nFaktor B (B1, B2) ist randomisiert ✓\nFaktor A ist systematisch (Nord vs. Süd) ✗\n\n\nDas Problem:\n\nGesamte Nordhälfte = A1\nGesamte Südhälfte = A2\n→ n=1 pro Stufe von Faktor A!\n\n\n:::\n\n\n\n\n\n\n\n\nImportant\n\n\nSystematische räumliche Struktur = Fehlende Unabhängigkeit\nDas gilt auf allen Ebenen des Versuchsdesigns!"
   },
   {
-    "objectID": "index.html#kernaussage-2",
-    "href": "index.html#kernaussage-2",
+    "objectID": "index.html#kernaussage-1",
+    "href": "index.html#kernaussage-1",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Kernaussage",
     "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
@@ -140,8 +154,8 @@
     "text": "Analogie zu Pseudo-Wiederholungen\n\n\nPseudo-Wiederholungen:\n\n1 Parzelle\nMehrfache Messungen darin\n= Keine Unabhängigkeit\n\n\nPseudo-Split-Plot:\n\n1 Feldhälfte\nMehrfache Parzellen darin\n= Keine Unabhängigkeit für Faktor A\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nSystematische räumliche Struktur = Fehlende Unabhängigkeit\nDas gilt auf allen Ebenen des Versuchsdesigns!"
   },
   {
-    "objectID": "index.html#kernaussage-3",
-    "href": "index.html#kernaussage-3",
+    "objectID": "index.html#kernaussage-2",
+    "href": "index.html#kernaussage-2",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Kernaussage",
     "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
