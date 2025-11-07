@@ -111,6 +111,61 @@ desplot(minimal,
 Mit nur einem Wert pro Behandlung können wir nichts machen außer sie beschreibend nebeneinander zu stellen. Wir haben null Information über die Variabilität.
 :::
 
+## Was bedeutet "keine Statistik möglich"? {.smaller}
+
+:::: {.columns}
+::: {.column width="40%"}
+```{r}
+#| echo: false
+#| fig-width: 4
+#| fig-height: 2
+
+# Gleicher Plot wie vorher
+minimal <- data.frame(
+  col = c(1, 2),
+  row = c(1, 1),
+  treatment = c("A", "B")
+)
+
+desplot(minimal,
+        form = treatment ~ col + row,
+        text = treatment,
+        cex = 1.5,
+        main = "Versuch mit n=1",
+        show.key = FALSE,
+        aspect = 1/2,
+        gg = TRUE) +
+  theme(text = element_text(family = "Arial"),
+        plot.title = element_text(size = 12, hjust = 0.5, family = "Arial"))
+```
+
+**Werte:** A = 10, B = 8
+:::
+
+::: {.column width="60%"}
+**Welche statistischen Maße können wir NICHT berechnen?**
+
+::: {.incremental}
+- **Varianz** ✗
+- **Standardabweichung** ✗
+- **Standardfehler** ✗
+- **Konfidenzintervalle** ✗
+- **t-Test** (oder andere statistische Tests) ✗
+
+**Selbst vermeintlich einfache Maße sind problematisch:**
+
+- Mittelwert? → Von einem Wert? Sinnlos.
+- Minimum/Maximum? → Gibt nur diesen einen Wert.
+:::
+
+<br>
+
+::: {.callout-warning}
+**Mit n=1 pro Behandlung:** Null Information über die Variabilität innerhalb einer Behandlung!
+:::
+:::
+::::
+
 ## Mindestanforderungen für Auswertbarkeit
 
 ::: {.callout-important}
