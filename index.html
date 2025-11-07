@@ -169,7 +169,7 @@ Dr.&nbsp;Paul Schmidt
       }</style></aside>
 </section>
 <section>
-<section id="grundlagen" class="title-slide slide level1 center" data-background-color="#495057">
+<section id="grundlagen" class="title-slide slide level1 center" data-background-color="#00923f">
 <h1>1. Grundlagen</h1>
 
 </section>
@@ -191,11 +191,10 @@ Dr.&nbsp;Paul Schmidt
 <p><strong>Im Feldversuch:</strong></p>
 <ul>
 <li>In der Regel ist die <strong>Parzelle</strong> unsere Versuchseinheit</li>
-<li>Manchmal kann es aber auch anders sein (z.B. ganze Felder, Pflanzreihen, etc.)</li>
 </ul>
 </section>
-<section id="warum-brauchen-wir-überhaupt-wiederholungen" class="slide level2 smaller">
-<h2>Warum brauchen wir überhaupt Wiederholungen?</h2>
+<section id="wieso-wiederholungen" class="slide level2 smaller">
+<h2>Wieso Wiederholungen?</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
@@ -229,9 +228,9 @@ Dr.&nbsp;Paul Schmidt
 </table>
 <p><strong>Was können wir aussagen?</strong></p>
 <ul>
-<li>A ist größer als B ✓</li>
-<li>Aber: <strong>Keine Ahnung über Streuung!</strong> ✗</li>
-<li>→ Keine statistische Auswertung möglich</li>
+<li>✅ A ist größer als B</li>
+<li>❌ Keine Ahnung über Streuung!</li>
+<li>❌ Keine statistische Auswertung möglich</li>
 </ul>
 </div></div>
 <aside class="notes">
@@ -248,8 +247,8 @@ Dr.&nbsp;Paul Schmidt
           display:block!important;
       }</style></aside>
 </section>
-<section id="was-bedeutet-keine-statistik-möglich" class="slide level2 smaller">
-<h2>Was bedeutet “keine Statistik möglich”?</h2>
+<section id="keine-statistik-möglich" class="slide level2 smaller">
+<h2>“keine Statistik möglich”?</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
@@ -263,28 +262,14 @@ Dr.&nbsp;Paul Schmidt
 </div>
 <p><strong>Werte:</strong> A = 10, B = 8</p>
 </div><div class="column" style="width:60%;">
-<p><strong>Welche statistischen Maße sind NICHT möglich?</strong></p>
 <ul>
-<li class="fragment"><strong>Varianz</strong> ✗</li>
-<li class="fragment"><strong>Standardabweichung</strong> ✗</li>
-<li class="fragment"><strong>Standardfehler</strong> ✗</li>
-<li class="fragment"><strong>Konfidenzintervalle</strong> ✗</li>
-<li class="fragment"><strong>t-Test</strong> (oder andere Tests) ✗</li>
-<li class="fragment">Mittelwert, Minimum, Maximum? → Sinnlos bei nur einem Wert</li>
+<li class="fragment"><strong>Varianz</strong> ❌</li>
+<li class="fragment"><strong>Standardabweichung</strong> ❌</li>
+<li class="fragment"><strong>Standardfehler</strong> ❌</li>
+<li class="fragment"><strong>Vertrauensintervalle</strong> ❌</li>
+<li class="fragment"><strong>t-Test</strong> (oder andere Tests) ❌</li>
+<li class="fragment">Mittelwert, Minimum, Maximum? → Sinnlos bei nur einem Wert ❌</li>
 </ul>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p>Null Information über Variabilität!</p>
-</div>
-</div>
-</div>
 </div></div>
 </section>
 <section id="mindestanforderungen-für-auswertbarkeit" class="slide level2">
@@ -365,15 +350,15 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </div>
 <div class="fragment">
-<p>→ Was macht den Unterschied zwischen <strong>echten</strong> und <strong>unechten</strong> Wiederholungen?</p>
+<p>→ Was macht den Unterschied zwischen <strong>echten Wiederholungen</strong> und <strong>Pseudo-Wiederholungen</strong>?</p>
 </div>
 </section></section>
 <section>
-<section id="pseudo-wiederholungen" class="title-slide slide level1 center" data-background-color="#495057">
+<section id="pseudo-wiederholungen" class="title-slide slide level1 center" data-background-color="#00923f">
 <h1>2. Pseudo-Wiederholungen</h1>
 
 </section>
-<section id="was-sind-pseudo-wiederholungen" class="slide level2">
+<section id="was-sind-pseudo-wiederholungen" class="slide level2 smaller">
 <h2>Was sind Pseudo-Wiederholungen?</h2>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -381,16 +366,23 @@ Dr.&nbsp;Paul Schmidt
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Pseudo-Wiederholungen (Messwiederholungen)</strong></p>
+<p><strong>Pseudo-Wiederholungen</strong></p>
 </div>
 <div class="callout-content">
-<p>Mehrfache Messungen <strong>innerhalb derselben Versuchseinheit</strong> (z.B. Parzelle)</p>
+<p>Mehrere Messungen, die nicht unabhängig voneinander sind.</p>
+<p>Oft: Mehrfache Messungen <strong>innerhalb derselben Versuchseinheit/Parzelle</strong></p>
 </div>
 </div>
 </div>
-<p><br></p>
-<p><strong>Das Problem:</strong></p>
-<p>Messungen innerhalb derselben Parzelle sind <strong>nicht unabhängig</strong> voneinander!</p>
+<p>Oft synonym verwendet:</p>
+<ul>
+<li>Unechte Wiederholungen</li>
+<li>Messwiederholungen</li>
+<li>Mehrfachmessungen</li>
+<li>Subsamples</li>
+<li>Nested observations</li>
+<li>Pseudoreplikate</li>
+</ul>
 </section>
 <section id="beispiel-10-messungen-n10" class="slide level2 smaller">
 <h2>Beispiel: 10 Messungen ≠ n=10</h2>
@@ -410,18 +402,18 @@ Dr.&nbsp;Paul Schmidt
 <p>Wir gehen in dieses Feld und messen in jeder Parzelle <strong>10× die Pflanzenhöhe</strong> (mit Meterstab an verschiedenen Stellen).</p>
 <p><strong>Ergebnis:</strong></p>
 <ul>
-<li>✓ 20 Messwerte insgesamt</li>
-<li>✗ <strong>NICHT</strong> n=10 pro Behandlung!</li>
-<li>✓ Immer noch nur <strong>n=1</strong> pro Behandlung</li>
+<li>✅ 20 Messwerte insgesamt</li>
+<li>❌ <strong>NICHT</strong> n=10 pro Behandlung!</li>
+<li>✅ Immer noch nur <strong>n=1</strong> pro Behandlung</li>
+<li>✅ Innerhalb jeder echten Wiederholung je 10 Pseudo-Wiederholungen</li>
 </ul>
-<p>. . .</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
+<p><strong>Wichtig</strong></p>
 </div>
 <div class="callout-content">
 <p>Mehrfach dieselbe Parzelle beproben ≠ Mehrere Parzellen haben!</p>
@@ -433,133 +425,191 @@ Dr.&nbsp;Paul Schmidt
 <section id="intuitive-analogie" class="slide level2">
 <h2>Intuitive Analogie</h2>
 <p><strong>3 Blutabnahmen bei 3 verschiedenen Menschen:</strong></p>
-<p>→ ✓ <strong>3 unabhängige Wiederholungen</strong></p>
+<p>→ ✅ <strong>3 unabhängige Wiederholungen</strong></p>
 <p><br></p>
 <p><strong>3 Blutabnahmen bei 1 Person (an 3 Stellen):</strong></p>
-<p>→ ✗ <strong>Nur 1 unabhängige Einheit</strong> (Person)</p>
+<p>→ ❌ <strong>Nur 1 unabhängige Einheit</strong> (Person)</p>
 </section>
 <section id="besonders-relevant-bei-on-farm-versuchen" class="slide level2 smaller">
 <h2>Besonders relevant bei On-Farm-Versuchen</h2>
-<p><strong>Moderne Sensortechnik ermöglicht viele Messungen:</strong></p>
+<p><strong>Warum sind Pseudo-Wiederholungen hier besonders häufig?</strong></p>
+<ol type="1">
+<li class="fragment"><strong>Moderne Sensortechnik</strong> ermöglicht viele Messungen:
 <ul>
-<li class="fragment"><strong>Drohnen</strong> mit Multispektralkameras: Tausende Pixel pro Parzelle</li>
-<li class="fragment"><strong>Mähdrescher-Sensoren</strong>: Ertragsmessung alle paar Meter</li>
-<li class="fragment"><strong>Bodensensoren</strong>: Kontinuierliche Messungen an festen Punkten</li>
-<li class="fragment"><strong>GPS-basierte Probenahme</strong>: Viele Messpunkte pro Großparzelle</li>
+<li class="fragment">GPS-basierte Probenahme; Drohnen mit Multispektralkameras; Mähdrescher-Sensoren; Bodensensoren:</li>
+</ul></li>
+<li class="fragment"><strong>Sehr große Parzellen/Streifen:</strong>
+<ul>
+<li class="fragment">Hohe Variabilität <strong>innerhalb</strong> einer Parzelle</li>
+<li class="fragment">Mehrere Messungen <strong>sinnvoll</strong> zur besseren Charakterisierung</li>
+</ul></li>
+<li class="fragment"><strong>Praktische Einschränkungen:</strong>
+<ul>
+<li class="fragment">Nur wenige Wiederholungen realisierbar (Fläche, Kosten, Landwirt-Akzeptanz)</li>
+<li class="fragment">Viele Messungen innerhalb als <strong>vermeintliche</strong> Kompensation</li>
+</ul></li>
+</ol>
+</section>
+<section id="wieso-pseudo-wiederholungen" class="slide level2">
+<h2>Wieso Pseudo-Wiederholungen?</h2>
+<ul>
+<li class="fragment">✅ <strong>Höhere Präzision</strong> der Schätzung für diese Parzelle</li>
+<li class="fragment">✅ <strong>Räumliche Modellierung</strong> möglich (z.B. Geostatistik)</li>
+<li class="fragment">✅ <strong>Systematische Trends</strong> innerhalb der Parzelle erfassbar</li>
 </ul>
 <div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Aber: Grenzen beachten!</strong></p>
+</div>
+<div class="callout-content">
+<p>Pseudo-Wiederholungen können echte Wiederholungen NICHT ersetzen.</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="echte-wiederholungen" class="title-slide slide level1 center" data-background-color="#00923f">
+<h1>Echte Wiederholungen</h1>
+
+</section>
+<section id="was-sind-echte-wiederholungen" class="slide level2">
+<h2>Was sind echte Wiederholungen?</h2>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Häufiger Trugschluss</strong></p>
+<p><strong>Echte Wiederholungen / Unabhängige Wiederholungen</strong></p>
 </div>
 <div class="callout-content">
-<p><em>“Ich habe 1000 Messpunkte!”</em></p>
-<p>→ <strong>ABER:</strong> Wenn alle in derselben räumlichen Einheit liegen = begrenzte statistische Unabhängigkeit</p>
-</div>
+<p>Mehrere Messungen, die <del>nicht</del> unabhängig voneinander sind.</p>
+<p>Oft: Mehrere Werte von ordentlich randomisierte Parzellen.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="kernaussage-zu-pseudo-wiederholungen" class="slide level2">
-<h2>Kernaussage zu Pseudo-Wiederholungen</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>⭐ Kernbotschaft</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Messwiederholungen sind keine echten Wiederholungen.</strong></p>
+<section id="unabhängigkeit" class="slide level2 smaller">
+<h2>Unabhängigkeit?</h2>
 <ul>
-<li>Sie erhöhen die Präzision der Messung</li>
-<li>Sie reduzieren Messfehler</li>
-<li><strong>Aber:</strong> Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen</li>
-<li>Bei der Analyse muss die hierarchische Struktur berücksichtigt werden</li>
-</ul>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="echteunabhängige-wiederholungen" class="title-slide slide level1 center" data-background-color="#495057">
-<h1>Echte/Unabhängige Wiederholungen</h1>
-
-</section>
-<section id="was-macht-eine-echte-wiederholung-aus" class="slide level2">
-<h2>Was macht eine echte Wiederholung aus?</h2>
-<p>Nachdem wir nun verstanden haben, was <strong>Pseudo-Wiederholungen</strong> sind, schauen wir uns an, was eine <strong>echte Wiederholung</strong> ausmacht.</p>
-</section>
-<section id="randomisation-ist-entscheidend" class="slide level2 smaller">
-<h2>Randomisation ist entscheidend!</h2>
+<li class="fragment"><strong>Ziel:</strong> Mehrere <strong>unabhängige</strong> Werte zur gleichen Behandlung
 <ul>
-<li class="fragment">Parzellen müssen <strong>zufällig verteilt</strong> über das Feld liegen</li>
-<li class="fragment">Dürfen auch nebeneinander liegen - <strong>wenn die Randomisation dies ergab</strong></li>
-<li class="fragment"><strong>NICHT</strong> systematisch direkt nebeneinander angeordnet</li>
-<li class="fragment">Vollständig zufällige Zuweisung:
+<li class="fragment">Werte sollen möglichst nicht korreliert/abhängig voneinander sein</li>
+</ul></li>
+<li class="fragment"><strong>Mittel:</strong> Randomisation
 <ul>
-<li class="fragment">Welche Parzelle?</li>
-<li class="fragment">Welche Behandlung?</li>
-<li class="fragment">Welche Wiederholung?</li>
+<li class="fragment">Jede Versuchseinheit (Parzelle) hat die <strong>gleiche Chance</strong>, jede Behandlung zu bekommen</li>
+<li class="fragment">Zufällige Zuweisung ist unsere <strong>Versicherung gegen Abhängigkeit</strong></li>
+<li class="fragment">Verhindert systematische räumliche Muster</li>
 </ul></li>
 </ul>
 </section>
-<section id="visualisierung-gutes-design" class="slide level2">
-<h2>Visualisierung: Gutes Design</h2>
+<section id="randomisiert-gut" class="slide level2">
+<h2>Randomisiert = Gut</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"><div class="fragment">
-<p>✓ Räumlich unabhängig = Statistisch unabhängig</p>
-</div>
-</section>
-<section id="visualisierung-schlechtes-design" class="slide level2">
-<h2>Visualisierung: Schlechtes Design</h2>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="systematisch-problematisch" class="slide level2">
+<h2>Systematisch = Problematisch</h2>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div class="fragment">
-<p>✗ Systematische Anordnung = Confounding mit räumlichen Effekten</p>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<section id="daten-aus-blindversuch" class="slide level2">
+<h2>Daten aus Blindversuch</h2>
+<div style="font-size: 0.5em">
+<p><strong>Datenquelle:</strong> Piepho, H.P. &amp; Williams, E.R. (2010). Linear variance models for plant breeding trials. <em>Plant Breeding</em>, 129(1), 1–8.</p>
+<p>Alle Parzellen erhielten die <strong>identische Behandlung</strong>, um die natürliche räumliche Variabilität des Feldes zu erfassen.</p>
 </div>
-</section>
-<section id="kernaussage" class="slide level2">
-<h2>Kernaussage</h2>
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>⭐ Kernbotschaft</strong></p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="fazit-bis-hierhin" class="slide level2 smaller">
+<h2>Fazit bis hierhin</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
+</figure>
 </div>
-<div class="callout-content">
-<p><strong>Echte, unabhängige Wiederholungen</strong> sind die Grundlage für statistische Auswertungen.</p>
-<p>Sie erfordern:</p>
+</div>
+</div>
+</div><div class="column" style="width:4%;">
+<!-- Spacer -->
+</div><div class="column" style="width:48%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<p><strong>Das rechte Design ist trotz weniger Parzellen/Messwerte dem linken vorzuziehen!</strong></p>
 <ul>
-<li>✓ Randomisation</li>
-<li>✓ Räumliche Unabhängigkeit</li>
-<li>✓ Statistische Unabhängigkeit</li>
+<li>Pseudo-Wiederholungen (Messwiederholungen) sind <strong>hilfreich</strong>, aber kein <strong>Ersatz</strong> für echte Wiederholungen</li>
+<li><strong>Erst</strong> echte, unabhängige Wiederholungen sicherstellen</li>
+<li><strong>Dann</strong> können Pseudo-Wiederholungen als wertvolle <strong>Ergänzung</strong> dienen</li>
 </ul>
-</div>
-</div>
+</section>
+<section id="okay" class="slide level2 center">
+<h2>Okay</h2>
+<p>Ja, danke für den Auffrischer…</p>
+<p>…aber das stellt doch auch niemand in Frage?!</p>
+<div style="font-size: 8em; text-align: center;">
+<p>🥱</p>
 </div>
 </section></section>
 <section>
-<section id="die-grauzone" class="title-slide slide level1 center" data-background-color="#495057">
-<h1>3. Die Grauzone</h1>
+<section id="die-vermeintliche-grauzone" class="title-slide slide level1 center" data-background-color="#00923f">
+<h1>3. Die (vermeintliche) Grauzone</h1>
 
 </section>
-<section id="das-problem-pseudo-split-plot" class="slide level2">
-<h2>Das Problem: Pseudo-Split-Plot</h2>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Häufig in der Praxis!</strong></p>
-</div>
-<div class="callout-content">
-<p>Unvollständige oder systematische Randomisation führt zu versteckten Pseudo-Wiederholungen</p>
-</div>
-</div>
-</div>
-<p><br></p>
+<section id="typisches-szenario" class="slide level2 smaller">
+<h2>Typisches Szenario</h2>
+<ul>
+<li>Zweifaktorieller Versuch
+<ul>
+<li>Faktor 1
+<ul>
+<li>2 Stufen: A, B</li>
+</ul></li>
+<li>Faktor 2
+<ul>
+<li>3 Stufen: 1, 2, 3</li>
+</ul></li>
+</ul></li>
+<li>Es gibt demnach 6 Kombinationen (A1, A2, A3, B1, B2, B3)</li>
+<li>Mindestanforderung: 2 echte Wiederholungen, also 12 Parzellen</li>
+<li>Tatsächlich: Ein Faktor schwer zu randomisieren, also Spaltanlage (Split-Plot)</li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="todo-ab-hier" class="title-slide slide level1 center">
+<h1>TODO ab hier</h1>
+
+</section>
+<section id="häufiger-sonderfall-pseudo-split-plot" class="slide level2">
+<h2>Häufiger Sonderfall: Pseudo-Split-Plot</h2>
 <p><strong>Typisches Szenario:</strong></p>
 <ul>
 <li>Zweifaktorieller Versuch: Faktor A × Faktor B</li>
@@ -575,7 +625,7 @@ Dr.&nbsp;Paul Schmidt
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="480"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -583,8 +633,8 @@ Dr.&nbsp;Paul Schmidt
 </div><div class="column" style="width:50%;">
 <p><strong>Was wir sehen:</strong></p>
 <ul>
-<li>Faktor B (B1, B2) ist randomisiert ✓</li>
-<li>Faktor A ist systematisch (Nord vs.&nbsp;Süd) ✗</li>
+<li>Faktor B (B1, B2) ist randomisiert ✅</li>
+<li>Faktor A ist systematisch (Nord vs.&nbsp;Süd) ❌</li>
 </ul>
 <p><br></p>
 <p><strong>Das Problem:</strong></p>
@@ -613,7 +663,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </div>
 </section>
-<section id="kernaussage-1" class="slide level2">
+<section id="kernaussage" class="slide level2">
 <h2>Kernaussage</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -637,7 +687,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </section></section>
 <section>
-<section id="multi-environment-trials" class="title-slide slide level1 center" data-background-color="#495057">
+<section id="multi-environment-trials" class="title-slide slide level1 center" data-background-color="#00923f">
 <h1>4. Multi-Environment Trials</h1>
 
 </section>
@@ -714,7 +764,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </div>
 </section>
-<section id="kernaussage-2" class="slide level2">
+<section id="kernaussage-1" class="slide level2">
 <h2>Kernaussage</h2>
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -738,7 +788,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </section></section>
 <section>
-<section id="multi-environment-trials-1" class="title-slide slide level1 center" data-background-color="#495057">
+<section id="multi-environment-trials-1" class="title-slide slide level1 center" data-background-color="#00923f">
 <h1>4. Multi-Environment Trials</h1>
 
 </section>
@@ -799,7 +849,7 @@ Dr.&nbsp;Paul Schmidt
 </div>
 </section></section>
 <section>
-<section id="zusammenfassung" class="title-slide slide level1 center" data-background-color="#495057">
+<section id="zusammenfassung" class="title-slide slide level1 center" data-background-color="#00923f">
 <h1>Zusammenfassung</h1>
 
 </section>
@@ -857,13 +907,32 @@ Dr.&nbsp;Paul Schmidt
 </div>
 <p><br></p>
 <p><em>Präsentation erstellt mit Quarto &amp; Claude Code</em></p>
+</section>
+<section id="kernaussage-zu-pseudo-wiederholungen" class="slide level2">
+<h2>Kernaussage zu Pseudo-Wiederholungen</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>⭐ Kernbotschaft</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Messwiederholungen sind keine echten Wiederholungen.</strong></p>
+<ul>
+<li>Sie erhöhen die Präzision der Messung</li>
+<li>Sie reduzieren Messfehler</li>
+<li><strong>Aber:</strong> Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen</li>
+<li>Bei der Analyse muss die hierarchische Struktur berücksichtigt werden</li>
+</ul>
+</div>
+</div>
+</div>
 
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Workshop On-Farm-Experimente | 28.11.2024</p>
+<p>On-farm-Experimente-Workshop | 28.11.2024 | Landwirtschaftskammer Niedersachsen</p>
 </div>
 </div></div>
 
