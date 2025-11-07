@@ -169,24 +169,14 @@ desplot(minimal,
 ## Mindestanforderungen für Auswertbarkeit
 
 ::: {.callout-important}
-## Absolute Minimum
+## Absolutes Minimum
 **Streng genommen: Mindestens 2 echte Wiederholungen** pro Behandlung erforderlich!
 :::
 
-**Warum mindestens 2?**
-
 ::: {.incremental}
-- Mit **n=1**: Keine Variabilität schätzbar → Keine Statistik möglich
-- Mit **n=2**: Gerade so auswertbar, aber sehr schwach
-- **n=3, 4, 5, ...**: Besser, stabiler, mehr Power
-- In der Praxis: Oft 3-4 Wiederholungen als Standard
+- Erst ab **n=2** sind all diese Maße überhaupt möglich bzw. sinnvoll
+- Mit steigendem n (3, 4, 5, ...) werden die Ergebnisse prinzipiell zuverlässiger und präziser
 :::
-
-**Was ermöglichen echte Wiederholungen?**
-
-- Schätzung der Variabilität **innerhalb** einer Behandlung
-- Statistische Tests und Konfidenzintervalle
-- Aussagen über Signifikanz von Unterschieden
 
 ## Randomisation ist entscheidend! {.smaller}
 
