@@ -11,7 +11,7 @@
     "href": "index.html#was-ist-eine-versuchseinheit",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Was ist eine Versuchseinheit?",
-    "text": "Was ist eine Versuchseinheit?\n\n\n\n\n\n\nDefinition: Versuchseinheit (Experimental Unit)\n\n\nDie kleinste Einheit, der eine Behandlung unabhängig zugewiesen werden kann und an der eine Beobachtung gemacht wird.\n\n\n\nIm Feldversuch:\n\nIn der Regel ist die Parzelle unsere Versuchseinheit\nManchmal kann es aber auch anders sein (z.B. ganze Felder, Pflanzreihen, etc.)"
+    "text": "Was ist eine Versuchseinheit?\n\n\n\n\n\n\nHinweis\n\n\nDie kleinste Einheit, der eine Behandlung unabhängig zugewiesen werden kann und an der eine Beobachtung gemacht wird.\n\n\n\nIm Feldversuch:\n\nIn der Regel ist die Parzelle unsere Versuchseinheit\nManchmal kann es aber auch anders sein (z.B. ganze Felder, Pflanzreihen, etc.)"
   },
   {
     "objectID": "index.html#warum-brauchen-wir-überhaupt-wiederholungen",
@@ -28,25 +28,11 @@
     "text": "Was bedeutet “keine Statistik möglich”?\n\n\n\n\n\n\n\n\n\n\n\nWerte: A = 10, B = 8\n\nWelche statistischen Maße sind NICHT möglich?\n\nVarianz ✗\nStandardabweichung ✗\nStandardfehler ✗\nKonfidenzintervalle ✗\nt-Test (oder andere Tests) ✗\nMittelwert, Minimum, Maximum? → Sinnlos bei nur einem Wert\n\n\n\n\n\n\n\nWarning\n\n\nNull Information über Variabilität!"
   },
   {
-    "objectID": "index.html#das-problem-mit-n1-nur-zwei-datenpunkte",
-    "href": "index.html#das-problem-mit-n1-nur-zwei-datenpunkte",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Das Problem mit n=1: Nur zwei Datenpunkte",
-    "text": "Das Problem mit n=1: Nur zwei Datenpunkte"
-  },
-  {
-    "objectID": "index.html#was-wir-nicht-sehen-die-mögliche-population",
-    "href": "index.html#was-wir-nicht-sehen-die-mögliche-population",
-    "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
-    "section": "Was wir nicht sehen: Die mögliche Population",
-    "text": "Was wir nicht sehen: Die mögliche Population\n\n\nKernproblem: Mit nur n=1 könnten beide Werte zufällig aus derselben Population stammen!"
-  },
-  {
     "objectID": "index.html#mindestanforderungen-für-auswertbarkeit",
     "href": "index.html#mindestanforderungen-für-auswertbarkeit",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Mindestanforderungen für Auswertbarkeit",
-    "text": "Mindestanforderungen für Auswertbarkeit\n\n\n\n\n\n\nAbsolutes Minimum\n\n\nStreng genommen: Mindestens 2 echte Wiederholungen pro Behandlung erforderlich!\n\n\n\n\nErst ab n=2 sind all diese Maße überhaupt möglich bzw. sinnvoll\nMit steigendem n (3, 4, 5, …) werden die Ergebnisse prinzipiell zuverlässiger und präziser"
+    "text": "Mindestanforderungen für Auswertbarkeit\n\n\n\n\n\n\nWichtig\n\n\nStreng genommen: Mindestens 2 echte Wiederholungen pro Behandlung erforderlich!\n\n\n\n\nErst ab n=2 sind all diese Maße überhaupt möglich bzw. sinnvoll\nMit steigendem n (3, 4, 5, …) werden die Ergebnisse prinzipiell zuverlässiger und präziser"
   },
   {
     "objectID": "index.html#vergleich-n1-vs.-n2",
@@ -81,7 +67,7 @@
     "href": "index.html#intuitive-analogie",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Intuitive Analogie",
-    "text": "Intuitive Analogie\n3 Blutabnahmen bei 3 verschiedenen Menschen:\n→ ✓ 3 unabhängige Wiederholungen\n\n3 Blutabnahmen bei 1 Person (an 3 Stellen):\n→ ✗ Nur 1 unabhängige Einheit (Person)\n\n\nJeder versteht intuitiv: Das ist nicht dasselbe!"
+    "text": "Intuitive Analogie\n3 Blutabnahmen bei 3 verschiedenen Menschen:\n→ ✓ 3 unabhängige Wiederholungen\n\n3 Blutabnahmen bei 1 Person (an 3 Stellen):\n→ ✗ Nur 1 unabhängige Einheit (Person)"
   },
   {
     "objectID": "index.html#besonders-relevant-bei-on-farm-versuchen",
@@ -95,7 +81,7 @@
     "href": "index.html#kernaussage-zu-pseudo-wiederholungen",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Kernaussage zu Pseudo-Wiederholungen",
-    "text": "Kernaussage zu Pseudo-Wiederholungen\n\n\n\n⭐ Take-Home Message\n\n\nMesswiederholungen sind keine echten Wiederholungen.\n\nSie erhöhen die Präzision der Messung\nSie reduzieren Messfehler\nAber: Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen\nBei der Analyse muss die hierarchische Struktur berücksichtigt werden"
+    "text": "Kernaussage zu Pseudo-Wiederholungen\n\n\n\n⭐ Kernbotschaft\n\n\nMesswiederholungen sind keine echten Wiederholungen.\n\nSie erhöhen die Präzision der Messung\nSie reduzieren Messfehler\nAber: Sie erhöhen NICHT die Anzahl unabhängiger Wiederholungen\nBei der Analyse muss die hierarchische Struktur berücksichtigt werden"
   },
   {
     "objectID": "index.html#was-macht-eine-echte-wiederholung-aus",
@@ -130,7 +116,7 @@
     "href": "index.html#kernaussage",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Kernaussage",
-    "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nEchte, unabhängige Wiederholungen sind die Grundlage für statistische Auswertungen.\nSie erfordern:\n\n✓ Randomisation\n✓ Räumliche Unabhängigkeit\n✓ Statistische Unabhängigkeit"
+    "text": "Kernaussage\n\n\n\n⭐ Kernbotschaft\n\n\nEchte, unabhängige Wiederholungen sind die Grundlage für statistische Auswertungen.\nSie erfordern:\n\n✓ Randomisation\n✓ Räumliche Unabhängigkeit\n✓ Statistische Unabhängigkeit"
   },
   {
     "objectID": "index.html#das-problem-pseudo-split-plot",
@@ -151,7 +137,7 @@
     "href": "index.html#kernaussage-1",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Kernaussage",
-    "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
+    "text": "Kernaussage\n\n\n\n⭐ Kernbotschaft\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
   },
   {
     "objectID": "index.html#wiederholungen-über-standorte",
@@ -179,7 +165,7 @@
     "href": "index.html#kernaussage-2",
     "title": "Wiederholungen in landwirtschaftlichen Feldversuchen",
     "section": "Kernaussage",
-    "text": "Kernaussage\n\n\n\n⭐ Take-Home Message\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
+    "text": "Kernaussage\n\n\n\n⭐ Kernbotschaft\n\n\nVorsicht vor der Grauzone!\n\nSystematische Anordnung = versteckte Pseudo-Wiederholung\nHäufiger Fehler bei On-Farm-Versuchen\nGroße Parzellenzahl ≠ Viele unabhängige Wiederholungen\n\nEntscheidend ist:\n\nNICHT die Anzahl der Parzellen\nSondern die räumliche Unabhängigkeit der Behandlungen"
   },
   {
     "objectID": "index.html#wiederholungen-über-standorte-1",
