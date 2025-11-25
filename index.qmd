@@ -1184,6 +1184,34 @@ desplot(site2_minimal,
 Diese Annahme treffen wir für Blöcke am selben Ort nicht.
 :::
 
-## TODO
+## Kernbotschaften {.smaller}
 
-Kernbotschaften / Abschlussfolie
+::: {.callout-tip}
+## Take-Home Messages
+1. **Echte Wiederholungen** entstehen durch Randomisation – nicht durch viele Messwerte
+2. **Pseudo-Wiederholungen** sind wertvoll, aber kein Ersatz für echte Wiederholungen
+3. **Jeder Faktor** im Versuch braucht eigene echte Wiederholungen
+4. **Standorte/Jahre** können als Wiederholungen dienen – aber Interaktionen beachten!
+:::
+
+<br>
+
+:::: {.columns}
+::: {.column width="50%"}
+**Vor der Auswertung fragen:**
+
+- Was ist meine Versuchseinheit?
+- Wurde randomisiert?
+- Habe ich n ≥ 2 pro Behandlung?
+:::
+
+::: {.column width="50%"}
+**Im Zweifel:**
+
+- Lieber weniger Behandlungen mit echten Wiederholungen als viele Behandlungen ohne Randomisation
+:::
+::::
+
+::: {.notes}
+Die zentrale Botschaft: Qualität der Wiederholungen geht vor Quantität der Messwerte.
+:::
