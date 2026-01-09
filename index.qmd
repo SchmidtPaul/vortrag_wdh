@@ -70,6 +70,7 @@ Die **kleinste Einheit**, der eine Behandlung **unabhängig** zugewiesen werden 
 #| fig-height: 3
 
 library(desplot)
+library(ggplot2)
 
 # Minimalbeispiel: Nur 1x A und 1x B
 minimal <- data.frame(
