@@ -2,7 +2,7 @@
 title: "Wiederholungen in landwirtschaftlichen Feldversuchen"
 subtitle: "Nuancen, Probleme und häufige Fallstricke"
 author: "Dr. Paul Schmidt"
-date: "28. November 2024"
+date: "28. November 2025"
 format:
   revealjs:
     theme: default
@@ -10,10 +10,17 @@ format:
     slide-number: true
     chalkboard: true
     preview-links: auto
-    footer: "Workshop On-Farm-Experimente | 28.11.2024"
+    footer: "Workshop On-Farm-Experimente | 28.11.2025"
     transition: slide
     background-transition: fade
 ---
+
+::: {.callout-tip icon=false}
+## Navigation
+Nutzen Sie die **Pfeiltasten** oder klicken Sie auf die **drei Balken** (☰) unten links, um durch die Folien zu navigieren.
+
+Falls Sie die PDF-Version lesen: Die interaktive Online-Version finden Sie unter [schmidtpaul.github.io/vortrag_wdh](https://schmidtpaul.github.io/vortrag_wdh/)
+:::
 
 ## Agenda {.smaller}
 
@@ -569,7 +576,7 @@ Dr. Paul Schmidt
 Biostatistiker
 
 Workshop On-Farm-Experimente
-28. November 2024
+28. November 2025
 :::
 
 <br>

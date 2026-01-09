@@ -7,7 +7,7 @@
 ## Projekt-Übersicht
 
 **Repository:** `SchmidtPaul/vortrag_wdh`
-**Zweck:** Entwicklung einer Quarto-Präsentation für einen Workshop am 28. November 2024
+**Zweck:** Entwicklung einer Quarto-Präsentation für einen Workshop am 28. November 2025
 **Thema:** Wiederholungen in landwirtschaftlichen Feldversuchen
 **Erstellt mit:** Claude Code (vollständig)
 
@@ -171,7 +171,7 @@ git push -u origin claude/create-qmd-presentation-011CUrb2F1VWbXo9FpKGNPvT
 **Kommunikation:** Deutsch, duzen
 
 **Workshop-Details:**
-- Datum: 28. November 2024
+- Datum: 28. November 2025
 - Thema: On-Farm-Experimente
 - Zielgruppe: Teilnehmer mit Grundkenntnissen zu Wiederholungen
 - Fokus: Nuancen und typische Probleme

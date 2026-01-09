@@ -2,7 +2,7 @@
 
 ## Über dieses Repository
 
-Dieses Repository enthält den Vortrag **"Wiederholungen in landwirtschaftlichen Feldversuchen"**, der am **28. November 2024** auf einem Workshop zu On-Farm-Experimenten gehalten wird.
+Dieses Repository enthält den Vortrag **"Wiederholungen in landwirtschaftlichen Feldversuchen"**, der am **28. November 2025** auf einem Workshop zu On-Farm-Experimenten gehalten wird.
 
 ## Kontext
 
