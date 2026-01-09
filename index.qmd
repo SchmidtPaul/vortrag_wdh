@@ -15,6 +15,13 @@ format:
     background-transition: fade
 ---
 
+::: {.callout-tip icon=false}
+## Navigation
+Nutzen Sie die **Pfeiltasten** oder klicken Sie auf die **drei Balken** (☰) unten links, um durch die Folien zu navigieren.
+
+Falls Sie die PDF-Version lesen: Die interaktive Online-Version finden Sie unter [schmidtpaul.github.io/vortrag_wdh](https://schmidtpaul.github.io/vortrag_wdh/)
+:::
+
 ## Agenda {.smaller}
 
 ::: {.incremental}
